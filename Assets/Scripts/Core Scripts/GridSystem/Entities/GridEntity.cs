@@ -38,12 +38,13 @@ namespace Core_Scripts.GridSystem {
             for (int y = 0; y < RowsAmount; y++) {
                 for (int x = 0; x < ColumnsAmount; x++) {
                     var xWorldPos = GridEntityWorldPos.x + x;
-                    var yWorldPos = GridEntityWorldPos.y + y;
+                    var yWorldPos = GridEntityWorldPos.y - y;
 
                     _grid[y,x] = (new Vector2(xWorldPos, yWorldPos), true);
                 }
             }
         }
-        
+
+        public (Vector2 cellWorldPos, bool walkable)[,] Grid => _grid;
     }
 }

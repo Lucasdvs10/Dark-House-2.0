@@ -21,10 +21,10 @@ namespace Unit_Tests {
         }
 
         [Test]
-        public void Return_World_Pos_As_7x_7y() {
+        public void Return_World_Pos_As_7x_3y() {
             var agentWorldPos = _gridAgent.WorldPosition;
             
-            Assert.AreEqual(new Vector2(7,7), agentWorldPos);
+            Assert.AreEqual(new Vector2(7,3), agentWorldPos);
         }
 
         [Test]
