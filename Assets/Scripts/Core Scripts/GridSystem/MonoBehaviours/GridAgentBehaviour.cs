@@ -9,6 +9,8 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public GridEntity GridEntity;
         public GridBehaviour GridBehaviour;
         private Vector2Int _gridDirection;
+        
+        [SerializeField] private float _speedCellsPerSecond;
 
         private void Start() {
             var thisPostion = transform.position;
@@ -23,7 +25,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         private IEnumerator MoveCoroutine() {
             while (true) {
                 MoveAgentToDirection(_gridDirection);
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1/_speedCellsPerSecond);
             }
         }
         

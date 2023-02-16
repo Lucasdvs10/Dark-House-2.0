@@ -1336,6 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridBehaviour: {fileID: 192012269}
+  _speedCellsPerSecond: 10
 --- !u!114 &1139189030
 MonoBehaviour:
   m_ObjectHideFlags: 0
