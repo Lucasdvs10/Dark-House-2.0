@@ -1,0 +1,35 @@
+﻿using UnityEngine;
+
+namespace Core_Scripts.GridSystem {
+    public class GridEntity {
+        private Vector2[,] _grid;
+        public readonly int RowsAmount;
+        public readonly int ColumnsAmount;
+        public readonly Vector2 GridEntityWorldPos;
+
+        public Vector2 GetCellWorldPos(int row, int col) {
+            int rowClamped = Mathf.Clamp(row, 0, RowsAmount - 1);
+            int colClamped = Mathf.Clamp(col, 0, ColumnsAmount - 1);
+            
+            return _grid[rowClamped, colClamped];
+        }
+        
+        public GridEntity(int rows, int col, Vector2 worldPos) {
+            _grid = new Vector2[rows, col];
+            RowsAmount = rows;
+            ColumnsAmount = col;
+            GridEntityWorldPos = worldPos;
+
+            for (int y = 0; y < RowsAmount; y++) {
+                for (int x = 0; x < ColumnsAmount; x++) {
+                    var xWorldPos = GridEntityWorldPos.x + x;
+                    var yWorldPos = GridEntityWorldPos.y + y;
+
+                    _grid[y,x] = new Vector2(xWorldPos, yWorldPos);
+                }
+            }
+        }
+
+        public Vector2[,] Grid => _grid;
+    }
+}
