@@ -7,14 +7,18 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public GridBehaviour GridBehaviour;
 
         private void Start() {
+            var thisPostion = transform.position;
             GridEntity = GridBehaviour.GridEntity;
 
-            var gridPos = new Vector2Int(GridEntity.GetCellFromWorldPos(transform.position).row,
-                GridEntity.GetCellFromWorldPos(transform.position).col);
-            
+            var gridPos = new Vector2Int(GridEntity.GetCellFromWorldPos(thisPostion).row,
+                GridEntity.GetCellFromWorldPos(thisPostion).col);
             GridAgent = new GridAgent(GridEntity, gridPos);
-            
-            print(GridAgent.CurrentGridPosition);
+            transform.position = GridAgent.WorldPosition;
+        }
+        
+        public void MoveAgentToDirection(Vector2Int direction) {
+            GridAgent.MoveAgentToDirection(direction);
+            transform.position = GridAgent.WorldPosition;
         }
     }
 }
