@@ -29,6 +29,18 @@ namespace Core_Scripts.GridSystem {
             _grid[row, col].walkable = newFlagValue;
         }
         
+        public void SetCellWalkableFlag(Vector2 cellWorldPos, bool newFlagValue) {
+            (int row, int col, bool flag) = GetCellFromWorldPos(cellWorldPos);
+            
+            _grid[row, col].walkable = newFlagValue;
+        }
+
+        public (int row, int col, bool walkable) GetCellFromWorldPos(Vector2 worldPos) {
+            var rowPos = Mathf.RoundToInt(GridEntityWorldPos.y - worldPos.y); //Nas linhas é ao contrário pq na grid, o y é crescente de cima pra baixo e no mundo é de baixo pra cima
+            var colPos = Mathf.RoundToInt(worldPos.x - GridEntityWorldPos.x);
+
+            return (rowPos, colPos, _grid[rowPos, colPos].walkable);
+        }
         public GridEntity(int rows, int col, Vector2 worldPos) {
             _grid = new (Vector2 cellWorldPos, bool walkable)[rows,col];
             RowsAmount = rows;
