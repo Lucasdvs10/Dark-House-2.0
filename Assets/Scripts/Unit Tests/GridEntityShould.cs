@@ -45,5 +45,12 @@ namespace Unit_Tests {
             
             Assert.AreEqual(_gridEntity.GetCellWorldPos(0,0), cellWorldPos);
         }
+
+        [Test]
+        public void Set_Cell_1_1_To_Unwalkable() {
+            _gridEntity.SetCellWalkableFlag(1,1,false);
+            
+            Assert.IsFalse(_gridEntity.GetCell(1,1).walkable);
+        }
     }
 }

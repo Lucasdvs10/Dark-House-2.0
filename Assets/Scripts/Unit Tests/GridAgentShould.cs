@@ -42,32 +42,22 @@ namespace Unit_Tests {
             Assert.AreEqual(_grid.GetCellWorldPos(1,2), _gridAgent.WorldPosition);
             Assert.AreEqual(new Vector2Int(1,2), _gridAgent.CurrentGridPosition);
         }
+
+        [Test]
+        public void Not_Teleport_To_Unwalkable_Cell() {
+            _grid.SetCellWalkableFlag(0,0,false);
+            _gridAgent.SetGridPos(0,0);
+            
+            Assert.AreEqual(_grid.GetCellWorldPos(2,2), _gridAgent.WorldPosition);
+            Assert.AreEqual(new Vector2Int(2,2), _gridAgent.CurrentGridPosition);
+        }
+
+        [Test]
+        public void Move_Agent_To_Cell_1_1() {
+            _gridAgent.MoveAgentToDirection(-Vector2Int.one);
+            
+            Assert.AreEqual(_grid.GetCellWorldPos(1,1), _gridAgent.WorldPosition);
+            Assert.AreEqual(new Vector2Int(1, 1), _gridAgent.CurrentGridPosition);
+        }
     }
-}
-
-public class GridAgent {
-    private Vector2Int _currentGridPosition;
-    private GridEntity _gridEntity;
-    private Vector2 _worldPosition;
-
-    public void SetGridPos(int newRowPos, int newColPos) {
-        _worldPosition = _gridEntity.GetCellWorldPos(newRowPos, newColPos);
-
-        var newRowPosClamped = Mathf.Clamp(newRowPos, 0, _gridEntity.RowsAmount - 1);
-        var newColPosClamped = Mathf.Clamp(newColPos, 0, _gridEntity.ColumnsAmount - 1);
-        _currentGridPosition = new Vector2Int(newRowPosClamped, newColPosClamped);
-    }
-    
-    public GridAgent(GridEntity gridEntity, Vector2Int initialGridPosition) {
-        _currentGridPosition = initialGridPosition;
-        _gridEntity = gridEntity;
-
-        _worldPosition = _gridEntity.GetCellWorldPos(initialGridPosition.x, initialGridPosition.y);
-    }
-
-    public Vector2Int CurrentGridPosition => _currentGridPosition;
-
-    public Vector2 WorldPosition => _worldPosition;
-
-    public GridEntity GridEntity => _gridEntity;
 }
