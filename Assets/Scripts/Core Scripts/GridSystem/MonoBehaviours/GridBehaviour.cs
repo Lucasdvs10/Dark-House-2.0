@@ -17,7 +17,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 if (UnwalkableLayer.GetTile(tilePos)) {
                     var cellAtGridPos = GridEntity.GetCellFromWorldPos(cellTuple.cellWorldPos);
                     
-                    print(cellAtGridPos);
                     GridEntity.SetCellWalkableFlag(cellAtGridPos.row, cellAtGridPos.col, false);
                 }
             }
