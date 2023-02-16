@@ -26,6 +26,22 @@ namespace Unit_Tests {
             
             Assert.AreEqual(new Vector2(7,7), agentWorldPos);
         }
+
+        [Test]
+        public void Teleport_Agent_To_0_0() {
+            _gridAgent.SetGridPos(0, 0);
+            
+            Assert.AreEqual(_grid.GetCellWorldPos(0,0), _gridAgent.WorldPosition);
+            Assert.AreEqual(new Vector2Int(0,0), _gridAgent.CurrentGridPosition);
+        }
+
+        [Test]
+        public void Teleport_Agent_To_1_2() {
+            _gridAgent.SetGridPos(1, 6);
+            
+            Assert.AreEqual(_grid.GetCellWorldPos(1,2), _gridAgent.WorldPosition);
+            Assert.AreEqual(new Vector2Int(1,2), _gridAgent.CurrentGridPosition);
+        }
     }
 }
 
@@ -34,6 +50,14 @@ public class GridAgent {
     private GridEntity _gridEntity;
     private Vector2 _worldPosition;
 
+    public void SetGridPos(int newRowPos, int newColPos) {
+        _worldPosition = _gridEntity.GetCellWorldPos(newRowPos, newColPos);
+
+        var newRowPosClamped = Mathf.Clamp(newRowPos, 0, _gridEntity.RowsAmount - 1);
+        var newColPosClamped = Mathf.Clamp(newColPos, 0, _gridEntity.ColumnsAmount - 1);
+        _currentGridPosition = new Vector2Int(newRowPosClamped, newColPosClamped);
+    }
+    
     public GridAgent(GridEntity gridEntity, Vector2Int initialGridPosition) {
         _currentGridPosition = initialGridPosition;
         _gridEntity = gridEntity;
