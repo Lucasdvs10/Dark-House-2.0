@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Core_Scripts.GridSystem.MonoBehaviours {
-    public class GridAgentBehaviour : MonoBehaviour {
+    public class PlayerGridAgentBehaviour : MonoBehaviour {
         public GridAgent GridAgent;
         public GridEntity GridEntity;
         public GridBehaviour GridBehaviour;
