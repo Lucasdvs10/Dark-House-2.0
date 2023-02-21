@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         private Vector2Int _gridDirection;
         
         [SerializeField] private float _speedCellsPerSecond;
+        [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
 
         private void Start() {
             var thisPostion = transform.position;
@@ -31,8 +33,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public void ReadInputAndMove(InputAction.CallbackContext ctx) {
             if(ctx.performed) {
                 var directionRed = ctx.ReadValue<Vector2>();
-                 _gridDirection = new Vector2Int((int) -directionRed.y, (int)directionRed.x);
-                 StartCoroutine(MoveCoroutine());
+                _gridDirection = new Vector2Int((int) -directionRed.y, (int)directionRed.x);
+                
+                if(_gridDirection != Vector2Int.zero) 
+                    StartCoroutine(MoveCoroutine());
             }
 
             if (_gridDirection == Vector2Int.zero) {
@@ -43,6 +47,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public void MoveAgentToDirection(Vector2Int direction) {
             GridAgent.MoveAgentToDirection(direction);
             transform.position = GridAgent.WorldPosition;
+            playerMoveCommandInvoked.InvokeEvent();
         }
     }
 }
