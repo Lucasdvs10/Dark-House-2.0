@@ -1465,7 +1465,7 @@ MonoBehaviour:
   - {fileID: 1609962598}
   - {fileID: 1505017637}
   - {fileID: 1195253558}
-  _radiousToDefineArrival: 0
+  _radiousToDefineArrival: 2
   transformToMove: {fileID: 1372802803}
   movementSpeed: 10
 --- !u!114 &1149679867
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c412c8561c4fbc9b70b45797d97c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerDetectedEventToEmmit:
+  TriggerEventToEmmit:
     m_PersistentCalls:
       m_Calls: []
   NextState: {fileID: 1868234582}
