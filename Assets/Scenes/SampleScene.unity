@@ -1802,6 +1802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868234582}
   - component: {fileID: 1868234584}
+  - component: {fileID: 1868234585}
   m_Layer: 0
   m_Name: ChasingState
   m_TagString: Untagged
@@ -1841,6 +1842,23 @@ MonoBehaviour:
   _radiousToDefineArrival: 2
   transformToMove: {fileID: 1372802803}
   movementSpeed: 5
+--- !u!114 &1868234585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868234581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48029ae42a3845d18d5e7478cf1628e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerEventToEmmit:
+    m_PersistentCalls:
+      m_Calls: []
+  NextState: {fileID: 511083854}
+  distanceToPerceivePlayer: 1
 --- !u!1 &1881746337
 GameObject:
   m_ObjectHideFlags: 0
