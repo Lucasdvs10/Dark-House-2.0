@@ -1,5 +1,4 @@
-﻿using GameScripts.GameEvent;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace Core_Scripts.GridSystem.MonoBehaviours {
@@ -23,9 +22,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             }
         }
 
-        public void EuTeAmoLaura() {
-            print("Eu te amo, laura");
-        }
         private void OnDrawGizmos() {
             if (Application.isPlaying) {
                 foreach (var cellTuple in GridEntity.Grid) {

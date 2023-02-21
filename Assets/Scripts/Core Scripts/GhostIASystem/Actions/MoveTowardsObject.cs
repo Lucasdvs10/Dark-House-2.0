@@ -3,7 +3,7 @@
 namespace Core_Scripts.GhostIASystem {
     public class MoveTowardsObject : MonoBehaviour {
         [SerializeField] private Transform[] _targetTransformsArray;
-        [SerializeField] private float _perceiveTargetRadious;
+        [SerializeField] private float _radiousToDefineArrival;
         [SerializeField] private Transform transformToMove;
         [SerializeField] private float movementSpeed;
         private int _currentTargetIndex = 0;
@@ -13,7 +13,7 @@ namespace Core_Scripts.GhostIASystem {
             .position, Time.deltaTime * movementSpeed);
             var targetIsWithinRange =
                 Vector2.Distance(transformToMove.position, _targetTransformsArray[_currentTargetIndex].position) <=
-                _perceiveTargetRadious;
+                _radiousToDefineArrival;
             
             if (targetIsWithinRange) {
                 GetNextIndex();
