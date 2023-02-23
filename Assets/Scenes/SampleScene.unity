@@ -1369,6 +1369,7 @@ MonoBehaviour:
   GridBehaviour: {fileID: 192012269}
   _speedCellsPerSecond: 10
   playerMoveCommandInvoked: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
+  _vec2IntSingleton: {fileID: 11400000, guid: 7812a3568ab47ef4d930e039c858cbba, type: 2}
 --- !u!114 &1139189030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,7 +1534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1372802802
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,10 +9,12 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public GridAgent GridAgent;
         public GridEntity GridEntity;
         public GridBehaviour GridBehaviour;
-        private Vector2Int _gridDirection;
-        
         [SerializeField] private float _speedCellsPerSecond;
         [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
+        [SerializeField] private SOVec2IntSingleton _vec2IntSingleton;
+        
+        private Vector2Int _gridDirection;
+        
 
         private void Start() {
             var thisPostion = transform.position;
@@ -47,6 +50,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public void MoveAgentToDirection(Vector2Int direction) {
             GridAgent.MoveAgentToDirection(direction);
             transform.position = GridAgent.WorldPosition;
+            _vec2IntSingleton.Value = direction;
             playerMoveCommandInvoked.InvokeEvent();
         }
     }
