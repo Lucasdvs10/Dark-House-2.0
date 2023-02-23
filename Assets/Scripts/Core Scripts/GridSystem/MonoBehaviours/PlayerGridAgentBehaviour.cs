@@ -49,10 +49,17 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
         }
         public void MoveAgentToDirection(Vector2Int direction) {
+            GetPlayerDesiredPos(direction);
+
             GridAgent.MoveAgentToDirection(direction);
             transform.position = GridAgent.WorldPosition;
-            _vec2Singleton.Value = GridAgent.WorldPosition;
+            
             playerMoveCommandInvoked.InvokeEvent();
+        }
+
+        private void GetPlayerDesiredPos(Vector2Int direction) {
+            var desiredCell = GridAgent.CurrentGridPosition + direction;
+            _vec2Singleton.Value = GridEntity.GetCell(desiredCell.x, desiredCell.y).cellWorldPos;
         }
     }
 }
