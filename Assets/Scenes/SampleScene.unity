@@ -1350,7 +1350,8 @@ Transform:
   m_LocalPosition: {x: -5.38, y: 3.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1655720983}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1369,7 +1370,7 @@ MonoBehaviour:
   GridBehaviour: {fileID: 192012269}
   _speedCellsPerSecond: 10
   playerMoveCommandInvoked: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
-  _vec2IntSingleton: {fileID: 11400000, guid: 7812a3568ab47ef4d930e039c858cbba, type: 2}
+  _vec2Singleton: {fileID: 11400000, guid: 459859a36814b7b47b02d1b43dddd5d8, type: 2}
 --- !u!114 &1139189030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,6 +1714,53 @@ Transform:
   m_Father: {fileID: 1863289778}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1655720982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655720983}
+  - component: {fileID: 1655720984}
+  m_Layer: 0
+  m_Name: SoundSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1655720983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655720982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1139189028}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655720984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655720982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be06dc32aac47d7ab76f7371d85ebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileMapsGrid: {fileID: 1735083482}
+  _directionToLook: {fileID: 0}
+  _eventWhenToLook: {fileID: 0}
 --- !u!1 &1735083481
 GameObject:
   m_ObjectHideFlags: 0

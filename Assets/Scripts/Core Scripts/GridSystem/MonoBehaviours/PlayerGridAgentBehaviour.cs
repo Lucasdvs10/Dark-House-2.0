@@ -3,6 +3,7 @@ using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Core_Scripts.GridSystem.MonoBehaviours {
     public class PlayerGridAgentBehaviour : MonoBehaviour {
@@ -11,7 +12,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public GridBehaviour GridBehaviour;
         [SerializeField] private float _speedCellsPerSecond;
         [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
-        [SerializeField] private SOVec2IntSingleton _vec2IntSingleton;
+        [SerializeField] private SOVec2Singleton _vec2Singleton;
         
         private Vector2Int _gridDirection;
         
@@ -50,7 +51,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public void MoveAgentToDirection(Vector2Int direction) {
             GridAgent.MoveAgentToDirection(direction);
             transform.position = GridAgent.WorldPosition;
-            _vec2IntSingleton.Value = direction;
+            _vec2Singleton.Value = GridAgent.WorldPosition;
             playerMoveCommandInvoked.InvokeEvent();
         }
     }
