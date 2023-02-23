@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 namespace Core_Scripts.PlayerSoundSystem {
     public class TileReader : MonoBehaviour {
         [SerializeField] private Grid _tileMapsGrid;
-        [SerializeField] private SOVec2Singleton _directionToLook;
+        [SerializeField] private SOVec3Singleton _directionToLook;
         [SerializeField] private SOBaseGameEvent _eventWhenToLook;
         public UnityEvent<string> TileRedEvent;
         private Tilemap[] _tilemapsArray;
@@ -23,7 +23,6 @@ namespace Core_Scripts.PlayerSoundSystem {
                 var tile = tilemap.GetTile(gridPos);
 
                 if (tile != null) {
-                    print(tile.name);
                     TileRedEvent.Invoke(tile.name);
                     return;
                 }

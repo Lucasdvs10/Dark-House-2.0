@@ -12,7 +12,8 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public GridBehaviour GridBehaviour;
         [SerializeField] private float _speedCellsPerSecond;
         [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
-        [SerializeField] private SOVec2Singleton _vec2Singleton;
+        [FormerlySerializedAs("_vec2Singleton")] [SerializeField] private SOVec3Singleton vec3Singleton;
+        [FormerlySerializedAs("_playerDirection")] [SerializeField] private SOVec2IntSingleton _playerDirectionSingleton;
         
         private Vector2Int _gridDirection;
         
@@ -53,13 +54,14 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
             GridAgent.MoveAgentToDirection(direction);
             transform.position = GridAgent.WorldPosition;
-            
+            _playerDirectionSingleton.Value = direction;
+
             playerMoveCommandInvoked.InvokeEvent();
         }
 
         private void GetPlayerDesiredPos(Vector2Int direction) {
             var desiredCell = GridAgent.CurrentGridPosition + direction;
-            _vec2Singleton.Value = GridEntity.GetCell(desiredCell.x, desiredCell.y).cellWorldPos;
+            vec3Singleton.Value = GridEntity.GetCell(desiredCell.x, desiredCell.y).cellWorldPos;
         }
     }
 }
