@@ -1301,11 +1301,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 67ce81942fc58904daedd8f82cfa6547, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1894,7 +1894,19 @@ MonoBehaviour:
   _eventWhenToLook: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
   TileRedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655720985}
+        m_TargetAssemblyTypeName: Core_Scripts.PlayerSoundSystem.AudioManager, Core
+        m_MethodName: PlaySoundEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1655720985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,6 +1922,12 @@ MonoBehaviour:
   _whenToEmitSoundEvent: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
   _playerDesiredPos: {fileID: 11400000, guid: 459859a36814b7b47b02d1b43dddd5d8, type: 2}
   _audioEmmiter: {fileID: 831706724}
+  _audiosArray:
+  - {fileID: 8300000, guid: 67ce81942fc58904daedd8f82cfa6547, type: 3}
+  - {fileID: 8300000, guid: efe63ca9e387a504b86560f24519a278, type: 3}
+  _tileNamesArray:
+  - Parede_Padrao
+  - Chao_Madeira
 --- !u!1 &1735083481
 GameObject:
   m_ObjectHideFlags: 0
