@@ -12,8 +12,8 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public GridBehaviour GridBehaviour;
         [SerializeField] private float _speedCellsPerSecond;
         [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
-        [FormerlySerializedAs("_vec2Singleton")] [SerializeField] private SOVec3Singleton vec3Singleton;
-        [FormerlySerializedAs("_playerDirection")] [SerializeField] private SOVec2IntSingleton _playerDirectionSingleton;
+        [SerializeField] private SOVec3Singleton vec3Singleton;
+        [SerializeField] private SOVec2IntSingleton _playerDirectionSingleton;
         
         private Vector2Int _gridDirection;
         
