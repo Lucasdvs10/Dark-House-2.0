@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core_Scripts.ExtentionMethods;
 using UnityEngine;
 
 namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
@@ -8,20 +9,25 @@ namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
 
         [Header("Dicionario de sons")] 
         [SerializeField] private Vector2Int[] _commandKeysArray;
-        [SerializeField] private string[] _soundNamesValues;
+        [SerializeField] private AudioClip[] _audioClipsArray;
 
         private void Awake() {
             _commandSoundMap = new Dictionary<Vector2Int, string>();
+            var soundNamesValues = _audioClipsArray.GetAllClipsNamesArray();
 
             for (int i = 0; i < _commandKeysArray.Length; i++) {
-                _commandSoundMap.Add(_commandKeysArray[i], _soundNamesValues[i]);
+                _commandSoundMap.Add(_commandKeysArray[i], soundNamesValues[i]);
             }
 
             _playerValidadorCommand = new PlayerValidadorCommand(_commandSoundMap);
         }
 
-        public bool ValidateCommand(Vector2Int command, Queue<string> commandsToDefeat) {
-            return _playerValidadorCommand.Validate(command, commandsToDefeat);
+        public bool ValidateCommand(Vector2Int command, ref Queue<string> commandsToDefeat) {
+            if (_commandSoundMap.ContainsKey(command)) {
+                return _playerValidadorCommand.Validate(command, ref commandsToDefeat);
+            }
+            
+            return false;
         }
     }
 }

@@ -1162,6 +1162,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 511083854}
+  - component: {fileID: 511083857}
+  - component: {fileID: 511083856}
+  - component: {fileID: 511083855}
   m_Layer: 0
   m_Name: DuelState
   m_TagString: Untagged
@@ -1184,6 +1187,51 @@ Transform:
   m_Father: {fileID: 1461947133}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511083855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511083853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fafe948d6e947dca5c727b91424c7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _commandKeysArray:
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
+  _audioClipsArray:
+  - {fileID: 8300000, guid: 67ce81942fc58904daedd8f82cfa6547, type: 3}
+  - {fileID: 8300000, guid: efe63ca9e387a504b86560f24519a278, type: 3}
+--- !u!114 &511083856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511083853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5021b4332c744a359a1b68e3c0eb0645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &511083857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511083853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8deb3bfb2ee4be6aa5e3741268bcec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _queueBattleLenght: 4
+  _playerInputSingleton: {fileID: 11400000, guid: 7812a3568ab47ef4d930e039c858cbba, type: 2}
+  _playerInputEvent: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,7 +1713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1372802802
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1781,7 +1829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e7a960e30a41c6bf04f48a8ce720dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialState: {fileID: 1149679865}
+  InitialState: {fileID: 511083854}
 --- !u!1 &1505017636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1976,7 @@ MonoBehaviour:
   _audiosArray:
   - {fileID: 8300000, guid: 67ce81942fc58904daedd8f82cfa6547, type: 3}
   - {fileID: 8300000, guid: efe63ca9e387a504b86560f24519a278, type: 3}
+  _defaultAudioClip: {fileID: 0}
 --- !u!1 &1735083481
 GameObject:
   m_ObjectHideFlags: 0

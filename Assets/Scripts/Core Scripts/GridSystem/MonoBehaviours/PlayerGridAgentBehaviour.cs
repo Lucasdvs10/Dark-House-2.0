@@ -3,7 +3,6 @@ using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Core_Scripts.GridSystem.MonoBehaviours {
     public class PlayerGridAgentBehaviour : MonoBehaviour {
@@ -16,7 +15,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOVec2IntSingleton _playerDirectionSingleton;
         
         private Vector2Int _gridDirection;
-        
+
+        private void OnEnable() {
+            _playerDirectionSingleton.Value = Vector2Int.zero;
+        }
 
         private void Start() {
             var thisPostion = transform.position;

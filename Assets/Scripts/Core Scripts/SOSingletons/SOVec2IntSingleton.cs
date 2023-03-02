@@ -5,8 +5,5 @@ namespace Core_Scripts.SOSingletons {
     public class SOVec2IntSingleton : ScriptableObject {
         public Vector2Int Value;
 
-        private void OnDisable() {
-            Value = Vector2Int.zero;
-        }
     }
 }

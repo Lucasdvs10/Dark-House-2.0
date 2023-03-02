@@ -26,10 +26,17 @@ namespace Core_Scripts.PlayerSoundSystem {
         private Dictionary<string, AudioClip> _audioMap = new Dictionary<string, AudioClip>();
 
         private void Awake() {
-            _whenToEmitSoundEvent.Subscribe(TeleportSoundEmmiterToDesiredPos);
             for (int i = 0; i < _audiosArray.Length; i++) {
                 _audioMap.Add(_tileNamesArray[i], _audiosArray[i]);
             }
+        }
+
+        private void OnEnable() {
+            _whenToEmitSoundEvent.Subscribe(TeleportSoundEmmiterToDesiredPos);
+        }
+
+        private void OnDisable() {
+            _whenToEmitSoundEvent.Unsubscribe(TeleportSoundEmmiterToDesiredPos);
         }
 
         private void Update() {

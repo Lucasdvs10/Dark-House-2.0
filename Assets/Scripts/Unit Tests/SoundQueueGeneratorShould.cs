@@ -24,7 +24,5 @@ namespace Unit_Tests {
             queueGenerated = _queueGenerator.GenerateSoundQueueToDefeat(7);
             Assert.AreEqual(7, queueGenerated.Count);
         }
-
-
     }
 }

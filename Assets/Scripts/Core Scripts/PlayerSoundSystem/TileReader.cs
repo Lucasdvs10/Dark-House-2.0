@@ -1,4 +1,5 @@
-﻿using Core_Scripts.SOSingletons;
+﻿using System;
+using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +15,14 @@ namespace Core_Scripts.PlayerSoundSystem {
 
         private void Awake() {
             _tilemapsArray = _tileMapsGrid.GetComponentsInChildren<Tilemap>();
+        }
+
+        private void OnEnable() {
             _eventWhenToLook.Subscribe(GetTileAtSingletonPosition);
+        }
+
+        private void OnDisable() {
+            _eventWhenToLook.Unsubscribe(GetTileAtSingletonPosition);
         }
 
         public void GetTileAtSingletonPosition() {

@@ -28,7 +28,7 @@ namespace Unit_Tests {
             var list = new List<string> { "Som1" };
 
             _queueToDefeatMock = new Queue<string>(list);
-            var response = _playerValidadorCommand.Validate(Vector2Int.left, _queueToDefeatMock);
+            var response = _playerValidadorCommand.Validate(Vector2Int.left, ref _queueToDefeatMock);
             
             Assert.IsTrue(response);
         }
@@ -38,9 +38,9 @@ namespace Unit_Tests {
             var list = new List<string> { "Som1" , "Som2", "Som4"};
             _queueToDefeatMock = new Queue<string>(list);
             
-            var response = _playerValidadorCommand.Validate(Vector2Int.left, _queueToDefeatMock);
-            response = _playerValidadorCommand.Validate(Vector2Int.down, _queueToDefeatMock);
-            response = _playerValidadorCommand.Validate(Vector2Int.right, _queueToDefeatMock);
+            var response = _playerValidadorCommand.Validate(Vector2Int.left, ref _queueToDefeatMock);
+            response = _playerValidadorCommand.Validate(Vector2Int.down, ref _queueToDefeatMock);
+            response = _playerValidadorCommand.Validate(Vector2Int.right, ref _queueToDefeatMock);
             
             Assert.IsTrue(response);
             Assert.IsEmpty(_queueToDefeatMock);
@@ -51,7 +51,7 @@ namespace Unit_Tests {
             var list = new List<string> { "Som1" , "Som2", "Som4"};
             _queueToDefeatMock = new Queue<string>(list);
 
-            var response = _playerValidadorCommand.Validate(Vector2Int.right, _queueToDefeatMock);
+            var response = _playerValidadorCommand.Validate(Vector2Int.right, ref _queueToDefeatMock);
             
             Assert.IsFalse(response);
             Assert.AreEqual(3, _queueToDefeatMock.Count);
