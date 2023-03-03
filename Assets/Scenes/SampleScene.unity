@@ -1165,6 +1165,7 @@ GameObject:
   - component: {fileID: 511083857}
   - component: {fileID: 511083856}
   - component: {fileID: 511083855}
+  - component: {fileID: 511083858}
   m_Layer: 0
   m_Name: DuelState
   m_TagString: Untagged
@@ -1232,6 +1233,23 @@ MonoBehaviour:
   _queueBattleLenght: 4
   _playerInputSingleton: {fileID: 11400000, guid: 7812a3568ab47ef4d930e039c858cbba, type: 2}
   _playerInputEvent: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
+  _missedAttackEventToEmit: {fileID: 11400000, guid: 17a0d77a055f58f49b907da48c0cec8b, type: 2}
+  _correctAttackEventToEmit: {fileID: 11400000, guid: 2a816f3d1619d464a905a98aea3c7b38, type: 2}
+  _endBattleEventToEmit: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
+  _startBattleEventToEmit: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
+--- !u!114 &511083858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511083853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb4434bbb0d48d6a764260356b8f162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

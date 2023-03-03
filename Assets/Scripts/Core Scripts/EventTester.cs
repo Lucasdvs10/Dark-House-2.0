@@ -1,5 +1,4 @@
-﻿using System;
-using GameScripts.GameEvent;
+﻿using GameScripts.GameEvent;
 using UnityEngine;
 
 namespace Core_Scripts {
