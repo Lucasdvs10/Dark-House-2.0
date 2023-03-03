@@ -1495,6 +1495,8 @@ GameObject:
   - component: {fileID: 1139189029}
   - component: {fileID: 1139189030}
   - component: {fileID: 1139189031}
+  - component: {fileID: 1139189033}
+  - component: {fileID: 1139189032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1643,6 +1645,64 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139189026}
   m_Enabled: 1
+--- !u!114 &1139189032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139189026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1139189029}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerGridAgentBehaviour,
+          Core
+        m_MethodName: SetCanWalkFlag
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1139189033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139189026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1139189029}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerGridAgentBehaviour,
+          Core
+        m_MethodName: SetCanWalkFlag
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1149679864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e7a960e30a41c6bf04f48a8ce720dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialState: {fileID: 511083854}
+  InitialState: {fileID: 1149679865}
 --- !u!1 &1505017636
 GameObject:
   m_ObjectHideFlags: 0

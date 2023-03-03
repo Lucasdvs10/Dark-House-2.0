@@ -38,6 +38,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         }
         
         public void ReadInputAndMove(InputAction.CallbackContext ctx) {
+            
             if(ctx.performed) {
                 var directionRed = ctx.ReadValue<Vector2>();
                 _gridDirection = new Vector2Int((int) -directionRed.y, (int)directionRed.x);
@@ -49,7 +50,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             if (_gridDirection == Vector2Int.zero) {
                 StopAllCoroutines();
             }
-
         }
         public void MoveAgentToDirection(Vector2Int direction) {
             GetPlayerDesiredPos(direction);
@@ -60,6 +60,8 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
             playerMoveCommandInvoked.InvokeEvent();
         }
+
+        public void SetCanWalkFlag(bool newFlagValue) => GridAgent.CanWalk = newFlagValue;
 
         private void GetPlayerDesiredPos(Vector2Int direction) {
             var desiredCell = GridAgent.CurrentGridPosition + direction;

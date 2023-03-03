@@ -5,8 +5,12 @@ namespace Core_Scripts.GridSystem {
         private Vector2Int _currentGridPosition;
         private GridEntity _gridEntity;
         private Vector2 _worldPosition;
+        public bool CanWalk = true;
 
         public void MoveAgentToDirection(Vector2Int direction) {
+            if(!CanWalk)
+                return;
+            
             SetGridPos(CurrentGridPosition.x + direction.x, CurrentGridPosition.y + direction.y);
         }
     

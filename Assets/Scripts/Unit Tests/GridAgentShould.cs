@@ -59,5 +59,14 @@ namespace Unit_Tests {
             Assert.AreEqual(_grid.GetCellWorldPos(1,1), _gridAgent.WorldPosition);
             Assert.AreEqual(new Vector2Int(1, 1), _gridAgent.CurrentGridPosition);
         }
+
+        [Test]
+        public void Not_Walk_When_Can_Walk_Flag_Is_False() {
+            _gridAgent.CanWalk = false;
+            
+            _gridAgent.MoveAgentToDirection(Vector2Int.down);
+            Assert.AreEqual(_grid.GetCellWorldPos(2,2), _gridAgent.WorldPosition);
+            Assert.AreEqual(new Vector2Int(2, 2), _gridAgent.CurrentGridPosition);
+        }
     }
 }
