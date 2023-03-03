@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 511083856}
   - component: {fileID: 511083855}
   - component: {fileID: 511083858}
+  - component: {fileID: 511083859}
   m_Layer: 0
   m_Name: DuelState
   m_TagString: Untagged
@@ -1250,6 +1251,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
+--- !u!114 &511083859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511083853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1461947134}
+        m_TargetAssemblyTypeName: Core_Scripts.GhostIASystem.StateManager, Core
+        m_MethodName: ChangeState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1149679865}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

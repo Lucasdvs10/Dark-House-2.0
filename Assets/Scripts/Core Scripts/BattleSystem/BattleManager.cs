@@ -26,20 +26,17 @@ namespace Core_Scripts.BattleSystem {
         }
 
         private void OnEnable() {
+            _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
+
+            foreach (var sound in _generatedBattleQueue) {
+                print(sound);
+            }
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
             _startBattleEventToEmit.InvokeEvent();
         }
 
         private void OnDisable() {
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
-        }
-
-        private void Start() {
-            _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
-
-            foreach (var sound in _generatedBattleQueue) {
-                print(sound);
-            }
         }
 
         public void VerifyPlayerAttack() {
