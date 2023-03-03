@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
@@ -13,14 +14,25 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
         [SerializeField] private SOVec3Singleton vec3Singleton;
         [SerializeField] private SOVec2IntSingleton _playerDirectionSingleton;
+        [SerializeField] private SOVec2IntSingleton _playerPressedButtonSingleton;
+        [SerializeField] private SOBaseGameEvent _pressedButtonEvent;
+        [SerializeField] private SOBaseGameEvent _releasedButtonEvent;
         
         private Vector2Int _gridDirection;
 
         private void OnEnable() {
             _playerDirectionSingleton.Value = Vector2Int.zero;
+            _pressedButtonEvent.Subscribe(ReadInputValueAndMove);
+            _releasedButtonEvent.Subscribe(StopMovingCoroutines);
         }
 
-        private void Start() {
+        private void OnDisable() {
+            _releasedButtonEvent.Unsubscribe(StopMovingCoroutines);
+            _pressedButtonEvent.Unsubscribe(ReadInputValueAndMove);
+            StopMovingCoroutines();
+        }
+
+        private void Start() { 
             var thisPostion = transform.position;
             GridEntity = GridBehaviour.GridEntity;
 
@@ -30,28 +42,21 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             transform.position = GridAgent.WorldPosition;
         }
 
-        private IEnumerator MoveCoroutine() {
+        private IEnumerator MoveCoroutine() { 
             while (true) {
                 MoveAgentToDirection(_gridDirection);
                 yield return new WaitForSeconds(1/_speedCellsPerSecond);
             }
         }
         
-        public void ReadInputAndMove(InputAction.CallbackContext ctx) {
-            
-            if(ctx.performed) {
-                var directionRed = ctx.ReadValue<Vector2>();
-                _gridDirection = new Vector2Int((int) -directionRed.y, (int)directionRed.x);
-                
-                if(_gridDirection != Vector2Int.zero) 
-                    StartCoroutine(MoveCoroutine());
-            }
-
-            if (_gridDirection == Vector2Int.zero) {
-                StopAllCoroutines();
-            }
+        public void ReadInputValueAndMove() { 
+            _gridDirection = _playerPressedButtonSingleton.Value;
+                StartCoroutine(MoveCoroutine());
         }
-        public void MoveAgentToDirection(Vector2Int direction) {
+
+        public void StopMovingCoroutines() => StopAllCoroutines();
+        
+        public void MoveAgentToDirection(Vector2Int direction) { 
             GetPlayerDesiredPos(direction);
 
             GridAgent.MoveAgentToDirection(direction);
