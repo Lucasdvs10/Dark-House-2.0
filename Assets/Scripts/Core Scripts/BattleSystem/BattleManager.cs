@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Core_Scripts.BattleSystem.PlayerValidatorCommand;
+using Core_Scripts.BattleSystem.Timer;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using Unit_Tests;
 using UnityEngine;
 
 namespace Core_Scripts.BattleSystem {
-    [RequireComponent(typeof(IPlayerValidatorCommand), typeof(ISoundQueueGenerator))]
+    [RequireComponent(typeof(IPlayerValidatorCommand), typeof(ISoundQueueGenerator), typeof(AudioTimer))]
     public class BattleManager : MonoBehaviour {
         [SerializeField] private int _queueBattleLenght;
         [SerializeField] private SOVec2IntSingleton _playerInputSingleton;
@@ -19,18 +20,18 @@ namespace Core_Scripts.BattleSystem {
         private IPlayerValidatorCommand _playerValidatorCommand;
         private ISoundQueueGenerator _soundQueueGenerator;
         private Queue<string> _generatedBattleQueue;
+        private AudioTimer _audioTimer;
 
         private void Awake() {
             _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
             _soundQueueGenerator = GetComponent<ISoundQueueGenerator>();
+            _audioTimer = GetComponent<AudioTimer>();
         }
 
         private void OnEnable() {
             _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
-
-            foreach (var sound in _generatedBattleQueue) {
-                print(sound);
-            }
+            
+            _audioTimer.StartTimer();
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
             _startBattleEventToEmit.InvokeEvent();
         }

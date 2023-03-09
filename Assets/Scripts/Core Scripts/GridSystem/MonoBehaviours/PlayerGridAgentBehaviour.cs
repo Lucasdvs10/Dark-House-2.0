@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Core_Scripts.GridSystem.MonoBehaviours {
     public class PlayerGridAgentBehaviour : MonoBehaviour {
