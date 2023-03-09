@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core_Scripts.ExtentionMethods;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
@@ -23,11 +24,16 @@ namespace Core_Scripts.PlayerSoundSystem {
         [SerializeField] private AudioClip _defaultAudioClip;
         #endregion
         
-        private Dictionary<string, AudioClip> _audioMap = new Dictionary<string, AudioClip>();
+        private Dictionary<string, List<AudioClip>> _audioMap = new Dictionary<string, List<AudioClip>>();
 
         private void Awake() {
             for (int i = 0; i < _audiosArray.Length; i++) {
-                _audioMap.Add(_tileNamesArray[i], _audiosArray[i]);
+                var currentKey = _tileNamesArray[i];
+                if (!_audioMap.ContainsKey(currentKey)) {
+                    _audioMap.Add(currentKey, new List<AudioClip>(){_audiosArray[i]});
+                    continue;
+                }
+                _audioMap[currentKey].Add(_audiosArray[i]);
             }
         }
 
@@ -64,19 +70,16 @@ namespace Core_Scripts.PlayerSoundSystem {
         }
 
         public void AddClipToQueue(string tileName) {
-            if(!_audioMap.TryGetValue(tileName, out var clip))
+            if(!_audioMap.TryGetValue(tileName, out var clipsList))
                 _audioClipsQueue.Enqueue(_defaultAudioClip);
-            _audioClipsQueue.Enqueue(clip);
+            _audioClipsQueue.Enqueue(clipsList.GetRandomClipFromList());
         }
         
-        public void StopQueueAndPlaySoundEffect(string tileName) {
-            _audioEmmiter.clip = _audioMap[tileName];
-            _audioEmmiter.Play();
-        }
+        
         public void TeleportSoundEmmiterToDesiredPos() {
             _audioEmmiter.transform.position = _playerDesiredPos.Value;
         }
 
-        public Dictionary<string, AudioClip> AudioMap => _audioMap;
+        public Dictionary<string, List<AudioClip>> AudioMap => _audioMap;
     }
 }

@@ -8,7 +8,7 @@ namespace Unit_Tests {
         private SoundQueueGenerator _soundQueueGenerator;
 
         private void Awake() {
-            var allSounds = Resources.LoadAll<AudioClip>("SoundSystem");
+            var allSounds = Resources.LoadAll<AudioClip>("SoundSystem/SoundBattles");
             var allSoundNamesArray = allSounds.GetAllClipsNamesArray();
 
             _soundQueueGenerator = new SoundQueueGenerator(allSoundNamesArray.ToList());

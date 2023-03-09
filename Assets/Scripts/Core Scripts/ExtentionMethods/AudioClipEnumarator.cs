@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Core_Scripts.ExtentionMethods {
-    public static class AudioClipArray {
+    public static class AudioClipEnumarator {
         public static string[] GetAllClipsNamesArray(this AudioClip[] audioClipsArray) {
             var arrayToReturn = new string[audioClipsArray.Length];
 
@@ -10,6 +12,12 @@ namespace Core_Scripts.ExtentionMethods {
             }
 
             return arrayToReturn;
+        }
+        public static AudioClip GetRandomClipFromList(this List<AudioClip> audioClipsList) {
+            Random rn = new Random();
+
+            var randomIndex = rn.Next(audioClipsList.Count);
+            return audioClipsList[randomIndex];
         }
     }
 }

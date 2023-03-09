@@ -30,6 +30,10 @@ namespace Core_Scripts.BattleSystem {
 
         private void OnEnable() {
             _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
+
+            foreach (var clipName in _generatedBattleQueue) {
+                print(clipName);
+            }
             
             _audioTimer.StartTimer();
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
@@ -37,6 +41,7 @@ namespace Core_Scripts.BattleSystem {
         }
 
         private void OnDisable() {
+            _endBattleEventToEmit.InvokeEvent();
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
         }
 
@@ -48,10 +53,11 @@ namespace Core_Scripts.BattleSystem {
             }
             
             var playerMovement = _playerInputSingleton.Value;
-
+            
             bool isAttackCorrect = _playerValidatorCommand.ValidateCommand(playerMovement, ref _generatedBattleQueue);
             bool isBattleOver = _generatedBattleQueue.Count <= 0;
             
+            print(isAttackCorrect);
             if(!isAttackCorrect)
                 _missedAttackEventToEmit.InvokeEvent();
             
