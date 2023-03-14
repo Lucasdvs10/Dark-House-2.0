@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Core_Scripts.ExtentionMethods;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
@@ -10,7 +8,7 @@ namespace Core_Scripts.PlayerSoundSystem {
     public class AudioManager : MonoBehaviour {
         [SerializeField] private SOBaseGameEvent _whenToEmitSoundEvent;
         [SerializeField] private SOVec3Singleton _playerDesiredPos;
-        [SerializeField] private AudioSource _audioEmmiter;
+        [SerializeField] private GameObject _audioEmitterPrefab;
         private Queue<AudioClip> _audioClipsQueue = new Queue<AudioClip>();
 
         #region Dicionário de audios
@@ -37,36 +35,8 @@ namespace Core_Scripts.PlayerSoundSystem {
             }
         }
 
-        private void OnEnable() {
-            _whenToEmitSoundEvent.Subscribe(TeleportSoundEmmiterToDesiredPos);
-        }
-
-        private void OnDisable() {
-            _whenToEmitSoundEvent.Unsubscribe(TeleportSoundEmmiterToDesiredPos);
-        }
-
-        private void Update() {
-            if (_audioClipsQueue.Count > 0 && !_audioEmmiter.isPlaying) {
-                StartPlayClipsInQueueCoroutine();
-            }
-        }
-
         public void AddToQueueAndStartPlayAllClipsCoroutine(string tileName) {
             AddClipToQueue(tileName);
-        }
-
-        [ContextMenu("Start Coroutine")]
-        public void StartPlayClipsInQueueCoroutine() {
-            StartCoroutine(PlayAllClipsInQueueCoroutine());
-        }
-        private IEnumerator PlayAllClipsInQueueCoroutine() {
-            while (_audioClipsQueue.Count > 0) {
-                var nextClip = _audioClipsQueue.Dequeue();
-                _audioEmmiter.clip = nextClip;
-                _audioEmmiter.Play();
-                yield return new WaitUntil(() => !_audioEmmiter.isPlaying);
-                _audioEmmiter.clip = null;
-            }
         }
 
         public void AddClipToQueue(string tileName) {
@@ -76,8 +46,15 @@ namespace Core_Scripts.PlayerSoundSystem {
         }
         
         
-        public void TeleportSoundEmmiterToDesiredPos() {
-            _audioEmmiter.transform.position = _playerDesiredPos.Value;
+        public void InstantiateEmitterAndPlay() {
+            var gameObject = Instantiate(_audioEmitterPrefab, _playerDesiredPos.Value, Quaternion.identity);
+            var audioSource = gameObject.GetComponent<AudioSource>();
+            var clip = _audioClipsQueue.Dequeue();
+
+            audioSource.clip = clip;
+            audioSource.Play();
+
+            Destroy(gameObject, clip.length + 0.2f);
         }
 
         public Dictionary<string, List<AudioClip>> AudioMap => _audioMap;
