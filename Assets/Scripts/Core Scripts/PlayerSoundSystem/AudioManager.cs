@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Core_Scripts.ExtentionMethods;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
@@ -36,37 +35,9 @@ namespace Core_Scripts.PlayerSoundSystem {
             }
         }
 
-        private void OnEnable() {
-            // _whenToEmitSoundEvent.Subscribe(InstantiateEmitterAndPlay);
-        }
-
-        private void OnDisable() {
-            // _whenToEmitSoundEvent.Unsubscribe(InstantiateEmitterAndPlay);
-        }
-
-        // private void Update() {
-        //     if (_audioClipsQueue.Count > 0 && !_audioEmmiter.isPlaying) {
-        //         StartPlayClipsInQueueCoroutine();
-        //     }
-        // }
-
         public void AddToQueueAndStartPlayAllClipsCoroutine(string tileName) {
             AddClipToQueue(tileName);
         }
-
-        // [ContextMenu("Start Coroutine")]
-        // public void StartPlayClipsInQueueCoroutine() {
-        //     StartCoroutine(PlayAllClipsInQueueCoroutine());
-        // }
-        // private IEnumerator PlayAllClipsInQueueCoroutine() {
-        //     while (_audioClipsQueue.Count > 0) {
-        //         var nextClip = _audioClipsQueue.Dequeue();
-        //         _audioEmmiter.clip = nextClip;
-        //         _audioEmmiter.Play();
-        //         yield return new WaitUntil(() => !_audioEmmiter.isPlaying);
-        //         _audioEmmiter.clip = null;
-        //     }
-        // }
 
         public void AddClipToQueue(string tileName) {
             if(!_audioMap.TryGetValue(tileName, out var clipsList))
