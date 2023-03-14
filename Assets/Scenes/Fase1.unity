@@ -239,6 +239,17 @@ Transform:
   m_Father: {fileID: 2042930569}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142379013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4540177002068563910, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+  m_PrefabInstance: {fileID: 674772904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072ccc2b54d143c3ac7e7f0b6ce8713c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &176559112 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7076474971892958130, guid: 88d40de247629b541b9f5c033e157db7, type: 3}
@@ -2387,6 +2398,38 @@ PrefabInstance:
       propertyPath: _tileMapsGrid
       value: 
       objectReference: {fileID: 1942551563}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 142379013}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddClipToQueue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: InstantiateEmitterAndPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Core_Scripts.PlayerSoundSystem.AudioManager, Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: TileRedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
 --- !u!1 &772507679
