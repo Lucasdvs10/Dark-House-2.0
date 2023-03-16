@@ -45,5 +45,6 @@ namespace Core_Scripts.KeySystem {
             }
         }
 
+        public int KeysColectedAmount => _keysColectedAmount;
     }
 }
