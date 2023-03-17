@@ -36,7 +36,6 @@ namespace Core_Scripts.BattleSystem {
 
             _audioTimer.StartTimer();
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
-            _startBattleEventToEmit.InvokeEvent();
             
             SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
         }
@@ -44,6 +43,10 @@ namespace Core_Scripts.BattleSystem {
         private void OnDisable() {
             _duelStateDisabled.InvokeEvent();
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
+        }
+
+        public void StartBattle() {
+            _startBattleEventToEmit.InvokeEvent();
         }
 
         public void VerifyPlayerAttack() {
