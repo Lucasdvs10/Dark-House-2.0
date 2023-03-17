@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4540177001518415605}
   - component: {fileID: 4540177001518415606}
   - component: {fileID: 1335728647}
+  - component: {fileID: 1243838282}
+  - component: {fileID: 1243838283}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -80,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 1, b: 0.13089037, a: 1}
   m_FlipX: 0
@@ -171,6 +173,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e77b97f6-619d-40f2-94f6-190fe36702d4
     m_ActionName: PlayerControls/CountKey[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4540177001518415607}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader,
+          Core
+        m_MethodName: ReadEscKeyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e7e3f611-074a-4e39-a005-41e8b99ec7da
+    m_ActionName: PlayerControls/PauseKey[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
@@ -200,6 +219,7 @@ MonoBehaviour:
   _playerReleasedButtonEventToEmit: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
   _playerKeyPressedSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _spacePressedEvent: {fileID: 11400000, guid: 189a8ce1b453c9342955a01adbf45d97, type: 2}
+  _escPressedEvent: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
 --- !u!114 &4540177001518415605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +303,48 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1243838282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540177001518415613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b11cc02d38448bb272b3add2f0f7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _monoBehavioursToPauseArray:
+  - {fileID: 4540177001518415610}
+--- !u!114 &1243838283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540177001518415613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1243838282}
+        m_TargetAssemblyTypeName: Core_Scripts.PauseObject, Core
+        m_MethodName: TogglePauseAndResume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4540177002068563913
 GameObject:

@@ -9,6 +9,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOBaseGameEvent _playerReleasedButtonEventToEmit;
         [SerializeField] private SOVec2IntSingleton _playerKeyPressedSingleton;
         [SerializeField] private SOBaseGameEvent _spacePressedEvent;
+        [SerializeField] private SOBaseGameEvent _escPressedEvent;
 
         public void ReadWASDInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
@@ -23,6 +24,12 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             }
         }
 
+        public void ReadEscKeyInput(InputAction.CallbackContext ctx) {
+            if (ctx.performed) {
+                _escPressedEvent.InvokeEvent();
+            }
+        }
+        
         public void ReadSpaceKeyInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
                 _spacePressedEvent.InvokeEvent();
