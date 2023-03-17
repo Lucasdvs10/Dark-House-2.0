@@ -8,7 +8,7 @@ namespace Core_Scripts.BattleSystem.Timer {
         private BattleTimer _battleTimer;
         private void Awake() {
             _battleTimer = GetComponent<BattleTimer>();
-            _audioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponents<AudioSource>()[0];
         }
 
         public void StartTimer() {

@@ -21,23 +21,23 @@ namespace Core_Scripts.BattleSystem {
         private ISoundQueueGenerator _soundQueueGenerator;
         private Queue<string> _generatedBattleQueue;
         private AudioTimer _audioTimer;
-
+        private AudioSource _audioSourceBattleSFX;
+        
         private void Awake() {
             _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
             _soundQueueGenerator = GetComponent<ISoundQueueGenerator>();
             _audioTimer = GetComponent<AudioTimer>();
+            _audioSourceBattleSFX = GetComponents<AudioSource>()[1];
         }
 
         private void OnEnable() {
             _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
 
-            foreach (var clipName in _generatedBattleQueue) {
-                print(clipName);
-            }
-            
             _audioTimer.StartTimer();
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
             _startBattleEventToEmit.InvokeEvent();
+            
+            SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
         }
 
         private void OnDisable() {
@@ -52,6 +52,7 @@ namespace Core_Scripts.BattleSystem {
                 return;
             }
             
+            
             var playerMovement = _playerInputSingleton.Value;
             
             bool isAttackCorrect = _playerValidatorCommand.ValidateCommand(playerMovement, ref _generatedBattleQueue);
@@ -59,14 +60,26 @@ namespace Core_Scripts.BattleSystem {
             
             if(!isAttackCorrect)
                 _missedAttackEventToEmit.InvokeEvent();
-            
-            if(isAttackCorrect)
-               _correctAttackEventToEmit.InvokeEvent();
-            
-            if(isBattleOver)
+
+            if (isBattleOver) {
                 _endBattleEventToEmit.InvokeEvent();
+                return;
+            }
+            
+            if (isAttackCorrect) {
+                _correctAttackEventToEmit.InvokeEvent();
+                SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
+            }
+            
             
             print($"O tamanho da fila é: {_generatedBattleQueue.Count}");
+        }
+
+        private void SetSoundToAudioClip(string clipName, ulong delay) {
+            var audioClip = Resources.Load<AudioClip>($"SoundSystem/SoundBattles/{clipName}");
+            
+            _audioSourceBattleSFX.clip = audioClip;
+            _audioSourceBattleSFX.Play(delay);
         }
     }
 }
