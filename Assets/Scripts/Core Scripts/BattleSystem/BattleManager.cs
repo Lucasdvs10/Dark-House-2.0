@@ -16,6 +16,7 @@ namespace Core_Scripts.BattleSystem {
         [SerializeField] private SOBaseGameEvent _correctAttackEventToEmit;
         [SerializeField] private SOBaseGameEvent _endBattleEventToEmit;
         [SerializeField] private SOBaseGameEvent _startBattleEventToEmit;
+        [SerializeField] private SOBaseGameEvent _duelStateDisabled;
         
         private IPlayerValidatorCommand _playerValidatorCommand;
         private ISoundQueueGenerator _soundQueueGenerator;
@@ -41,7 +42,7 @@ namespace Core_Scripts.BattleSystem {
         }
 
         private void OnDisable() {
-            _endBattleEventToEmit.InvokeEvent();
+            _duelStateDisabled.InvokeEvent();
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
         }
 
