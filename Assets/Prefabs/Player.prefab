@@ -141,7 +141,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4540177001518415607}
         m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader,
           Core
-        m_MethodName: ReadInput
+        m_MethodName: ReadWASDInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -153,6 +153,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 170f18d8-5a48-47db-8076-b02adfc4f7f7
     m_ActionName: PlayerControls/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4540177001518415607}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader,
+          Core
+        m_MethodName: ReadSpaceKeyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e77b97f6-619d-40f2-94f6-190fe36702d4
+    m_ActionName: PlayerControls/CountKey[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
@@ -181,6 +198,7 @@ MonoBehaviour:
   _playerPressedButtonEventToEmit: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _playerReleasedButtonEventToEmit: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
   _playerKeyPressedSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
+  _spacePressedEvent: {fileID: 11400000, guid: 189a8ce1b453c9342955a01adbf45d97, type: 2}
 --- !u!114 &4540177001518415605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,8 +308,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4540177002068563910}
         m_TargetAssemblyTypeName: Core_Scripts.PlayerSoundSystem.AudioManager, Core
-        m_MethodName: AddToQueueAndStartPlayAllClipsCoroutine
+        m_MethodName: AddClipToQueue
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4540177002068563910}
+        m_TargetAssemblyTypeName: Core_Scripts.PlayerSoundSystem.AudioManager, Core
+        m_MethodName: InstantiateEmitterAndPlay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -339,6 +369,20 @@ MonoBehaviour:
   - Chao_Agua
   - Chao_Agua
   - Chao_Agua
+  - Chao_Vidro
+  - Chao_Vidro
+  - Chao_Vidro
+  - Chao_Vidro
+  - Chao_Vidro
+  - Parede_Mesa
+  - Chao_Grama
+  - Chao_Grama
+  - Chao_Grama
+  - Chao_Grama
+  - Chao_Grama
+  - Parede_Gira-Gira
+  - Parede_Gangorra
+  - Parede_Piano
   _audiosArray:
   - {fileID: 8300000, guid: 67ce81942fc58904daedd8f82cfa6547, type: 3}
   - {fileID: 8300000, guid: 304f2bf2228cba94e91cd22803e54bcf, type: 3}
@@ -363,4 +407,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b682207ff9ac8db4695704cd57fb59a7, type: 3}
   - {fileID: 8300000, guid: 938df53f74d50544b83b2cd1b17069f9, type: 3}
   - {fileID: 8300000, guid: f29d6db9c3a008d4aae34c3399830406, type: 3}
+  - {fileID: 8300000, guid: 72c5752fb92d21e4b9b657f36c35d12e, type: 3}
+  - {fileID: 8300000, guid: c51ae2b95f4b96d4da3fce53e46d26cb, type: 3}
+  - {fileID: 8300000, guid: 530c8bc128bf4404d8e40f65e77dfd53, type: 3}
+  - {fileID: 8300000, guid: dcd369a8d3a8f594bb83a2269ff1f31e, type: 3}
+  - {fileID: 8300000, guid: 3d36392a7bf0b414ba18e720d98d07b7, type: 3}
+  - {fileID: 8300000, guid: 7aeb1d27f451f9c42ac651b5cf6793e5, type: 3}
+  - {fileID: 8300000, guid: 551d550ab98e3cc4bb7793e752fe8628, type: 3}
+  - {fileID: 8300000, guid: 18e761ff5ef14fd4588d9283fcc9b829, type: 3}
+  - {fileID: 8300000, guid: 9c0c1f9411026f749bcb3746cd557bec, type: 3}
+  - {fileID: 8300000, guid: 38cb68a2a49e89c46bea091d75b27976, type: 3}
+  - {fileID: 8300000, guid: a62172e6f7275ff4f94c17edc8dfdd0d, type: 3}
+  - {fileID: 8300000, guid: d1729d6a92d50a74bad2b383e797cd79, type: 3}
+  - {fileID: 8300000, guid: 7322d7e9fd8364446bb44d5189a0e527, type: 3}
+  - {fileID: 8300000, guid: 67ce81942fc58904daedd8f82cfa6547, type: 3}
   _defaultAudioClip: {fileID: 0}
