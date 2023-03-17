@@ -57,7 +57,6 @@ namespace Core_Scripts.BattleSystem {
             bool isAttackCorrect = _playerValidatorCommand.ValidateCommand(playerMovement, ref _generatedBattleQueue);
             bool isBattleOver = _generatedBattleQueue.Count <= 0;
             
-            print(isAttackCorrect);
             if(!isAttackCorrect)
                 _missedAttackEventToEmit.InvokeEvent();
             
