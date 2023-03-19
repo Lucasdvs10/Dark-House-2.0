@@ -1,4 +1,5 @@
-﻿using Core_Scripts.SOSingletons;
+﻿using System;
+using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,9 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOVec2IntSingleton _playerKeyPressedSingleton;
         [SerializeField] private SOBaseGameEvent _spacePressedEvent;
         [SerializeField] private SOBaseGameEvent _escPressedEvent;
+        [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent;
+        [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent2;
+        private bool _pauseButtonIsBlocked;
 
         public void ReadWASDInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
@@ -24,10 +28,28 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             }
         }
 
+        private void OnEnable() {
+            _blockPauseButtonEvent2.Subscribe(TogglePauseButton);
+            _blockPauseButtonEvent.Subscribe(TogglePauseButton);
+        }
+
+        private void OnDisable() {
+            _blockPauseButtonEvent.Unsubscribe(TogglePauseButton);
+            _blockPauseButtonEvent2.Unsubscribe(TogglePauseButton);
+        }
+
         public void ReadEscKeyInput(InputAction.CallbackContext ctx) {
-            if (ctx.performed) {
+            if (ctx.performed  && !_pauseButtonIsBlocked) {
                 _escPressedEvent.InvokeEvent();
             }
+        }
+
+        public void TogglePauseButton() {
+            if (_pauseButtonIsBlocked)
+                _pauseButtonIsBlocked = false;
+            else
+                _pauseButtonIsBlocked = true;
+
         }
         
         public void ReadSpaceKeyInput(InputAction.CallbackContext ctx) {

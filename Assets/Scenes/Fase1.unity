@@ -137,8 +137,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
       propertyPath: _monoBehavioursToPauseArray.Array.size
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: _monoBehavioursToPauseArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 476702511}
+    - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: _monoBehavioursToPauseArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 476702510}
+    - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: _monoBehavioursToPauseArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 147058880}
+    - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: _monoBehavioursToPauseArray.Array.data[5]
+      value: 
+      objectReference: {fileID: 147058879}
+    - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: _monoBehavioursToPauseArray.Array.data[6]
+      value: 
+      objectReference: {fileID: 147058879}
+    - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: _monoBehavioursToPauseArray.Array.data[7]
+      value: 
+      objectReference: {fileID: 147058879}
     - target: {fileID: 1144842657, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
       propertyPath: _monoBehavioursToPauseArray.Array.data[9]
       value: 
@@ -248,6 +272,22 @@ Transform:
   m_Father: {fileID: 2042930569}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &147058879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6195709209791209212, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+  m_PrefabInstance: {fileID: 110589704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab341f0d621449eb1b9282c826bb212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &147058880 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6658151339544045714, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+  m_PrefabInstance: {fileID: 110589704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &176559112 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7076474971892958130, guid: 88d40de247629b541b9f5c033e157db7, type: 3}
@@ -2301,11 +2341,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &359931708 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7529206197756990067, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-  m_PrefabInstance: {fileID: 110589704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &371116822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2570,45 +2605,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
+--- !u!114 &476702510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1347477017, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+  m_PrefabInstance: {fileID: 110589704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab341f0d621449eb1b9282c826bb212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &476702511 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+  m_PrefabInstance: {fileID: 110589704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &513574361 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7529206197756990058, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
   m_PrefabInstance: {fileID: 110589704}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359931708}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 469badfecee345be9de4c48ce56a3f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &513574365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359931708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventToListen: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
-  UnityEventEmiter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 513574361}
-        m_TargetAssemblyTypeName: Core_Scripts.BattleSystem.Timer.BattleTimer, Core
-        m_MethodName: StopTimerCoroutine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &567091664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2752,6 +2775,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4540177001518415607, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: _blockPauseButtonEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
+    - target: {fileID: 4540177001518415607, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: _blockPauseButtonEvent2
+      value: 
+      objectReference: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
     - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: GridBehaviour
       value: 
