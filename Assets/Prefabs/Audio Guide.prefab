@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2604168067392634495}
   - component: {fileID: 6418973106280869730}
+  - component: {fileID: 3625979804337945016}
+  - component: {fileID: 2484174654150666094}
   m_Layer: 0
   m_Name: Audio Guide
   m_TagString: Untagged
@@ -128,3 +130,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3625979804337945016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818313831599815758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b11cc02d38448bb272b3add2f0f7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _monoBehavioursToPauseArray:
+  - {fileID: 6418973106280869730}
+--- !u!114 &2484174654150666094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818313831599815758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3625979804337945016}
+        m_TargetAssemblyTypeName: Core_Scripts.PauseObject, Core
+        m_MethodName: TogglePauseAndResume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

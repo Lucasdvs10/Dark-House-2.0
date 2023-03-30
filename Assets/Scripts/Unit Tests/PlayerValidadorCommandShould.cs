@@ -5,19 +5,21 @@ using UnityEngine;
 
 namespace Unit_Tests {
     public class PlayerValidadorCommandShould {
-        private string[] _songsArrayMock;
         private PlayerValidadorCommand _playerValidadorCommand;
-        private Dictionary<Vector2Int, string> _commandMapMock;
+        private Dictionary<Vector2Int, string[]> _commandMapMock;
         private Queue<string> _queueToDefeatMock;
 
         [SetUp]
         public void SetUpTests() {
-            _songsArrayMock = new[] { "Som1", "Som2", "Som3", "Som4" };
-            _commandMapMock = new Dictionary<Vector2Int, string>() {
-                {Vector2Int.left, _songsArrayMock[0]},
-                {Vector2Int.down, _songsArrayMock[1]},
-                {Vector2Int.up, _songsArrayMock[2]},
-                {Vector2Int.right, _songsArrayMock[3]},
+            var songArray = new[] { "Som1" };
+            var songArray2 = new[] { "Som2" };
+            var songArray3 = new[] { "Som3" };
+            var songArray4 = new[] { "Som4" };
+            _commandMapMock = new Dictionary<Vector2Int, string[]>() {
+                {Vector2Int.left, songArray},
+                {Vector2Int.down, songArray2},
+                {Vector2Int.up, songArray3},
+                {Vector2Int.right, songArray4},
             };
             
             _playerValidadorCommand = new PlayerValidadorCommand(_commandMapMock);

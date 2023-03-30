@@ -30,7 +30,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             StopMovingCoroutines();
         }
 
-        private void Start() { 
+        private void Start() {
             var thisPostion = transform.position;
             GridEntity = GridBehaviour.GridEntity;
 
