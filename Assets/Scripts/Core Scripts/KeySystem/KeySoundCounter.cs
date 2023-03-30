@@ -23,7 +23,9 @@ namespace Core_Scripts.KeySystem {
         private void OnDisable() {
             _keyCounterPressedEvent.Unsubscribe(ShowKeysColectedAmount);
         }
-
+        
+        //Todo: Tem um bugzinho em que se eu apertar pra contar duas vezes, na segunda vez ele toca o som de onde ele parou
+        //Sinceramente eu acho que gostei disso
         public void ShowKeysColectedAmount() {
             print($"Eu já coletei {_keyManager.KeysColectedAmount} chaves!");
             StartCoroutine(PlayAudiosCoroutine(_keyManager.KeysColectedAmount));

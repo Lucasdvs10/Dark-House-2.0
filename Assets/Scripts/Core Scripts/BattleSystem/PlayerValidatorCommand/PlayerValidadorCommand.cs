@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
     public class PlayerValidadorCommand {
-        private Dictionary<Vector2Int, string> _commandAudioMap = new Dictionary<Vector2Int, string>();
+        private Dictionary<Vector2Int, string[]> _commandAudioMap = new Dictionary<Vector2Int, string[]>();
 
         public bool Validate(Vector2Int command, ref Queue<string> commandsToDefeat) {
             var currentSound = commandsToDefeat.Peek();
-            var desiredSound = _commandAudioMap[command];
+            var desiredSoundArray = _commandAudioMap[command];
 
-            var isComandCorrect = currentSound == desiredSound;
+            var isComandCorrect = desiredSoundArray.Contains(currentSound);
 
             if (isComandCorrect) 
                 commandsToDefeat.Dequeue();
@@ -19,10 +20,10 @@ namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
         }
         
         
-        public PlayerValidadorCommand(Dictionary<Vector2Int, string> commandAudioMap) {
+        public PlayerValidadorCommand(Dictionary<Vector2Int, string[]> commandAudioMap) {
             _commandAudioMap = commandAudioMap;
         }
         
-        public Dictionary<Vector2Int, string> CommandAudioMap => _commandAudioMap;
+        public Dictionary<Vector2Int, string[]> CommandAudioMap => _commandAudioMap;
     }
 }
