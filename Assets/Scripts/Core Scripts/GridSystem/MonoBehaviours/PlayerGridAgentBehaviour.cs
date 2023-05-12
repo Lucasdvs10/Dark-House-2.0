@@ -2,6 +2,7 @@
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Core_Scripts.GridSystem.MonoBehaviours {
     public class PlayerGridAgentBehaviour : MonoBehaviour {
@@ -15,18 +16,24 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOVec2IntSingleton _playerPressedButtonSingleton;
         [SerializeField] private SOBaseGameEvent _pressedButtonEvent;
         [SerializeField] private SOBaseGameEvent _releasedButtonEvent;
-        
+        public UnityEvent<Vector2Int> OnHeadDirectionChangedEvent;
+
+
         private Vector2Int _gridDirection;
+        private readonly Vector2Int[] _headDirections = {Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left};
+        private int _currentDirection = 0;
 
         private void OnEnable() {
             _playerDirectionSingleton.Value = Vector2Int.zero;
-            _pressedButtonEvent.Subscribe(ReadInputValueAndMove);
+            _pressedButtonEvent.Subscribe(ChangeHeadDirection);
+            _pressedButtonEvent.Subscribe(MoveWhenPressToWalkFoward);
             _releasedButtonEvent.Subscribe(StopMovingCoroutines);
         }
 
         private void OnDisable() {
+            _pressedButtonEvent.Unsubscribe(ChangeHeadDirection);
+            _pressedButtonEvent.Unsubscribe(MoveWhenPressToWalkFoward);
             _releasedButtonEvent.Unsubscribe(StopMovingCoroutines);
-            _pressedButtonEvent.Unsubscribe(ReadInputValueAndMove);
             StopMovingCoroutines();
         }
 
@@ -47,9 +54,21 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             }
         }
         
-        public void ReadInputValueAndMove() { 
-            _gridDirection = _playerPressedButtonSingleton.Value;
+        public void MoveWhenPressToWalkFoward() { 
+            if(_playerPressedButtonSingleton.Value == Vector2Int.left)
                 StartCoroutine(MoveCoroutine());
+        }
+
+        public void ChangeHeadDirection() {
+            if (_playerPressedButtonSingleton.Value == Vector2Int.up) {
+                CurrentDirection++;
+                OnHeadDirectionChangedEvent.Invoke(_playerPressedButtonSingleton.Value);
+            }
+            else if (_playerPressedButtonSingleton.Value == Vector2Int.down) {
+                CurrentDirection--;
+                OnHeadDirectionChangedEvent.Invoke(_playerPressedButtonSingleton.Value);
+            }
+            _gridDirection = _headDirections[_currentDirection];
         }
 
         public void StopMovingCoroutines() => StopAllCoroutines();
@@ -62,6 +81,18 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             _playerDirectionSingleton.Value = direction;
 
             playerMoveCommandInvoked.InvokeEvent();
+        }
+
+        public int CurrentDirection {
+            get => _currentDirection;
+            set {
+                _currentDirection = value;
+                
+                if (_currentDirection < 0)
+                    _currentDirection = _headDirections.Length - 1;
+                else if (_currentDirection > _headDirections.Length - 1)
+                    _currentDirection = 0;
+            }
         }
 
         public void SetCanWalkFlag(bool newFlagValue) => GridAgent.CanWalk = newFlagValue;
