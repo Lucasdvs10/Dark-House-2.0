@@ -375,13 +375,21 @@ PrefabInstance:
       propertyPath: _southAudioClipsArray.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: a609e9f5b573def4192f15bc7062b9bf, type: 3}
+    - target: {fileID: 7529206197756990067, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7529206198006311014, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
       propertyPath: _targetTransformsArray.Array.data[0]
       value: 
       objectReference: {fileID: 407320348}
+    - target: {fileID: 7529206198006311019, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7529206198445912004, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
       propertyPath: movementSpeed
-      value: 2.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 7529206198445912004, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
       propertyPath: _targetTransformsArray.Array.data[0]
@@ -3452,7 +3460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &709854111
 MonoBehaviour:
   m_ObjectHideFlags: 0
