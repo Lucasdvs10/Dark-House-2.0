@@ -1,7 +1,7 @@
 ﻿using GameScripts.GameEvent;
 using UnityEngine;
 
-namespace Core_Scripts.GhostIASystem {
+namespace Core_Scripts.GhostIASystem.Triggers {
     public class MovingDetectorTrigger : BaseTrigger {
         
         [SerializeField] private float perceivePlayerRadious;

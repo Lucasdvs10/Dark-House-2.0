@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Unit_Tests {
+namespace Core_Scripts.BattleSystem.SoundQueueGenerator {
     public class SoundQueueGenerator {
         private List<string> _allSoundsList;
 

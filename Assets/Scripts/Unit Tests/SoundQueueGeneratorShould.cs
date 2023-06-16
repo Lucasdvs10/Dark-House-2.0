@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core_Scripts.BattleSystem.SoundQueueGenerator;
 using NUnit.Framework;
 
 namespace Unit_Tests {
