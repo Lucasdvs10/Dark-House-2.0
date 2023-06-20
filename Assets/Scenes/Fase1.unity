@@ -3192,7 +3192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709854110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.257353, y: -8.147599, z: 0}
+  m_LocalPosition: {x: 15.257353, y: -8.147599, z: -1.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8873,22 +8873,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 709854112}
     m_Modifications:
-    - target: {fileID: 1691779982657962037, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
-      propertyPath: MaxDistance
-      value: 3.2335796
-      objectReference: {fileID: 0}
-    - target: {fileID: 1691779982657962037, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
-      propertyPath: MinDistance
-      value: 1.2887497
-      objectReference: {fileID: 0}
-    - target: {fileID: 1691779982657962037, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1691779982657962037, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
-      propertyPath: DopplerLevel
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3935210539984586866, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
       propertyPath: m_Name
       value: Chave (2)
@@ -8907,7 +8891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935210539984586879, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 3935210539984586879, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
       propertyPath: m_LocalRotation.w

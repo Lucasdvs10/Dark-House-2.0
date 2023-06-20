@@ -1321,6 +1321,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4540177001518415611, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
   m_PrefabInstance: {fileID: 674772904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &423198262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8039463815634340564, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+  m_PrefabInstance: {fileID: 674772904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &423198263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1427173026, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+  m_PrefabInstance: {fileID: 674772904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423198262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6eb3842b0fe46e4802206400d215d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &423198268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423198262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: 0956303cbcd89d64d82b751ba1c91db5, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 423198263}
+        m_TargetAssemblyTypeName: Core_Scripts.Bussola.BussolaBehaviour, Core
+        m_MethodName: PlayCompassSoundBasedOnDirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &450332550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 818313831599815758, guid: d592fed233d8be04f9adfab0325b7bab, type: 3}
@@ -1411,10 +1455,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1838071929}
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReadSpaceKeyInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader, Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540177001518415609, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: GridBehaviour
       value: 
       objectReference: {fileID: 176559112}
+    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: OnChangeDirectionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayCompassSound
+      objectReference: {fileID: 0}
     - target: {fileID: 4540177001518415611, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2631,6 +2707,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2604168067392634495, guid: d592fed233d8be04f9adfab0325b7bab, type: 3}
   m_PrefabInstance: {fileID: 1670453511}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1838071929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4540177001518415607, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+  m_PrefabInstance: {fileID: 674772904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2916dc151df24bd08d20c84f3108761d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1925152947
 GameObject:
   m_ObjectHideFlags: 0

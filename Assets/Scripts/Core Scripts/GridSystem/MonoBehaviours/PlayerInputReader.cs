@@ -9,9 +9,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOBaseGameEvent _playerPressedButtonEventToEmit;
         [SerializeField] private SOBaseGameEvent _playerReleasedButtonEventToEmit;
         [SerializeField] private SOVec2IntSingleton _playerKeyPressedSingleton;
-        [SerializeField] private SOBaseGameEvent _spacePressedEvent;
-        [SerializeField] private SOBaseGameEvent _escPressedEvent;
+        [SerializeField] private SOBaseGameEvent _eKeyPressedEvent;
+        [SerializeField] private SOBaseGameEvent _spaceKeyPressedEvent;
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent;
+        [SerializeField] private SOBaseGameEvent _escPressedEvent;
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent2;
         private bool _pauseButtonIsBlocked;
 
@@ -52,11 +53,16 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
         }
         
-        public void ReadSpaceKeyInput(InputAction.CallbackContext ctx) {
+        public void ReadEKeyInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
-                _spacePressedEvent.InvokeEvent();
+                _eKeyPressedEvent.InvokeEvent();
             }
         }
 
+        public void ReadSpaceKeyInput(InputAction.CallbackContext ctx) {
+            if (ctx.performed) {
+                _spaceKeyPressedEvent.InvokeEvent();
+            }
+        }
     }
 }
