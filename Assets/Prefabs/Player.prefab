@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1335728647}
   - component: {fileID: 1243838282}
   - component: {fileID: 1243838283}
+  - component: {fileID: 1034816362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -39,6 +40,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4540177002068563912}
+  - {fileID: 6782189207687380088}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,13 +109,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridBehaviour: {fileID: 0}
-  _speedCellsPerSecond: 1.72
+  _speedCellsPerSecond: 2
   playerMoveCommandInvoked: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
   vec3Singleton: {fileID: 11400000, guid: 459859a36814b7b47b02d1b43dddd5d8, type: 2}
   _playerDirectionSingleton: {fileID: 11400000, guid: 7812a3568ab47ef4d930e039c858cbba, type: 2}
   _playerPressedButtonSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _pressedButtonEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _releasedButtonEvent: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
+  _initialDirection: 2
+  OnHeadDirectionChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1034816362}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.RotatePlayer,
+          Core
+        m_MethodName: RotatePlayerGameObj
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4540177001518415609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +367,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1034816362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540177001518415613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d571c8630df48e8953f0d557257aba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4540177002068563913
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,3 +548,34 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7322d7e9fd8364446bb44d5189a0e527, type: 3}
   - {fileID: 8300000, guid: a00c10f3ab5262c4c95f2cc797ce1648, type: 3}
   _defaultAudioClip: {fileID: 0}
+--- !u!1 &8039463815634340564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6782189207687380088}
+  m_Layer: 0
+  m_Name: Bussola
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6782189207687380088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8039463815634340564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4540177001518415611}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

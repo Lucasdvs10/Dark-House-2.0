@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 7529206198770096591, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
 --- !u!1 &113656512
@@ -2978,6 +2982,10 @@ PrefabInstance:
       propertyPath: GridBehaviour
       value: 
       objectReference: {fileID: 176559112}
+    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: _initialDirection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: _speedCellsPerSecond
       value: 2

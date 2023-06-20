@@ -16,12 +16,13 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOVec2IntSingleton _playerPressedButtonSingleton;
         [SerializeField] private SOBaseGameEvent _pressedButtonEvent;
         [SerializeField] private SOBaseGameEvent _releasedButtonEvent;
+        [SerializeField] private InitialDirection _initialDirection;
         public UnityEvent<Vector2Int> OnHeadDirectionChangedEvent;
 
 
         private Vector2Int _gridDirection;
         private readonly Vector2Int[] _headDirections = {Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left};
-        private int _currentDirection = 0;
+        private int _currentDirection;
 
         private void OnEnable() {
             _playerDirectionSingleton.Value = Vector2Int.zero;
@@ -38,6 +39,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         }
 
         private void Start() {
+            _currentDirection = (int)_initialDirection;
             var thisPostion = transform.position;
             GridEntity = GridBehaviour.GridEntity;
 
