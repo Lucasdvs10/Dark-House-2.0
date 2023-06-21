@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 1144842657}
   - component: {fileID: 1144842658}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: Ghost Main Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

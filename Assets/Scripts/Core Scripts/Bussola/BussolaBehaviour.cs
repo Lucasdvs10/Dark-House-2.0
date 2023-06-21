@@ -12,20 +12,29 @@ namespace Core_Scripts.Bussola {
 
         private void Awake() {
             _playerGridAgent = GetComponentInParent<PlayerGridAgentBehaviour>();
+            _compassIsOn = false;
         }
 
         private void Start() {
             transform.parent = null;
         }
 
-        public void PlayCompassSoundBasedOnDirection() {
+        public void TurnOnCompass() {
             if (!_compassIsOn) {
                 _compassIsOn = true;
+            }
+            else
+                _compassIsOn = false;
+            
+            PlayCompassSoundBasedOnDirectionIfIsOn();
+        }
+        
+        public void PlayCompassSoundBasedOnDirectionIfIsOn() {
+            if (_compassIsOn) {
                 PlayCompassSound(_playerGridAgent.HeadDirections[_playerGridAgent.CurrentDirection]);
             }
             else {
                 StopAllAudioSources();
-                _compassIsOn = false;
             }
         }
 
