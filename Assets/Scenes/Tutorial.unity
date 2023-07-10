@@ -1870,6 +1870,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2604168067392634495, guid: d592fed233d8be04f9adfab0325b7bab, type: 3}
   m_PrefabInstance: {fileID: 744570700}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &748964799 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8338555776716557020, guid: 2c5e983884664c04ebe48bcaee3ff622, type: 3}
+  m_PrefabInstance: {fileID: 2001178687078535699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &765050397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8338555776958068955, guid: 2c5e983884664c04ebe48bcaee3ff622, type: 3}
+  m_PrefabInstance: {fileID: 2001178687078535699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e7a960e30a41c6bf04f48a8ce720dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &785934187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4675,6 +4691,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3935210539984586879, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}
   m_PrefabInstance: {fileID: 1816249608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1834327516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1692788898789633048, guid: 2c5e983884664c04ebe48bcaee3ff622, type: 3}
+  m_PrefabInstance: {fileID: 2001178687078535699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1834327517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834327516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: c82822ab39a9d074291b1dd6180fcc8c, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 765050397}
+        m_TargetAssemblyTypeName: Core_Scripts.GhostIASystem.StateManager, Core
+        m_MethodName: ChangeState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 748964799}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1838071929 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4540177001518415607, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
@@ -4910,11 +4959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8338555777063926998, guid: 2c5e983884664c04ebe48bcaee3ff622, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.08
+      value: -2.35
       objectReference: {fileID: 0}
     - target: {fileID: 8338555777063926998, guid: 2c5e983884664c04ebe48bcaee3ff622, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.91
+      value: -18.35
       objectReference: {fileID: 0}
     - target: {fileID: 8338555777063926998, guid: 2c5e983884664c04ebe48bcaee3ff622, type: 3}
       propertyPath: m_LocalPosition.z
