@@ -51,14 +51,6 @@ namespace Core_Scripts.Tutorial {
             }
         }
 
-        private void UnsubscribeAudioFromEvent(int audioIndex) {
-            _triggerAudioEventsArray[audioIndex].Unsubscribe(_playAudioActionsArray[audioIndex]);
-        }
-
-        private void StopGuardAudio() {
-            _guardAudioSource.Stop();
-        }
-        
         public void PlayMainAndGuardAudios(int audioIndex) {
             var mainAudio = _mainAudiosArray[audioIndex];
 
@@ -71,5 +63,14 @@ namespace Core_Scripts.Tutorial {
             _guardAudioSource.clip = guardAudio;
             _guardAudioSource.PlayDelayed(mainAudio.length + 0.5f);
         }
+
+        private void UnsubscribeAudioFromEvent(int audioIndex) {
+            _triggerAudioEventsArray[audioIndex].Unsubscribe(_playAudioActionsArray[audioIndex]);
+        }
+
+        private void StopGuardAudio() {
+            _guardAudioSource.Stop();
+        }
+        
     }
 }
