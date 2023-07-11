@@ -17,6 +17,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOBaseGameEvent _pressedButtonEvent;
         [SerializeField] private SOBaseGameEvent _releasedButtonEvent;
         [SerializeField] private InitialDirection _initialDirection;
+        [SerializeField] private SOBaseGameEvent _collidedBorderEvent;
         public UnityEvent<Vector2Int> OnButtonDirectionPressedEvent;
         public UnityEvent<Vector2Int> OnChangeDirectionEvent;
 
@@ -106,6 +107,12 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         private void GetPlayerDesiredPos(Vector2Int direction) {
             var desiredCell = GridAgent.CurrentGridPosition + direction;
             vec3Singleton.Value = GridEntity.GetCell(desiredCell.x, desiredCell.y).cellWorldPos;
+
+            if(_collidedBorderEvent is null) return;
+            
+            if (!GridEntity.GetCell(desiredCell.x, desiredCell.y).walkable) {
+                _collidedBorderEvent.InvokeEvent();
+            }
         }
     }
 }
