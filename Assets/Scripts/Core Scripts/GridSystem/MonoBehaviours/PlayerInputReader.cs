@@ -8,6 +8,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
     public class PlayerInputReader : MonoBehaviour {
         [SerializeField] private SOBaseGameEvent _playerPressedButtonEventToEmit;
         [SerializeField] private SOBaseGameEvent _playerReleasedButtonEventToEmit;
+        [SerializeField] private SOBaseGameEvent _pressedAorDButtonEvent;
         [SerializeField] private SOVec2IntSingleton _playerKeyPressedSingleton;
         [SerializeField] private SOBaseGameEvent _eKeyPressedEvent;
         [SerializeField] private SOBaseGameEvent _spaceKeyPressedEvent;
@@ -24,6 +25,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 
                 if(directionInGrid != Vector2Int.zero)
                     _playerPressedButtonEventToEmit.InvokeEvent();
+                
+                if(_pressedAorDButtonEvent is not null && (directionRed == new Vector2(1,0) || directionRed == new Vector2(-1,0)))
+                    _pressedAorDButtonEvent.InvokeEvent();
+                
                 if(directionInGrid == Vector2Int.zero)
                     _playerReleasedButtonEventToEmit.InvokeEvent();
             }
