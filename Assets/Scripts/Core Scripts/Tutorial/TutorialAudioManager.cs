@@ -11,7 +11,7 @@ namespace Core_Scripts.Tutorial {
         [SerializeField] private SOBaseGameEvent[] _stopGuardAudioEventsArray;
         private AudioSource _mainAudioSource;
         private AudioSource _guardAudioSource;
-
+        private int _currentGuardIndex;
         private Action[] _playAudioActionsArray;
 
         private void Awake() {
@@ -36,18 +36,11 @@ namespace Core_Scripts.Tutorial {
                     
                 _triggerAudioEventsArray[i].Subscribe(_playAudioActionsArray[i]);
             }
-
-            for (int i = 0; i < _guardAudiosArray.Length; i++) {
-                _stopGuardAudioEventsArray[i].Subscribe(StopGuardAudio);
-            }
         }
         
         private void OnDisable() {
             for (int i = 0; i < _mainAudiosArray.Length; i++) {
                 _triggerAudioEventsArray[i].Unsubscribe(_playAudioActionsArray[i]);
-            }
-            for (int i = 0; i < _guardAudiosArray.Length; i++) {
-                _stopGuardAudioEventsArray[i].Unsubscribe(StopGuardAudio);
             }
         }
 
@@ -60,8 +53,10 @@ namespace Core_Scripts.Tutorial {
             if (audioIndex >= _guardAudiosArray.Length) return;
             
             var guardAudio = _guardAudiosArray[audioIndex];
+            _currentGuardIndex = audioIndex;
             _guardAudioSource.clip = guardAudio;
             _guardAudioSource.PlayDelayed(mainAudio.length + 0.5f);
+            _stopGuardAudioEventsArray[audioIndex].Subscribe(StopGuardAudio);
         }
 
         private void UnsubscribeAudioFromEvent(int audioIndex) {
@@ -70,6 +65,7 @@ namespace Core_Scripts.Tutorial {
 
         private void StopGuardAudio() {
             _guardAudioSource.Stop();
+            _stopGuardAudioEventsArray[_currentGuardIndex].Unsubscribe(StopGuardAudio);
         }
         
     }
