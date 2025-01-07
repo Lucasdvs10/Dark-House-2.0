@@ -90,16 +90,16 @@ MonoBehaviour:
   - {x: 0, y: -1}
   _northAudioClipsArray:
   - {fileID: 8300000, guid: d6b85a0243a21ad4493fde5e6a154d78, type: 3}
-  - {fileID: 8300000, guid: f634b85f3d818c0428ad8458aae5acbd, type: 3}
+  - {fileID: 8300000, guid: 6bf6a200097dcff468a6ec2303bdd7b4, type: 3}
   _southAudioClipsArray:
   - {fileID: 8300000, guid: cb6453a1891e43e498b6dd03afb76575, type: 3}
   - {fileID: 8300000, guid: a609e9f5b573def4192f15bc7062b9bf, type: 3}
   _eastAudioClipsArray:
   - {fileID: 8300000, guid: 22aa931fd633b9647ad7f37d84865292, type: 3}
-  - {fileID: 8300000, guid: 0ce74e48df6e4e34abc4114755c20121, type: 3}
+  - {fileID: 8300000, guid: ee4308ed2cb8be244acbe5f1d33dd5b8, type: 3}
   _westAudioClipsArray:
   - {fileID: 8300000, guid: 0454f3cc6a6d6454588a7b8064b532de, type: 3}
-  - {fileID: 8300000, guid: ea9522d9dc6aafe4597cd0c05be7269b, type: 3}
+  - {fileID: 8300000, guid: f4103886ec5973746a794d9ae7469f50, type: 3}
 --- !u!114 &7529206197756990061
 MonoBehaviour:
   m_ObjectHideFlags: 0
