@@ -417,6 +417,7 @@ MonoBehaviour:
   _radiousToDefineArrival: 2
   transformToMove: {fileID: 7529206198770096589}
   movementSpeed: 5
+  _buffDurationInSeconds: 0
 --- !u!114 &7529206198006311015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +572,7 @@ GameObject:
   - component: {fileID: 1347477018}
   - component: {fileID: 1347477017}
   - component: {fileID: 5927707111743452187}
+  - component: {fileID: 159233310}
   - component: {fileID: 3805014092893089076}
   m_Layer: 0
   m_Name: WalkingState
@@ -615,6 +617,7 @@ MonoBehaviour:
   _radiousToDefineArrival: 2
   transformToMove: {fileID: 7529206198770096589}
   movementSpeed: 1.75
+  _buffDurationInSeconds: 2
 --- !u!114 &7529206198445912005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +771,34 @@ MonoBehaviour:
   _eventsToActivateCoyoteTime:
   - {fileID: 11400000, guid: c82822ab39a9d074291b1dd6180fcc8c, type: 2}
   - {fileID: 11400000, guid: 6198ec8431ebd6f4d983541373fd9a75, type: 2}
+--- !u!114 &159233310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529206198445912006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: 6198ec8431ebd6f4d983541373fd9a75, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7529206198445912004}
+        m_TargetAssemblyTypeName: Core_Scripts.GhostIASystem.MoveTowardsObject, Core
+        m_MethodName: StartBuffMovementSpeedTemporaraly
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3805014092893089076
 MonoBehaviour:
   m_ObjectHideFlags: 0
