@@ -41,14 +41,18 @@ namespace Core_Scripts.Bussola {
         public void PlayCompassSound(Vector2Int direction) {
             StopAllAudioSources();
 
-            if(direction == Vector2Int.left)
+            if (direction == Vector2Int.left) {
                 _northAudioSource.Play();
-            else if(direction == Vector2Int.right)
+            }
+            else if (direction == Vector2Int.right) {
                 _southAudioSource.Play();
-            else if(direction == Vector2Int.up)
+            }
+            else if (direction == Vector2Int.up) {
                 _eastAudioSource.Play();
-            else
+            }
+            else {
                 _westAudioSource.Play();
+            }
         }
 
         public void StopAllAudioSources() {
