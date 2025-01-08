@@ -116,7 +116,8 @@ MonoBehaviour:
   _playerPressedButtonSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _pressedButtonEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _releasedButtonEvent: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
-  _initialDirection: 2
+  _initialDirection: 0
+  _collidedObjectEvent: {fileID: 0}
   OnButtonDirectionPressedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -225,7 +226,20 @@ MonoBehaviour:
     m_ActionId: e7e3f611-074a-4e39-a005-41e8b99ec7da
     m_ActionName: PlayerControls/PauseKey[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4540177001518415607}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader,
+          Core
+        m_MethodName: ReadSpaceKeyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e1f8120e-8a6a-48f0-a1d3-ee4f06847d17
     m_ActionName: PlayerControls/Bussola[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
@@ -255,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPressedButtonEventToEmit: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _playerReleasedButtonEventToEmit: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
+  _pressedAorDButtonEvent: {fileID: 0}
   _playerKeyPressedSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _eKeyPressedEvent: {fileID: 11400000, guid: 189a8ce1b453c9342955a01adbf45d97, type: 2}
   _spaceKeyPressedEvent: {fileID: 11400000, guid: 0956303cbcd89d64d82b751ba1c91db5, type: 2}
@@ -582,10 +597,11 @@ GameObject:
   - component: {fileID: 1427173029}
   - component: {fileID: 1427173030}
   - component: {fileID: 1427173031}
+  - component: {fileID: 674772907}
   m_Layer: 0
   m_Name: Bussola
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -597,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8039463815634340564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.75, y: -0.04, z: 0}
+  m_LocalPosition: {x: -31.79, y: 11.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -634,13 +650,13 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 57.142708
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -730,13 +746,13 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 56.87323
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -826,13 +842,13 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.75
   m_Pitch: 0.75
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 57.133324
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -922,13 +938,13 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 2
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 57.250053
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1004,3 +1020,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &674772907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8039463815634340564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToListen: {fileID: 11400000, guid: 0956303cbcd89d64d82b751ba1c91db5, type: 2}
+  UnityEventEmiter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1427173026}
+        m_TargetAssemblyTypeName: Core_Scripts.Bussola.BussolaBehaviour, Core
+        m_MethodName: TurnOnCompass
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
