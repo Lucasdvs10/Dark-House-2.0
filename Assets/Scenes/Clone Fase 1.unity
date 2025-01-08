@@ -3085,10 +3085,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4540177001518415607, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: _pressedAorDButtonEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 6eed885ea7fc8e7448bdeb9aec04901f, type: 2}
     - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: GridBehaviour
       value: 
