@@ -139,8 +139,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1427173026}
         m_TargetAssemblyTypeName: Core_Scripts.Bussola.BussolaBehaviour, Core
-        m_MethodName: Teste
-        m_Mode: 0
+        m_MethodName: PlayCompassSoundBasedOnDirectionIfIsOn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPressedButtonEventToEmit: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _playerReleasedButtonEventToEmit: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
-  _pressedAorDButtonEvent: {fileID: 0}
+  _pressedAorDButtonEvent: {fileID: 11400000, guid: 6eed885ea7fc8e7448bdeb9aec04901f, type: 2}
   _playerKeyPressedSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _eKeyPressedEvent: {fileID: 11400000, guid: 189a8ce1b453c9342955a01adbf45d97, type: 2}
   _spaceKeyPressedEvent: {fileID: 11400000, guid: 0956303cbcd89d64d82b751ba1c91db5, type: 2}
