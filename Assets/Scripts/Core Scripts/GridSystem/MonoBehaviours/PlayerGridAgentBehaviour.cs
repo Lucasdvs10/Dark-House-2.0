@@ -63,15 +63,15 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         }
         
         public void MoveWhenPressToWalkFoward() { 
-            if(_playerPressedButtonSingleton.Value == Vector2Int.left)
+            if(_playerPressedButtonSingleton.Value == Vector2Int.left && _moveCoroutine is null)
                 _moveCoroutine = StartCoroutine(MoveCoroutine());
         }
 
         public void ChangeHeadDirection() {
-            if (_playerPressedButtonSingleton.Value == Vector2Int.up) {
+            if (_playerPressedButtonSingleton.Value.y > 0) {
                 CurrentDirection++;
             }
-            else if (_playerPressedButtonSingleton.Value == Vector2Int.down) {
+            else if (_playerPressedButtonSingleton.Value.y < 0) {
                 CurrentDirection--;
             }
 
@@ -82,7 +82,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             _rotationBtnPressed.Unsubscribe(ChangeHeadDirection);
             
             _gridDirection = _headDirections[_currentDirection];
-            OnChangeDirectionEvent.Invoke(_headDirections[_currentDirection]);
+            OnChangeDirectionEvent.Invoke(_gridDirection);
             
             if (_playerPressedButtonSingleton.Value.y > 0) {
                 yield return _rotatePlayer.RotatePlayerGameobjCO(Vector2Int.up);
@@ -117,8 +117,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         }
 
         public void StopMovingCoroutines() {
-            if(_moveCoroutine is not null)
+            if (_moveCoroutine is not null) {
                 StopCoroutine(_moveCoroutine);
+                _moveCoroutine = null;
+            }
         }
         
         private void GetPlayerDesiredPos(Vector2Int direction) {

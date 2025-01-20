@@ -3089,10 +3089,6 @@ PrefabInstance:
       propertyPath: GridBehaviour
       value: 
       objectReference: {fileID: 176559112}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: _initialDirection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4540177001518415611, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: m_RootOrder
       value: 2

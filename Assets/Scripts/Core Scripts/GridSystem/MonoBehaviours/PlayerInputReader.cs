@@ -20,14 +20,14 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public void ReadWASDInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
                 var directionRed = ctx.ReadValue<Vector2>();
-                var directionInGrid = new Vector2Int((int) -directionRed.y, (int)directionRed.x);
+                var directionInGrid = new Vector2Int(Mathf.RoundToInt(-directionRed.y), Mathf.RoundToInt(directionRed.x));
                 _playerKeyPressedSingleton.Value = directionInGrid;
                 
                 if(directionInGrid != Vector2Int.zero)
                     _playerPressedButtonEventToEmit.InvokeEvent();
 
                 if (_pressedAorDButtonEvent is not null &&
-                    (directionRed == new Vector2(1, 0) || directionRed == new Vector2(-1, 0))) {
+                    (directionRed.x != 0)) {
                     _pressedAorDButtonEvent.InvokeEvent();
                 }
                 
