@@ -8673,6 +8673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d571c8630df48e8953f0d557257aba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotationTimeInSecs: 0.4
 --- !u!4 &1053410288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3935210539984586879, guid: 9feb90de431a07f4eb49ba86593b1c68, type: 3}

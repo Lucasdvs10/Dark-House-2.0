@@ -44,8 +44,8 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
         private void Start() {
             _rotatePlayer = GetComponent<RotatePlayer>();
-            
             _currentDirection = (int)_initialDirection;
+            _gridDirection = _headDirections[_currentDirection];
             var thisPostion = transform.position;
             GridEntity = GridBehaviour.GridEntity;
 
@@ -80,6 +80,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
         private IEnumerator RotationCO() {
             _rotationBtnPressed.Unsubscribe(ChangeHeadDirection);
+            
+            _gridDirection = _headDirections[_currentDirection];
+            OnChangeDirectionEvent.Invoke(_headDirections[_currentDirection]);
+            
             if (_playerPressedButtonSingleton.Value.y > 0) {
                 yield return _rotatePlayer.RotatePlayerGameobjCO(Vector2Int.up);
             }
@@ -87,8 +91,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 yield return _rotatePlayer.RotatePlayerGameobjCO(Vector2Int.down);
             }
             
-            _gridDirection = _headDirections[_currentDirection];
-            OnChangeDirectionEvent.Invoke(_headDirections[_currentDirection]);
             _rotationBtnPressed.Subscribe(ChangeHeadDirection);
         }
         
