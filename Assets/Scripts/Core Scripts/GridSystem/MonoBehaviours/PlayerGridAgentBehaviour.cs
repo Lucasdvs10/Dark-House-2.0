@@ -16,31 +16,35 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOVec2IntSingleton _playerPressedButtonSingleton;
         [SerializeField] private SOBaseGameEvent _pressedButtonEvent;
         [SerializeField] private SOBaseGameEvent _releasedButtonEvent;
-        [SerializeField] private InitialDirection _initialDirection;
         [SerializeField] private SOBaseGameEvent _collidedObjectEvent;
-        public UnityEvent<Vector2Int> OnButtonDirectionPressedEvent;
+        [SerializeField] private SOBaseGameEvent _rotationBtnPressed;
+        [SerializeField] private InitialDirection _initialDirection;
         public UnityEvent<Vector2Int> OnChangeDirectionEvent;
 
-
+        private RotatePlayer _rotatePlayer;
         private Vector2Int _gridDirection;
         private readonly Vector2Int[] _headDirections = {Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left};
         private int _currentDirection;
 
+        private Coroutine _moveCoroutine;
+
         private void OnEnable() {
             _playerDirectionSingleton.Value = Vector2Int.zero;
-            _pressedButtonEvent.Subscribe(ChangeHeadDirection);
+            _rotationBtnPressed.Subscribe(ChangeHeadDirection);
             _pressedButtonEvent.Subscribe(MoveWhenPressToWalkFoward);
             _releasedButtonEvent.Subscribe(StopMovingCoroutines);
         }
 
         private void OnDisable() {
-            _pressedButtonEvent.Unsubscribe(ChangeHeadDirection);
+            _rotationBtnPressed.Unsubscribe(ChangeHeadDirection);
             _pressedButtonEvent.Unsubscribe(MoveWhenPressToWalkFoward);
             _releasedButtonEvent.Unsubscribe(StopMovingCoroutines);
             StopMovingCoroutines();
         }
 
         private void Start() {
+            _rotatePlayer = GetComponent<RotatePlayer>();
+            
             _currentDirection = (int)_initialDirection;
             var thisPostion = transform.position;
             GridEntity = GridBehaviour.GridEntity;
@@ -60,23 +64,28 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         
         public void MoveWhenPressToWalkFoward() { 
             if(_playerPressedButtonSingleton.Value == Vector2Int.left)
-                StartCoroutine(MoveCoroutine());
+                _moveCoroutine = StartCoroutine(MoveCoroutine());
         }
 
         public void ChangeHeadDirection() {
             if (_playerPressedButtonSingleton.Value == Vector2Int.up) {
                 CurrentDirection++;
-                OnButtonDirectionPressedEvent.Invoke(_playerPressedButtonSingleton.Value);
+                // OnButtonDirectionPressedEvent.Invoke(_playerPressedButtonSingleton.Value);
             }
             else if (_playerPressedButtonSingleton.Value == Vector2Int.down) {
                 CurrentDirection--;
-                OnButtonDirectionPressedEvent.Invoke(_playerPressedButtonSingleton.Value);
+                // OnButtonDirectionPressedEvent.Invoke(_playerPressedButtonSingleton.Value);
             }
+
+            StartCoroutine(RotationCO());
+        }
+
+        private IEnumerator RotationCO() {
+            yield return _rotatePlayer.RotatePlayerGameobjCO(_playerPressedButtonSingleton.Value);
             _gridDirection = _headDirections[_currentDirection];
             OnChangeDirectionEvent.Invoke(_headDirections[_currentDirection]);
         }
 
-        public void StopMovingCoroutines() => StopAllCoroutines();
         
         public void MoveAgentToDirection(Vector2Int direction) { 
             GetPlayerDesiredPos(direction);
@@ -100,10 +109,11 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             }
         }
 
-        public Vector2Int[] HeadDirections => _headDirections;
-
-        public void SetCanWalkFlag(bool newFlagValue) => GridAgent.CanWalk = newFlagValue;
-
+        public void StopMovingCoroutines() {
+            if(_moveCoroutine is not null)
+                StopCoroutine(_moveCoroutine);
+        }
+        
         private void GetPlayerDesiredPos(Vector2Int direction) {
             var desiredCell = GridAgent.CurrentGridPosition + direction;
             vec3Singleton.Value = GridEntity.GetCell(desiredCell.x, desiredCell.y).cellWorldPos;
@@ -114,5 +124,9 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 _collidedObjectEvent.InvokeEvent();
             }
         }
+        
+        public Vector2Int[] HeadDirections => _headDirections;
+        public void SetCanWalkFlag(bool newFlagValue) => GridAgent.CanWalk = newFlagValue;
+
     }
 }

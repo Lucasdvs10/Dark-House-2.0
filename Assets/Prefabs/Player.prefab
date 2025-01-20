@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4540177001518415611}
   - component: {fileID: 4540177001518415612}
   - component: {fileID: 4540177001518415610}
+  - component: {fileID: 1034816362}
   - component: {fileID: 4540177001518415609}
   - component: {fileID: 4540177001518415608}
   - component: {fileID: 4540177001518415607}
@@ -19,7 +20,6 @@ GameObject:
   - component: {fileID: 1335728647}
   - component: {fileID: 1243838282}
   - component: {fileID: 1243838283}
-  - component: {fileID: 1034816362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,24 +116,9 @@ MonoBehaviour:
   _playerPressedButtonSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _pressedButtonEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _releasedButtonEvent: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
-  _initialDirection: 0
   _collidedObjectEvent: {fileID: 0}
-  OnButtonDirectionPressedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1034816362}
-        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.RotatePlayer,
-          Core
-        m_MethodName: RotatePlayerGameObj
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _rotationBtnPressed: {fileID: 11400000, guid: 6eed885ea7fc8e7448bdeb9aec04901f, type: 2}
+  _initialDirection: 0
   OnChangeDirectionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -149,6 +134,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1034816362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540177001518415613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d571c8630df48e8953f0d557257aba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationTimeInSecs: 0.4
 --- !u!114 &4540177001518415609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,18 +400,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1034816362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540177001518415613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d571c8630df48e8953f0d557257aba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4540177002068563913
 GameObject:
   m_ObjectHideFlags: 0
