@@ -27,7 +27,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         private int _currentDirection;
 
         private Coroutine _moveCoroutine;
-        private Coroutine _rotationCoroutine;
 
         private void OnEnable() {
             _playerDirectionSingleton.Value = Vector2Int.zero;
@@ -76,18 +75,21 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 CurrentDirection--;
             }
 
-            if(_rotationCoroutine is null)
-                StartCoroutine(RotationCO());
+            StartCoroutine(RotationCO());
         }
 
         private IEnumerator RotationCO() {
             _rotationBtnPressed.Unsubscribe(ChangeHeadDirection);
+            if (_playerPressedButtonSingleton.Value.y > 0) {
+                yield return _rotatePlayer.RotatePlayerGameobjCO(Vector2Int.up);
+            }
+            else if (_playerPressedButtonSingleton.Value.y < 0) {
+                yield return _rotatePlayer.RotatePlayerGameobjCO(Vector2Int.down);
+            }
             
-            yield return _rotatePlayer.RotatePlayerGameobjCO(_playerPressedButtonSingleton.Value);
-            
-            _rotationBtnPressed.Subscribe(ChangeHeadDirection);
             _gridDirection = _headDirections[_currentDirection];
             OnChangeDirectionEvent.Invoke(_headDirections[_currentDirection]);
+            _rotationBtnPressed.Subscribe(ChangeHeadDirection);
         }
         
         public void MoveAgentToDirection(Vector2Int direction) { 

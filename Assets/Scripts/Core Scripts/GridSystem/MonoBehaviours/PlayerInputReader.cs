@@ -29,7 +29,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 if (_pressedAorDButtonEvent is not null &&
                     (directionRed == new Vector2(1, 0) || directionRed == new Vector2(-1, 0))) {
                     _pressedAorDButtonEvent.InvokeEvent();
-                    print("Tentando rotacionar");
                 }
                 
                 if(directionInGrid == Vector2Int.zero)
