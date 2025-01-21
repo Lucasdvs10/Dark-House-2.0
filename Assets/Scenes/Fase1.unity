@@ -140,94 +140,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: MaxDistance
-      value: 9.664391
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: MinDistance
-      value: 4.8672247
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
-      value: 0.50362456
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
-      value: 0.9631653
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
-      value: -1.9863971
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
-      value: 0.3447409
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
-      value: -1.9863971
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
-      value: 0.3945147
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
-      value: 0.3447409
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1347477018, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _soStartGameEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 6198ec8431ebd6f4d983541373fd9a75, type: 2}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 159233309}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartBuffMovementSpeedTemporaraly
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Core_Scripts.GhostIASystem.MoveTowardsObject, Core
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3805014092893089076, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-      propertyPath: _onStateEnterGameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7529206198006311014, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
       propertyPath: _targetTransformsArray.Array.data[0]
       value: 
@@ -300,8 +212,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 159233310, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
 --- !u!1 &113656512
 GameObject:
@@ -334,17 +245,6 @@ Transform:
   m_Father: {fileID: 2042930569}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &159233309 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7529206198445912004, guid: a2e7b9890ff5ad344b856a99414b7ccd, type: 3}
-  m_PrefabInstance: {fileID: 110589704}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7ac5f83ce94b88aa8addab90d73f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &176559112 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7076474971892958130, guid: 88d40de247629b541b9f5c033e157db7, type: 3}
