@@ -25,19 +25,8 @@ namespace Core_Scripts.KeySystem {
         
         public void ShowKeysColectedAmount() {
             print($"Eu já coletei {_keyManager.KeysColectedAmount} chaves!");
-            StartCoroutine(PlayAudiosCoroutine(_keyManager.KeysColectedAmount));
+            _audioSource.PlayOneShot(_audioClipsArray[_keyManager.KeysColectedAmount]);
         }
 
-        private IEnumerator PlayAudiosCoroutine(int audiosToPlay) {
-            int currentIndexToPlay = 0;
-            while (currentIndexToPlay < audiosToPlay) {
-                _audioSource.clip = _audioClipsArray[currentIndexToPlay];
-                _audioSource.Play();
-                
-                yield return new WaitUntil(() => !_audioSource.isPlaying);
-
-                currentIndexToPlay++;
-            }
-        }
     }
 }

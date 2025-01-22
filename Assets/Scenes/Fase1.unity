@@ -3250,11 +3250,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyCounterPressedEvent: {fileID: 11400000, guid: 189a8ce1b453c9342955a01adbf45d97, type: 2}
   _audioClipsArray:
-  - {fileID: 8300000, guid: fe1d257056883be4d96d11c4d152570e, type: 3}
-  - {fileID: 8300000, guid: a5945e15a64dbd24bbdb23bb6e41adb8, type: 3}
-  - {fileID: 8300000, guid: 78b4a57e51c52054b80dc26676a9e50c, type: 3}
-  - {fileID: 8300000, guid: 261c44e9c73269c439a7a3ba6f543ce5, type: 3}
-  - {fileID: 8300000, guid: 0dac1d92d7c7a784a8253f2625404ff4, type: 3}
+  - {fileID: 8300000, guid: 06ac293b63fba164b8712ec84e192712, type: 3}
+  - {fileID: 8300000, guid: 2362885ac3d02a949b38c5a58b6522c1, type: 3}
+  - {fileID: 8300000, guid: cd029e9dd5f3567438d692693ee14842, type: 3}
+  - {fileID: 8300000, guid: 8664f40e5b3309741a64c228c9bdd66b, type: 3}
+  - {fileID: 8300000, guid: 75c9b89e7d48f6a44913d345f0a67b7c, type: 3}
 --- !u!82 &709854115
 AudioSource:
   m_ObjectHideFlags: 0
