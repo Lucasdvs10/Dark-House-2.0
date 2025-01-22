@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Core_Scripts.ExtentionMethods;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
@@ -35,28 +36,43 @@ namespace Core_Scripts.PlayerSoundSystem {
             }
         }
 
-        public void AddToQueueAndStartPlayAllClipsCoroutine(string tileName) {
-            AddClipToQueue(tileName);
-        }
-
         public void AddClipToQueue(string tileName) {
             if(!_audioMap.TryGetValue(tileName, out var clipsList))
                 _audioClipsQueue.Enqueue(_defaultAudioClip);
             _audioClipsQueue.Enqueue(clipsList.GetRandomClipFromList());
         }
+
         
-        
+        private bool _isPlayingAWallSound = false;
         public void InstantiateEmitterAndPlay() {
             var gameObject = Instantiate(_audioEmitterPrefab, _playerDesiredPos.Value, Quaternion.identity);
             var audioSource = gameObject.GetComponent<AudioSource>();
             var clip = _audioClipsQueue.Dequeue();
-
-            audioSource.clip = clip;
-            audioSource.Play();
-
+            
+            //Fiz desse jeito para que apenas alguns sons sejam tocados um de cada vez
+            //Há certos sons que não ficam ruins quando tocam ao mesmo tempo
+            //Claro que não é a melhor solução em termos de código, mas fiz desse jeito para ganhar tempo
+            //Se surgir a necessidade,a gente refatora essa lógica toda
+            
+            if (clip.name.StartsWith("Cadeira") || clip.name.StartsWith("Bater_") || clip.name.StartsWith("Gangorra")) {
+                if (!_isPlayingAWallSound) {
+                    StartCoroutine(PlayWallSound(audioSource, clip));
+                }
+            }
+            else {
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
             Destroy(gameObject, clip.length + 0.2f);
         }
-
-        public Dictionary<string, List<AudioClip>> AudioMap => _audioMap;
+        
+        private IEnumerator PlayWallSound(AudioSource audioSource, AudioClip clip) {
+            _isPlayingAWallSound = true;
+            audioSource.clip = clip;
+            audioSource.Play();
+            yield return new WaitForSeconds(clip.length);
+            Destroy(audioSource.gameObject);
+            _isPlayingAWallSound = false;
+        }
     }
 }

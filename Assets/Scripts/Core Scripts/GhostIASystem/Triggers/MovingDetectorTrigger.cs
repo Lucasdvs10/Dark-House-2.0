@@ -9,17 +9,17 @@ namespace Core_Scripts.GhostIASystem.Triggers {
 
         private Transform _playersTransform;
         
-        private void Awake() {
+        private new void Awake() {
             base.Awake();
             _playersTransform = GameObject.FindWithTag("Player").transform;
         }
 
-        private void OnEnable() {
+        private new void OnEnable() {
             base.OnEnable();
             playerMovedEventToListen.Subscribe(PlayerMovedEventRaised);
         }
 
-        private void OnDisable() {
+        private new void OnDisable() {
             base.OnDisable();
             playerMovedEventToListen.Unsubscribe(PlayerMovedEventRaised);
         }

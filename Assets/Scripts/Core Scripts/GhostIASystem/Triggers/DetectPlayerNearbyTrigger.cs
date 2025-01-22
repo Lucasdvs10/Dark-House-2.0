@@ -5,7 +5,7 @@ namespace Core_Scripts.GhostIASystem {
         [SerializeField] private float distanceToPerceivePlayer;
         private Transform _playerTransform;
 
-        protected void Awake() {
+        protected new void Awake() {
             base.Awake();
             _playerTransform = GameObject.FindWithTag("Player").transform;
         }
