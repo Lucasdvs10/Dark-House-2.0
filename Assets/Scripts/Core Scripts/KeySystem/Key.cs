@@ -23,8 +23,7 @@ namespace Core_Scripts.KeySystem {
         private void CheckIfHasBeenColected() {
             var playerPosition = _playerPositionSingleton.Value;
 
-            //Todo: Aumentar a colisão para quando o player estiver num raio de 1 quadrado da chave
-            if ((playerPosition - transform.position).sqrMagnitude <= 2.25f) {
+            if ((playerPosition - transform.position).sqrMagnitude <= 2.25f) { //Fiz desse jeito para que a chave tenha uma hitbox maior
                 _keyHasBeenColectedEvent.InvokeEvent();
                 _keyColectedLocalEvent.Invoke();
             }
