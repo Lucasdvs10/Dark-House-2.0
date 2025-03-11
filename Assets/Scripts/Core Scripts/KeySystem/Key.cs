@@ -17,11 +17,14 @@ namespace Core_Scripts.KeySystem {
         private void OnDisable() {
             _playerMoveEvent.Unsubscribe(CheckIfHasBeenColected);
         }
+        
+        
 
         private void CheckIfHasBeenColected() {
             var playerPosition = _playerPositionSingleton.Value;
 
-            if (playerPosition == transform.position) {
+            //Todo: Aumentar a colisão para quando o player estiver num raio de 1 quadrado da chave
+            if ((playerPosition - transform.position).sqrMagnitude <= 2.25f) {
                 _keyHasBeenColectedEvent.InvokeEvent();
                 _keyColectedLocalEvent.Invoke();
             }

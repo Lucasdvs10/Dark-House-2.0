@@ -83,7 +83,7 @@ namespace Core_Scripts.BattleSystem {
             var audioClip = Resources.Load<AudioClip>($"SoundSystem/SoundBattles/{clipName}");
             
             _audioSourceBattleSFX.clip = audioClip;
-            _audioSourceBattleSFX.Play(delay);
+            _audioSourceBattleSFX.PlayDelayed(delay);
         }
     }
 }

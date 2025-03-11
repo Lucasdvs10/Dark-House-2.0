@@ -18,6 +18,10 @@ namespace Core_Scripts.BattleSystem.Timer {
         public void StopTimerCoroutine() {
             StopAllCoroutines();
         }
+        
+        public void DecreaseTime(float time) {
+            _currentTime -= time;
+        }
 
         private IEnumerator TimerCoroutine(float deltaTime, int timerDividedIn) {
             _currentTime = _battleDurationInSeconds;
