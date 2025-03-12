@@ -25,7 +25,7 @@ namespace Core_Scripts {
             _elapsedTimeInSeconds = Mathf.RoundToInt(Time.time - _startTime);
             StopAllCoroutines();
             
-            Debug.Log($"Tempo passado: {_elapsedTimeInSeconds}");
+            Debug.Log($"Tempo passado: {_elapsedTimeInSeconds} segundos");
         }
 
         IEnumerator StartTimerCO() {
