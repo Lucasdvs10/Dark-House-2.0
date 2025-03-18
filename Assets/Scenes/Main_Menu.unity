@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f883829c694c3e9979834a094106ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: 76a0cceda6c718146afa314808d99de3, type: 3}
+  _audioClip: {fileID: 8300000, guid: efddc6dd5982d2249ba3fe8e87a78e19, type: 3}
   _audioSpeed: 2
 --- !u!1 &927293624
 GameObject:
@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f883829c694c3e9979834a094106ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: 43382d305c6892241b0086a8c1a8427a, type: 3}
+  _audioClip: {fileID: 8300000, guid: 07c33272032f3514689118744155dd9d, type: 3}
   _audioSpeed: 1
 --- !u!224 &1299879769 stripped
 RectTransform:
@@ -3037,7 +3037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f883829c694c3e9979834a094106ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: 500a72406e9f4bf49b34a726890bd18f, type: 3}
+  _audioClip: {fileID: 8300000, guid: 552dc6869e312f845a473efe8d4313a9, type: 3}
   _audioSpeed: 1.5
 --- !u!1 &2114455084
 GameObject:
