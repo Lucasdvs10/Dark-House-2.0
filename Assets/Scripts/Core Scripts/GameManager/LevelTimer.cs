@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using GameScripts.GameEvent;
 using UnityEngine;
@@ -8,10 +9,24 @@ namespace Core_Scripts {
         [SerializeField] private SOBaseGameEvent _gameOverEvent;
         private int _elapsedTimeInSeconds;
         private float _startTime;
+        private LevelTimerUI[] _levelTimerUI;
+
+        private void Awake() {
+            _levelTimerUI = GetComponentsInChildren<LevelTimerUI>(true);
+        }
+
+        private void Start() {
+            StartTimer();
+        }
 
         [ContextMenu("Start Timer")]
         public void StartTimer() {
             _startTime = Time.time;
+            
+            foreach (var timerUI in _levelTimerUI) {
+                timerUI.PlaySound();
+            }
+            
             StartCoroutine(StartTimerCO());
         }
         
