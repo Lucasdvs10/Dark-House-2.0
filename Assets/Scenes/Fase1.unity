@@ -195,7 +195,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 28.47513
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -8950,7 +8950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ac4841e38543e6990ccf856438162c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayInSeconds: 60
+  _delayInSeconds: 540
   _audioClip: {fileID: 8300000, guid: 5e5baf3058d747c47b69553b36ad12ea, type: 3}
 --- !u!82 &1242801415
 AudioSource:
@@ -8972,7 +8972,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 19.995012
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -9038,7 +9038,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -9760,7 +9760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ac4841e38543e6990ccf856438162c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayInSeconds: 120
+  _delayInSeconds: 480
   _audioClip: {fileID: 8300000, guid: c361385201e8c7244af478538073854e, type: 3}
 --- !u!82 &1937450621
 AudioSource:
@@ -9782,7 +9782,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 23.337877
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
