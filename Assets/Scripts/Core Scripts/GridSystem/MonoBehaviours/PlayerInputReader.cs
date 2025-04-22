@@ -21,6 +21,10 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             if (ctx.performed) {
                 var directionRed = ctx.ReadValue<Vector2>();
                 var directionInGrid = new Vector2Int(Mathf.RoundToInt(-directionRed.y), Mathf.RoundToInt(directionRed.x));
+                // Cima -1, 0
+                // Baixo 1, 0
+                // Esquerda 0, -1
+                // Direita 0, 1
                 _playerKeyPressedSingleton.Value = directionInGrid;
                 
                 if(directionInGrid != Vector2Int.zero)
