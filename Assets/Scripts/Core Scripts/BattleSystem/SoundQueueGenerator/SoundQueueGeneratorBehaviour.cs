@@ -16,6 +16,9 @@ namespace Core_Scripts.BattleSystem.SoundQueueGenerator {
         }
 
         public Queue<string> GenerateSoundQueue(int queueLength) {
+            if(_soundQueueGenerator is null)
+                Debug.LogError("Sound Queue Generator is not initialized");
+            
             return _soundQueueGenerator.GenerateSoundQueueToDefeat(queueLength);
         }
     }

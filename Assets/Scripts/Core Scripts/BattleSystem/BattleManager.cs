@@ -32,12 +32,7 @@ namespace Core_Scripts.BattleSystem {
         }
 
         private void OnEnable() {
-            _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
-
-            _audioTimer.StartTimer();
-            _playerInputEvent.Subscribe(VerifyPlayerAttack);
-            
-            SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
+            StartBattle();
         }
 
         private void OnDisable() {
@@ -46,7 +41,16 @@ namespace Core_Scripts.BattleSystem {
         }
 
         public void StartBattle() {
+            _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
+
+            _audioTimer.StartTimer();
+            _playerInputEvent.Subscribe(VerifyPlayerAttack);
+            
+            SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
+            
             _startBattleEventToEmit.InvokeEvent();
+            
+            print("Starting Battle");
         }
 
         public void VerifyPlayerAttack() {
