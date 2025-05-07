@@ -26,12 +26,13 @@ namespace Core_Scripts.BattleSystem {
         private AudioSource _audioSourceBattleSFX;
         private int _currentPhase = 0;
         private int _currentIndexAudio;
+        private float _currentAudioDuration;
         
         private void Awake() {
             _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
             _soundListGenerator = GetComponent<ISoundQueueGenerator>();
             // _audioTimer = GetComponent<AudioTimer>();
-            _audioSourceBattleSFX = GetComponents<AudioSource>()[1];
+            _audioSourceBattleSFX = GetComponent<AudioSource>();
         }
 
         private void OnEnable() {
@@ -44,12 +45,10 @@ namespace Core_Scripts.BattleSystem {
         }
 
         public void StartBattle() {
-            // _audioTimer.StartTimer();
-            
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
             StartNextPhase();
             _startBattleEventToEmit.InvokeEvent();
-            print("Starting Battle");
+            print("Iniciando Simon Says");
         }
 
         private void StartNextPhase() {
@@ -59,11 +58,19 @@ namespace Core_Scripts.BattleSystem {
             StartCoroutine(PlayAllAudiosFromList());
         }
 
+        public void StopCOsAndPlayAllAudios() {
+            StopAllCoroutines();
+            StartCoroutine(PlayAllAudiosFromList());
+        }
+        
         IEnumerator PlayAllAudiosFromList() {
+            _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
+            
             foreach (var audio in _currentAudioList) {
                 SetSoundToAudioClip(audio, 0);
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(_currentAudioDuration);
             }
+            _playerInputEvent.Subscribe(VerifyPlayerAttack);
         }
 
         public void VerifyPlayerAttack() {
@@ -72,8 +79,6 @@ namespace Core_Scripts.BattleSystem {
             
             if (!isAttackCorrect) {
                 _missedAttackEventToEmit.InvokeEvent();
-                print("Errou, mano");
-                // StartCoroutine(PlayAllAudiosFromQueue());
                 _currentIndexAudio = 0;
                 return;
             }
@@ -96,6 +101,7 @@ namespace Core_Scripts.BattleSystem {
             var audioClip = Resources.Load<AudioClip>($"SoundSystem/SoundBattles/{clipName}");
             
             _audioSourceBattleSFX.clip = audioClip;
+            _currentAudioDuration = audioClip.length;
             _audioSourceBattleSFX.PlayDelayed(delay);
         }
     }
