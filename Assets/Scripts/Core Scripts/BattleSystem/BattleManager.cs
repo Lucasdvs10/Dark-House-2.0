@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Core_Scripts.BattleSystem.PlayerValidatorCommand;
 using Core_Scripts.BattleSystem.Timer;
 using Core_Scripts.SOSingletons;
@@ -9,7 +10,7 @@ using UnityEngine;
 namespace Core_Scripts.BattleSystem {
     [RequireComponent(typeof(IPlayerValidatorCommand), typeof(ISoundQueueGenerator), typeof(AudioTimer))]
     public class BattleManager : MonoBehaviour {
-        [SerializeField] private int _queueBattleLenght;
+        [SerializeField] private int _phasesAmount = 1;
         [SerializeField] private SOVec2IntSingleton _playerInputSingleton;
         [SerializeField] private SOBaseGameEvent _playerInputEvent;
         [SerializeField] private SOBaseGameEvent _missedAttackEventToEmit;
@@ -19,15 +20,17 @@ namespace Core_Scripts.BattleSystem {
         [SerializeField] private SOBaseGameEvent _duelStateDisabled;
         
         private IPlayerValidatorCommand _playerValidatorCommand;
-        private ISoundQueueGenerator _soundQueueGenerator;
-        private Queue<string> _generatedBattleQueue;
+        private ISoundQueueGenerator _soundListGenerator;
+        private List<string> _currentAudioList;
         private AudioTimer _audioTimer;
         private AudioSource _audioSourceBattleSFX;
+        private int _currentPhase = 0;
+        private int _currentIndexAudio;
         
         private void Awake() {
             _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
-            _soundQueueGenerator = GetComponent<ISoundQueueGenerator>();
-            _audioTimer = GetComponent<AudioTimer>();
+            _soundListGenerator = GetComponent<ISoundQueueGenerator>();
+            // _audioTimer = GetComponent<AudioTimer>();
             _audioSourceBattleSFX = GetComponents<AudioSource>()[1];
         }
 
@@ -41,46 +44,52 @@ namespace Core_Scripts.BattleSystem {
         }
 
         public void StartBattle() {
-            _generatedBattleQueue = _soundQueueGenerator.GenerateSoundQueue(_queueBattleLenght);
-
-            _audioTimer.StartTimer();
+            // _audioTimer.StartTimer();
+            
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
-            
-            SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
-            
+            StartNextPhase();
             _startBattleEventToEmit.InvokeEvent();
-            
             print("Starting Battle");
         }
 
-        public void VerifyPlayerAttack() {
-            if (_queueBattleLenght <= 0) {
-                print("O tamanho da lista é zero!");
-                _endBattleEventToEmit.InvokeEvent();
-                return;
-            }
-            
-            
-            var playerMovement = _playerInputSingleton.Value;
-            
-            bool isAttackCorrect = _playerValidatorCommand.ValidateCommand(playerMovement, ref _generatedBattleQueue);
-            bool isBattleOver = _generatedBattleQueue.Count <= 0;
-            
-            if(!isAttackCorrect)
-                _missedAttackEventToEmit.InvokeEvent();
+        private void StartNextPhase() {
+            _currentPhase++;
+            _currentIndexAudio = 0;
+            _currentAudioList = _soundListGenerator.GenerateSoundList(_currentPhase);
+            StartCoroutine(PlayAllAudiosFromList());
+        }
 
-            if (isBattleOver) {
-                _endBattleEventToEmit.InvokeEvent();
+        IEnumerator PlayAllAudiosFromList() {
+            foreach (var audio in _currentAudioList) {
+                SetSoundToAudioClip(audio, 0);
+                yield return new WaitForSeconds(3);
+            }
+        }
+
+        public void VerifyPlayerAttack() {
+            var playerMovement = _playerInputSingleton.Value;
+            bool isAttackCorrect = _playerValidatorCommand.ValidateCommand(playerMovement, ref _currentAudioList, _currentIndexAudio);
+            
+            if (!isAttackCorrect) {
+                _missedAttackEventToEmit.InvokeEvent();
+                print("Errou, mano");
+                // StartCoroutine(PlayAllAudiosFromQueue());
+                _currentIndexAudio = 0;
                 return;
             }
             
-            if (isAttackCorrect) {
-                _correctAttackEventToEmit.InvokeEvent();
-                SetSoundToAudioClip(_generatedBattleQueue.Peek(), 1);
+            _correctAttackEventToEmit.InvokeEvent();
+            _currentIndexAudio++;
+            
+            if (_currentIndexAudio >= _currentAudioList.Count) {
+                if (_currentPhase >= _phasesAmount) { 
+                    print("Fim do jogo");
+                    _endBattleEventToEmit.InvokeEvent();
+                    return;
+                }
+                print("Fim da fase");
+                StartNextPhase();
             }
-            
-            
-            print($"O tamanho da fila é: {_generatedBattleQueue.Count}");
         }
 
         private void SetSoundToAudioClip(string clipName, ulong delay) {

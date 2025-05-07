@@ -26,9 +26,9 @@ namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
             _playerValidadorCommand = new PlayerValidadorCommand(_commandSoundMap);
         }
 
-        public bool ValidateCommand(Vector2Int command, ref Queue<string> commandsToDefeat) {
+        public bool ValidateCommand(Vector2Int command, ref List<string> commandsToDefeat, int currentSoundIndex = 0) {
             if (_commandSoundMap.ContainsKey(command)) {
-                return _playerValidadorCommand.Validate(command, ref commandsToDefeat);
+                return _playerValidadorCommand.Validate(command, ref commandsToDefeat, currentSoundIndex);
             }
             
             return false;

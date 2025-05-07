@@ -3,6 +3,6 @@ using UnityEngine;
 
 namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
     public interface IPlayerValidatorCommand {
-        bool ValidateCommand(Vector2Int command, ref Queue<string> commandsToDefeat);
+        bool ValidateCommand(Vector2Int command, ref List<string> commandsToDefeat, int currentSoundIndex = 0);
     }
 }

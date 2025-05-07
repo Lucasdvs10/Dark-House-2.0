@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 
 namespace Core_Scripts.BattleSystem.SoundQueueGenerator {
-    public class SoundQueueGenerator {
+    public class SoundListGenerator {
         private List<string> _allSoundsList;
 
-        public Queue<string> GenerateSoundQueueToDefeat(int queueLength) {
-            var queueToReturn = new Queue<string>();
+        public List<string> GenerateSoundQueueToDefeat(int queueLength) {
+            var listToReturn = new List<string>();
 
             for (int i = 0; i < queueLength; i++) {
                 var randomSound = GetRandomItemFromList<string>(_allSoundsList);
-                queueToReturn.Enqueue(randomSound);
+                listToReturn.Add(randomSound);
             }
-            return queueToReturn;
+            return listToReturn;
         }
 
         private T GetRandomItemFromList<T>(List<T> listToPick) {
@@ -21,7 +21,7 @@ namespace Core_Scripts.BattleSystem.SoundQueueGenerator {
 
             return listToPick[randomIndex];
         }
-        public SoundQueueGenerator(List<string> allSoundsList) {
+        public SoundListGenerator(List<string> allSoundsList) {
             _allSoundsList = allSoundsList;
         }
     }

@@ -2,6 +2,6 @@
 
 namespace Unit_Tests {
     public interface ISoundQueueGenerator {
-        Queue<string> GenerateSoundQueue(int queueLength);
+        List<string> GenerateSoundList(int listLength);
     }
 }
