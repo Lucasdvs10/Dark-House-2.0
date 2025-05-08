@@ -362,16 +362,13 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: 0, y: -1}
   _northAudioClipsArray:
-  - {fileID: 8300000, guid: d6b85a0243a21ad4493fde5e6a154d78, type: 3}
-  - {fileID: 8300000, guid: 6bf6a200097dcff468a6ec2303bdd7b4, type: 3}
+  - {fileID: 8300000, guid: 11e3683fac316c3478873bdfebae0bc7, type: 3}
   _southAudioClipsArray:
-  - {fileID: 8300000, guid: cb6453a1891e43e498b6dd03afb76575, type: 3}
-  - {fileID: 8300000, guid: a609e9f5b573def4192f15bc7062b9bf, type: 3}
+  - {fileID: 8300000, guid: 920fbd43d5426ff45b8e51707bdf278f, type: 3}
   _eastAudioClipsArray:
-  - {fileID: 8300000, guid: 22aa931fd633b9647ad7f37d84865292, type: 3}
+  - {fileID: 8300000, guid: 94fb02f4664d5b24aaf423e8019e2136, type: 3}
   _westAudioClipsArray:
-  - {fileID: 8300000, guid: 0454f3cc6a6d6454588a7b8064b532de, type: 3}
-  - {fileID: 8300000, guid: f4103886ec5973746a794d9ae7469f50, type: 3}
+  - {fileID: 8300000, guid: dbd081cbbea70084090336e794b316c7, type: 3}
 --- !u!114 &768937738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,11 +393,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8deb3bfb2ee4be6aa5e3741268bcec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _phasesAmount: 2
+  _phasesAmount: 4
   _playerInputSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _playerInputEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _missedAttackEventToEmit: {fileID: 11400000, guid: 17a0d77a055f58f49b907da48c0cec8b, type: 2}
   _correctAttackEventToEmit: {fileID: 11400000, guid: 2a816f3d1619d464a905a98aea3c7b38, type: 2}
+  _phaseClearedEventToEmit: {fileID: 11400000, guid: 9815b68f0d0a65e42919092df6c5ce1f, type: 2}
   _endBattleEventToEmit: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
   _startBattleEventToEmit: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
   _duelStateDisabled: {fileID: 11400000, guid: 507a32f644a4d264386775642fbabca4, type: 2}
@@ -583,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e20deebc6c4d2d8de8a3cd9210f413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventKey: {fileID: 11400000, guid: 2a816f3d1619d464a905a98aea3c7b38, type: 2}
+  _eventKey: {fileID: 11400000, guid: 9815b68f0d0a65e42919092df6c5ce1f, type: 2}
   _audioClip: {fileID: 8300000, guid: ba1f71d67f43b1b48a8945d43c2ee5ba, type: 3}
 --- !u!114 &960908220
 MonoBehaviour:

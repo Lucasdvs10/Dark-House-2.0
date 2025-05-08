@@ -15,6 +15,7 @@ namespace Core_Scripts.BattleSystem {
         [SerializeField] private SOBaseGameEvent _playerInputEvent;
         [SerializeField] private SOBaseGameEvent _missedAttackEventToEmit;
         [SerializeField] private SOBaseGameEvent _correctAttackEventToEmit;
+        [SerializeField] private SOBaseGameEvent _phaseClearedEventToEmit;
         [SerializeField] private SOBaseGameEvent _endBattleEventToEmit;
         [SerializeField] private SOBaseGameEvent _startBattleEventToEmit;
         [SerializeField] private SOBaseGameEvent _duelStateDisabled;
@@ -93,6 +94,7 @@ namespace Core_Scripts.BattleSystem {
                     return;
                 }
                 print("Fim da fase");
+                _phaseClearedEventToEmit.InvokeEvent();
                 StartNextPhase();
             }
         }
