@@ -10,6 +10,7 @@ namespace Core_Scripts.SymonSaysSystem {
     [RequireComponent(typeof(IPlayerValidatorCommand), typeof(ISoundQueueGenerator))]
     public class SimonSays : MonoBehaviour {
         [SerializeField] private int _phasesAmount = 1;
+        [SerializeField] private float _deleayToLoopInSeconds = 5;
         [SerializeField] private SOVec2IntSingleton _playerInputSingleton;
         [SerializeField] private SOBaseGameEvent _playerInputEvent;
         [SerializeField] private SOBaseGameEvent _missedAttackEventToEmit;
@@ -26,6 +27,8 @@ namespace Core_Scripts.SymonSaysSystem {
         private int _currentPhase = 0;
         private int _currentIndexAudio;
         private float _currentAudioDuration;
+
+        private Coroutine _playAllAudiosInLoopCO;
         
         private void Awake() {
             _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
@@ -53,18 +56,35 @@ namespace Core_Scripts.SymonSaysSystem {
             _currentPhase++;
             _currentIndexAudio = 0;
             _currentAudioList = _soundListGenerator.GenerateSoundList(_currentPhase);
-            StartCoroutine(PlayAllAudiosFromList());
+            StartCoroutine(StartNextPhaseCO());
+        }
+
+        public void StartAllAudiosLoopCO() {
+            _playAllAudiosInLoopCO = StartCoroutine(PlayAllAudiosInLoopCO());
+        }
+
+        IEnumerator PlayAllAudiosInLoopCO() {
+            for (var i = 0; i < 10000; i++) {
+                print("Começou o loop");
+                yield return new WaitForSeconds(_deleayToLoopInSeconds);
+                yield return PlayAllAudiosFromList(0);
+            }
         }
 
         public void StopCOsAndPlayAllAudios() {
             StopAllCoroutines();
             StartCoroutine(PlayAllAudiosFromList());
         }
+
+        public IEnumerator StartNextPhaseCO() {
+            yield return PlayAllAudiosFromList();
+            StartAllAudiosLoopCO();
+        }
         
-        IEnumerator PlayAllAudiosFromList() {
+        IEnumerator PlayAllAudiosFromList(float initialDelay = 1.5f) {
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
             
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(initialDelay);
             foreach (var audio in _currentAudioList) {
                 SetSoundToAudioClip(audio, 0);
                 yield return new WaitForSeconds(_currentAudioDuration);
@@ -76,12 +96,13 @@ namespace Core_Scripts.SymonSaysSystem {
             var playerMovement = _playerInputSingleton.Value;
             bool isAttackCorrect = _playerValidatorCommand.ValidateCommand(playerMovement, ref _currentAudioList, _currentIndexAudio);
             
+            StopCoroutine(_playAllAudiosInLoopCO);
+            
             if (!isAttackCorrect) {
                 _missedAttackEventToEmit.InvokeEvent();
                 _currentIndexAudio = 0;
                 return;
             }
-
             
             _correctAttackEventToEmit.InvokeEvent();
             _currentIndexAudio++;
