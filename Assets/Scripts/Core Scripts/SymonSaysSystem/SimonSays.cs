@@ -64,6 +64,7 @@ namespace Core_Scripts.SymonSaysSystem {
         IEnumerator PlayAllAudiosFromList() {
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
             
+            yield return new WaitForSeconds(1.5f);
             foreach (var audio in _currentAudioList) {
                 SetSoundToAudioClip(audio, 0);
                 yield return new WaitForSeconds(_currentAudioDuration);
@@ -80,6 +81,7 @@ namespace Core_Scripts.SymonSaysSystem {
                 _currentIndexAudio = 0;
                 return;
             }
+
             
             _correctAttackEventToEmit.InvokeEvent();
             _currentIndexAudio++;
@@ -93,6 +95,10 @@ namespace Core_Scripts.SymonSaysSystem {
                 print("Fim da fase");
                 _phaseClearedEventToEmit.InvokeEvent();
                 StartNextPhase();
+            }
+            else {
+                var clipName = _playerValidatorCommand.CommandSoundMap()[playerMovement];
+                SetSoundToAudioClip(clipName[0], 0);
             }
         }
 
