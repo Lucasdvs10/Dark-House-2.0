@@ -136,8 +136,6 @@ GameObject:
   - component: {fileID: 768937738}
   - component: {fileID: 768937737}
   - component: {fileID: 768937736}
-  - component: {fileID: 768937735}
-  - component: {fileID: 768937734}
   - component: {fileID: 768937732}
   - component: {fileID: 768937731}
   m_Layer: 0
@@ -271,51 +269,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &768937734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768937730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46bba4791b94d7aa2b3baf8a9e38850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audiosArray:
-  - {fileID: 8300000, guid: f886506a493667941a5916e29e00166f, type: 3}
-  - {fileID: 8300000, guid: b4ea67358fa4f4c49971b2de36938325, type: 3}
-  - {fileID: 8300000, guid: a592596b7d712a5438e556e3e45875e5, type: 3}
---- !u!114 &768937735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768937730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 469badfecee345be9de4c48ce56a3f07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _endBattleEvent: {fileID: 11400000, guid: 56e7bc7c0e7813244bc8bd2028cd7b93, type: 2}
-  _battleDurationInSeconds: 30
-  _partTimerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 768937734}
-        m_TargetAssemblyTypeName: Core_Scripts.BattleSystem.Timer.AudioTimer, Core
-        m_MethodName: PlayAudioFromArray
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &768937736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768937730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8500023, y: 7.2700043, z: 0}
+  m_LocalPosition: {x: 15.35, y: -4.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -520,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960908214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.547695, y: -2.0075474, z: 8.40522}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

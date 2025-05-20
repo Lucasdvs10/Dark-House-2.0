@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Core_Scripts.BattleSystem.PlayerValidatorCommand;
-using Core_Scripts.BattleSystem.Timer;
 using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using Unit_Tests;
 using UnityEngine;
 
-namespace Core_Scripts.BattleSystem {
-    [RequireComponent(typeof(IPlayerValidatorCommand), typeof(ISoundQueueGenerator), typeof(AudioTimer))]
-    public class BattleManager : MonoBehaviour {
+namespace Core_Scripts.SymonSaysSystem {
+    [RequireComponent(typeof(IPlayerValidatorCommand), typeof(ISoundQueueGenerator))]
+    public class SimonSays : MonoBehaviour {
         [SerializeField] private int _phasesAmount = 1;
         [SerializeField] private SOVec2IntSingleton _playerInputSingleton;
         [SerializeField] private SOBaseGameEvent _playerInputEvent;
@@ -23,7 +22,6 @@ namespace Core_Scripts.BattleSystem {
         private IPlayerValidatorCommand _playerValidatorCommand;
         private ISoundQueueGenerator _soundListGenerator;
         private List<string> _currentAudioList;
-        private AudioTimer _audioTimer;
         private AudioSource _audioSourceBattleSFX;
         private int _currentPhase = 0;
         private int _currentIndexAudio;
@@ -32,7 +30,6 @@ namespace Core_Scripts.BattleSystem {
         private void Awake() {
             _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
             _soundListGenerator = GetComponent<ISoundQueueGenerator>();
-            // _audioTimer = GetComponent<AudioTimer>();
             _audioSourceBattleSFX = GetComponent<AudioSource>();
         }
 
