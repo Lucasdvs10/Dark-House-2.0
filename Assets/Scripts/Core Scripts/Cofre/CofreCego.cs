@@ -9,6 +9,14 @@ public class CofreCego : MonoBehaviour
     [Range(0, 20)] public int codeDigit2;
     [Range(0, 20)] public int codeDigit3;
 
+    [Header("Áudios")]
+    public AudioClip dialTurnClip;
+    public AudioClip failClip;
+    public AudioClip successClip;
+    public AudioClip correctDigitClip;
+    private AudioSource audioSource;
+
+
     [Header("Ordem de Direção")]
     [Tooltip("Se verdadeiro: Esquerda-Direita-Esquerda | Se falso: Direita-Esquerda-Direita")]
     public bool isLeftRightLeft = true;
@@ -24,6 +32,8 @@ public class CofreCego : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60; // Limita FPS a 60
+
+        audioSource = GetComponent<AudioSource>();
 
         codeSequence = new int[] { codeDigit1, codeDigit2, codeDigit3 };
         directionPattern = isLeftRightLeft ?
@@ -47,6 +57,8 @@ public class CofreCego : MonoBehaviour
             lastTurnDirection = Direction.Left;
             WrapDial();
             Debug.Log($"Disco girado para a ESQUERDA. Posição atual: {currentDialPosition}");
+            audioSource.PlayOneShot(dialTurnClip);
+
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -54,6 +66,8 @@ public class CofreCego : MonoBehaviour
             lastTurnDirection = Direction.Right;
             WrapDial();
             Debug.Log($"Disco girado para a DIREITA. Posição atual: {currentDialPosition}");
+            audioSource.PlayOneShot(dialTurnClip);
+
         }
     }
 
@@ -78,17 +92,20 @@ public class CofreCego : MonoBehaviour
             if (currentDialPosition == codeSequence[currentInputIndex] && lastTurnDirection == expectedDirection)
             {
                 Debug.Log($"Entrada {currentInputIndex + 1} correta: {currentDialPosition} ({lastTurnDirection})");
+                audioSource.PlayOneShot(correctDigitClip);
                 currentInputIndex++;
 
                 if (currentInputIndex == 3)
                 {
                     Debug.Log("Cofre destrancado com sucesso!");
-                    // Aqui você pode adicionar ações adicionais, como tocar um som, animar, etc.
+                    audioSource.PlayOneShot(successClip);
+                    
                 }
             }
             else
             {
                 Debug.LogWarning("Entrada incorreta! Cofre resetado.");
+                audioSource.PlayOneShot(failClip);
                 ResetLock();
             }
 
