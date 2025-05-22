@@ -1,0 +1,106 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CofreCego : MonoBehaviour
+{
+    [Header("Senha do Cofre (0 a 20)")]
+    [Range(0, 20)] public int codeDigit1;
+    [Range(0, 20)] public int codeDigit2;
+    [Range(0, 20)] public int codeDigit3;
+
+    [Header("Ordem de Direção")]
+    [Tooltip("Se verdadeiro: Esquerda-Direita-Esquerda | Se falso: Direita-Esquerda-Direita")]
+    public bool isLeftRightLeft = true;
+
+    private int[] codeSequence;
+    private bool[] directionPattern;
+
+    private int currentInputIndex = 0;
+    private int currentDialPosition = 0;
+    private enum Direction { None, Left, Right }
+    private Direction lastTurnDirection = Direction.None;
+
+    void Start()
+    {
+        Application.targetFrameRate = 60; // Limita FPS a 60
+
+        codeSequence = new int[] { codeDigit1, codeDigit2, codeDigit3 };
+        directionPattern = isLeftRightLeft ?
+            new bool[] { true, false, true } : // true = esquerda, false = direita
+            new bool[] { false, true, false };
+
+        Debug.Log("Cofre iniciado. Gire o disco e confirme com Enter.");
+    }
+
+    void Update()
+    {
+        HandleDialInput();
+        HandleConfirmation();
+    }
+
+    void HandleDialInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            currentDialPosition--;
+            lastTurnDirection = Direction.Left;
+            WrapDial();
+            Debug.Log($"Disco girado para a ESQUERDA. Posição atual: {currentDialPosition}");
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            currentDialPosition++;
+            lastTurnDirection = Direction.Right;
+            WrapDial();
+            Debug.Log($"Disco girado para a DIREITA. Posição atual: {currentDialPosition}");
+        }
+    }
+
+    void WrapDial()
+    {
+        if (currentDialPosition < 0)
+            currentDialPosition = 20;
+        else if (currentDialPosition > 20)
+            currentDialPosition = 0;
+    }
+
+    void HandleConfirmation()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (currentInputIndex >= 3)
+                return;
+
+            bool expectedLeft = directionPattern[currentInputIndex];
+            Direction expectedDirection = expectedLeft ? Direction.Left : Direction.Right;
+
+            if (currentDialPosition == codeSequence[currentInputIndex] && lastTurnDirection == expectedDirection)
+            {
+                Debug.Log($"Entrada {currentInputIndex + 1} correta: {currentDialPosition} ({lastTurnDirection})");
+                currentInputIndex++;
+
+                if (currentInputIndex == 3)
+                {
+                    Debug.Log("Cofre destrancado com sucesso!");
+                    // Aqui você pode adicionar ações adicionais, como tocar um som, animar, etc.
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Entrada incorreta! Cofre resetado.");
+                ResetLock();
+            }
+
+            // Bloqueia nova confirmação até que usuário gire o disco de novo
+            lastTurnDirection = Direction.None;
+        }
+    }
+
+    void ResetLock()
+    {
+        currentInputIndex = 0;
+        currentDialPosition = 0;
+        lastTurnDirection = Direction.None;
+    }
+}
