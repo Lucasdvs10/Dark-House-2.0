@@ -16,7 +16,6 @@ namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
 
         private void Awake() {
             _commandSoundMap = new Dictionary<Vector2Int, string[]>();
-            var soundNamesValues = _northAudioClipsArray.GetAllClipsNamesArray();
 
             _commandSoundMap.Add(_commandKeysArray[0], _northAudioClipsArray.GetAllClipsNamesArray());
             _commandSoundMap.Add(_commandKeysArray[1], _southAudioClipsArray.GetAllClipsNamesArray());
@@ -26,12 +25,14 @@ namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
             _playerValidadorCommand = new PlayerValidadorCommand(_commandSoundMap);
         }
 
-        public bool ValidateCommand(Vector2Int command, ref Queue<string> commandsToDefeat) {
+        public bool ValidateCommand(Vector2Int command, ref List<string> commandsToDefeat, int currentSoundIndex = 0) {
             if (_commandSoundMap.ContainsKey(command)) {
-                return _playerValidadorCommand.Validate(command, ref commandsToDefeat);
+                return _playerValidadorCommand.Validate(command, ref commandsToDefeat, currentSoundIndex);
             }
             
             return false;
         }
+
+        public Dictionary<Vector2Int, string[]> CommandSoundMap() => _commandSoundMap;
     }
 }

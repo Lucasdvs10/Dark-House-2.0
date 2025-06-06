@@ -6,15 +6,11 @@ namespace Core_Scripts.BattleSystem.PlayerValidatorCommand {
     public class PlayerValidadorCommand {
         private Dictionary<Vector2Int, string[]> _commandAudioMap = new Dictionary<Vector2Int, string[]>();
 
-        public bool Validate(Vector2Int command, ref Queue<string> commandsToDefeat) {
-            var currentSound = commandsToDefeat.Peek();
+        public bool Validate(Vector2Int command, ref List<string> commandsToDefeat, int currentSoundIndex = 0) {
+            var currentSound = commandsToDefeat[currentSoundIndex];
             var desiredSoundArray = _commandAudioMap[command];
 
             var isComandCorrect = desiredSoundArray.Contains(currentSound);
-
-            if (isComandCorrect) 
-                commandsToDefeat.Dequeue();
-            
 
             return isComandCorrect;
         }

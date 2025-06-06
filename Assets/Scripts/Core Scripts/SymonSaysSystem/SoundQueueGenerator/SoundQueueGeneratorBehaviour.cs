@@ -6,17 +6,20 @@ using UnityEngine;
 
 namespace Core_Scripts.BattleSystem.SoundQueueGenerator {
     public class SoundQueueGeneratorBehaviour : MonoBehaviour, ISoundQueueGenerator {
-        private SoundQueueGenerator _soundQueueGenerator;
+        private SoundListGenerator _soundListGenerator;
 
         private void Awake() {
             var allSounds = Resources.LoadAll<AudioClip>($"SoundSystem/SoundBattles");
             var allSoundNamesArray = allSounds.GetAllClipsNamesArray();
 
-            _soundQueueGenerator = new SoundQueueGenerator(allSoundNamesArray.ToList());
+            _soundListGenerator = new SoundListGenerator(allSoundNamesArray.ToList());
         }
 
-        public Queue<string> GenerateSoundQueue(int queueLength) {
-            return _soundQueueGenerator.GenerateSoundQueueToDefeat(queueLength);
+        public List<string> GenerateSoundList(int listLength) {
+            if(_soundListGenerator is null)
+                Debug.LogError("Sound Queue Generator is not initialized");
+            
+            return _soundListGenerator.GenerateSoundQueueToDefeat(listLength);
         }
     }
 }
