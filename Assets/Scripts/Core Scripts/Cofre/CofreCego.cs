@@ -1,7 +1,14 @@
+using Core_Scripts.SOSingletons;
+using GameScripts.GameEvent;
 using UnityEngine;
 
 public class CofreCego : MonoBehaviour
 {
+    [SerializeField] private SOVec2IntSingleton _playerInputSingleton; 
+    [SerializeField] private SOBaseGameEvent _playerInputEvent;
+    [SerializeField] private SOBaseGameEvent _confirmationBtnPressedEvent;
+    [SerializeField] private SOBaseGameEvent _miniGameStarted;
+    [SerializeField] private SOBaseGameEvent _miniGameEnded;
     [Header("Senha do Cofre (0 a 20)")]
     [Range(0, 20)] public int codeDigit1;
     [Range(0, 20)] public int codeDigit2;
@@ -15,7 +22,7 @@ public class CofreCego : MonoBehaviour
     private AudioSource audioSource;
 
 
-    [Header("Ordem de Direita")]
+    [Header("Ordem de Giro")]
     [Tooltip("Se verdadeiro: Esquerda-Direita-Esquerda | Se falso: Direita-Esquerda-Direita")]
     public bool isLeftRightLeft = true;
 
@@ -27,7 +34,18 @@ public class CofreCego : MonoBehaviour
     private enum Direction { None, Left, Right }
     private Direction lastTurnDirection = Direction.None;
 
-    void Start()
+    private void OnEnable() {
+        _playerInputEvent.Subscribe(HandleDialInput);
+        _confirmationBtnPressedEvent.Subscribe(HandleConfirmation);
+        _miniGameStarted.InvokeEvent();
+    }
+
+    private void OnDisable() {
+        _playerInputEvent.Unsubscribe(HandleDialInput);
+        _confirmationBtnPressedEvent.Unsubscribe(HandleConfirmation);
+    }
+
+    void Awake()
     {
         Application.targetFrameRate = 60; // Limita FPS a 60
 
@@ -41,32 +59,37 @@ public class CofreCego : MonoBehaviour
         Debug.Log("Cofre iniciado. Gire o disco e confirme com Enter.");
     }
 
-    void Update()
-    {
-        HandleDialInput();
-        HandleConfirmation();
+    // void Update()
+    // {
+    //     HandleDialInput();
+    //     HandleConfirmation();
+    // }
+
+    void HandleDialInput() {
+        var playerInput = _playerInputSingleton.Value;
+        print(playerInput);
+        if (playerInput.y < 0) {
+            TurnLeft();
+        }
+        else if (playerInput.y > 0) {
+            TurnRight();
+        }
     }
 
-    void HandleDialInput()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            currentDialPosition--;
-            lastTurnDirection = Direction.Left;
-            WrapDial();
-            Debug.Log($"Disco girado para a ESQUERDA. Posi��o atual: {currentDialPosition}");
-            audioSource.PlayOneShot(dialTurnClip);
+    private void TurnRight() {
+        currentDialPosition++;
+        lastTurnDirection = Direction.Right;
+        WrapDial();
+        Debug.Log($"Disco girado para a DIREITA. Posição atual: {currentDialPosition}");
+        audioSource.PlayOneShot(dialTurnClip);
+    }
 
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            currentDialPosition++;
-            lastTurnDirection = Direction.Right;
-            WrapDial();
-            Debug.Log($"Disco girado para a DIREITA. Posi��o atual: {currentDialPosition}");
-            audioSource.PlayOneShot(dialTurnClip);
-
-        }
+    private void TurnLeft() {
+        currentDialPosition--;
+        lastTurnDirection = Direction.Left;
+        WrapDial();
+        Debug.Log($"Disco girado para a ESQUERDA. Posição atual: {currentDialPosition}");
+        audioSource.PlayOneShot(dialTurnClip);
     }
 
     void WrapDial()
@@ -79,37 +102,34 @@ public class CofreCego : MonoBehaviour
 
     void HandleConfirmation()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (currentInputIndex >= 3)
+            return;
+
+        bool expectedLeft = directionPattern[currentInputIndex];
+        Direction expectedDirection = expectedLeft ? Direction.Left : Direction.Right;
+
+        if (currentDialPosition == codeSequence[currentInputIndex] && lastTurnDirection == expectedDirection)
         {
-            if (currentInputIndex >= 3)
-                return;
+            Debug.Log($"Entrada {currentInputIndex + 1} correta: {currentDialPosition} ({lastTurnDirection})");
+            audioSource.PlayOneShot(correctDigitClip);
+            currentInputIndex++;
 
-            bool expectedLeft = directionPattern[currentInputIndex];
-            Direction expectedDirection = expectedLeft ? Direction.Left : Direction.Right;
-
-            if (currentDialPosition == codeSequence[currentInputIndex] && lastTurnDirection == expectedDirection)
+            if (currentInputIndex == 3)
             {
-                Debug.Log($"Entrada {currentInputIndex + 1} correta: {currentDialPosition} ({lastTurnDirection})");
-                audioSource.PlayOneShot(correctDigitClip);
-                currentInputIndex++;
-
-                if (currentInputIndex == 3)
-                {
-                    Debug.Log("Cofre destrancado com sucesso!");
-                    audioSource.PlayOneShot(successClip);
-                    
-                }
+                Debug.Log("Cofre destrancado com sucesso!");
+                audioSource.PlayOneShot(successClip);
+                _miniGameEnded.InvokeEvent();
             }
-            else
-            {
-                Debug.LogWarning("Entrada incorreta! Cofre resetado.");
-                audioSource.PlayOneShot(failClip);
-                ResetLock();
-            }
-
-            // Bloqueia nova confirma��o at� que usu�rio gire o disco de novo
-            lastTurnDirection = Direction.None;
         }
+        else
+        {
+            Debug.LogWarning("Entrada incorreta! Cofre resetado.");
+            audioSource.PlayOneShot(failClip);
+            ResetLock();
+        }
+
+        // Bloqueia nova confirma��o at� que usu�rio gire o disco de novo
+        lastTurnDirection = Direction.None;
     }
 
     void ResetLock()

@@ -223,6 +223,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3351306248980127053}
   - component: {fileID: 7535007778735791091}
+  - component: {fileID: 1740942423}
+  - component: {fileID: 750669270}
   m_Layer: 0
   m_Name: CanActivate
   m_TagString: Untagged
@@ -273,6 +275,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1740942423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608713613563392522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4932765c4b8a473d90f17685e3c0c6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerEventToEmmit:
+    m_PersistentCalls:
+      m_Calls: []
+  NextState: {fileID: 6452432125119054091}
+  distanceToPerceivePlayer: 3
+--- !u!114 &750669270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608713613563392522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4932765c4b8a473d90f17685e3c0c6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerEventToEmmit:
+    m_PersistentCalls:
+      m_Calls: []
+  NextState: {fileID: 6452432125119054091}
+  distanceToPerceivePlayer: 3
 --- !u!1 &7296350582374403852
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8038269720682478939}
   - component: {fileID: 388832255435496239}
-  - component: {fileID: 5223638680924341352}
   - component: {fileID: 5340050595264643489}
   m_Layer: 0
   m_Name: Activated
@@ -329,34 +364,6 @@ MonoBehaviour:
   _endBattleEventToEmit: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
   _startBattleEventToEmit: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
   _duelStateDisabled: {fileID: 11400000, guid: 507a32f644a4d264386775642fbabca4, type: 2}
---- !u!114 &5223638680924341352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7296350582374403852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventToListen: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
-  UnityEventEmiter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7296350582374403852}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &5340050595264643489
 MonoBehaviour:
   m_ObjectHideFlags: 0
