@@ -56,7 +56,7 @@ public class CofreCego : MonoBehaviour
             new bool[] { true, false, true } : // true = esquerda, false = direita
             new bool[] { false, true, false };
 
-        Debug.Log("Cofre iniciado. Gire o disco e confirme com Enter.");
+        // Debug.Log("Cofre iniciado. Gire o disco e confirme com Enter.");
     }
 
     // void Update()
@@ -67,7 +67,6 @@ public class CofreCego : MonoBehaviour
 
     void HandleDialInput() {
         var playerInput = _playerInputSingleton.Value;
-        print(playerInput);
         if (playerInput.y < 0) {
             TurnLeft();
         }
@@ -80,7 +79,7 @@ public class CofreCego : MonoBehaviour
         currentDialPosition++;
         lastTurnDirection = Direction.Right;
         WrapDial();
-        Debug.Log($"Disco girado para a DIREITA. Posição atual: {currentDialPosition}");
+        // Debug.Log($"Disco girado para a DIREITA. Posição atual: {currentDialPosition}");
         audioSource.PlayOneShot(dialTurnClip);
     }
 
@@ -88,7 +87,7 @@ public class CofreCego : MonoBehaviour
         currentDialPosition--;
         lastTurnDirection = Direction.Left;
         WrapDial();
-        Debug.Log($"Disco girado para a ESQUERDA. Posição atual: {currentDialPosition}");
+        // Debug.Log($"Disco girado para a ESQUERDA. Posição atual: {currentDialPosition}");
         audioSource.PlayOneShot(dialTurnClip);
     }
 
@@ -110,20 +109,20 @@ public class CofreCego : MonoBehaviour
 
         if (currentDialPosition == codeSequence[currentInputIndex] && lastTurnDirection == expectedDirection)
         {
-            Debug.Log($"Entrada {currentInputIndex + 1} correta: {currentDialPosition} ({lastTurnDirection})");
+            // Debug.Log($"Entrada {currentInputIndex + 1} correta: {currentDialPosition} ({lastTurnDirection})");
             audioSource.PlayOneShot(correctDigitClip);
             currentInputIndex++;
 
             if (currentInputIndex == 3)
             {
-                Debug.Log("Cofre destrancado com sucesso!");
+                // Debug.Log("Cofre destrancado com sucesso!");
                 audioSource.PlayOneShot(successClip);
                 _miniGameEnded.InvokeEvent();
             }
         }
         else
         {
-            Debug.LogWarning("Entrada incorreta! Cofre resetado.");
+            // Debug.LogWarning("Entrada incorreta! Cofre resetado.");
             audioSource.PlayOneShot(failClip);
             ResetLock();
         }

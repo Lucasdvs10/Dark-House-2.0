@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1526062556767637685}
   - component: {fileID: 1526062556767637682}
   - component: {fileID: 75215967}
+  - component: {fileID: 2302158253198429557}
   m_Layer: 0
   m_Name: Simon Says
   m_TagString: Untagged
@@ -213,6 +214,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialState: {fileID: 6452432125119054091}
+--- !u!114 &2302158253198429557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526062556767637683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d89aa9b2e8c42fea477cb033b06198d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2608713613563392522
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +333,7 @@ GameObject:
   - component: {fileID: 8038269720682478939}
   - component: {fileID: 388832255435496239}
   - component: {fileID: 5340050595264643489}
+  - component: {fileID: 2012344914}
   m_Layer: 0
   m_Name: Activated
   m_TagString: Untagged
@@ -384,6 +398,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2012344914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296350582374403852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f3109639e14fe98557d0e85224e840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soStartGameEvent: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
+  _onStateEnterGameEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 388832255435496239}
+        m_TargetAssemblyTypeName: Core_Scripts.SymonSaysSystem.SimonSays, Core
+        m_MethodName: StartBattle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

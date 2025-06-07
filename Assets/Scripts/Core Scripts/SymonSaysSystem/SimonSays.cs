@@ -36,19 +36,17 @@ namespace Core_Scripts.SymonSaysSystem {
             _audioSourceBattleSFX = GetComponentInParent<AudioSource>();
         }
 
-        private void OnEnable() {
-            StartBattle();
-        }
-
         private void OnDisable() {
             _duelStateDisabled.InvokeEvent();
             _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
         }
 
         public void StartBattle() {
-            _startBattleEventToEmit.InvokeEvent();
+            if(_soundListGenerator == null)
+                return;
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
             StartNextPhase();
+            _startBattleEventToEmit.InvokeEvent();
             print("Iniciando Simon Says");
             
         }
