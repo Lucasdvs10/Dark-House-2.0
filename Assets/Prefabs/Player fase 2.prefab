@@ -117,7 +117,7 @@ MonoBehaviour:
   _playerPressedButtonSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _pressedButtonEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _releasedButtonEvent: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
-  _collidedObjectEvent: {fileID: 0}
+  _collidedObjectEvent: {fileID: 11400000, guid: 4b690af019a3eeb47a86b99c876d7c43, type: 2}
   _rotationBtnPressed: {fileID: 11400000, guid: 6eed885ea7fc8e7448bdeb9aec04901f, type: 2}
   _initialDirection: 3
   OnChangeDirectionEvent:
@@ -258,6 +258,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 758d3f18-4746-4984-afa8-b3bbe9cbe23a
     m_ActionName: PlayerControls/ActivateMinigame[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3846482132908458044}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader,
+          Core
+        m_MethodName: ToggleTapaTelaInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 574f8c68-26be-4585-909e-1a982019df69
+    m_ActionName: PlayerControls/ToggleTapaTela[/Keyboard/rightCtrl,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
@@ -293,6 +310,7 @@ MonoBehaviour:
   _blockPauseButtonEvent: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
   _escPressedEvent: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
   _blockPauseButtonEvent2: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
+  _toggleTapaTelaEvent: {fileID: 0}
 --- !u!114 &3846482132908458046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7345767149513716767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 20.53, z: 0}
+  m_LocalPosition: {x: -0.22, y: -26.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

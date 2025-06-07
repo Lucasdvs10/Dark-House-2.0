@@ -1,5 +1,4 @@
-﻿using System;
-using Core_Scripts.SOSingletons;
+﻿using Core_Scripts.SOSingletons;
 using GameScripts.GameEvent;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +15,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent;
         [SerializeField] private SOBaseGameEvent _escPressedEvent;
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent2;
+        [SerializeField] private SOBaseGameEvent _toggleTapaTelaEvent;
         private bool _pauseButtonIsBlocked;
 
         public void ReadWASDInput(InputAction.CallbackContext ctx) {
@@ -82,5 +82,12 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 _enterKeyPressedEvent.InvokeEvent();
             }
         }
+
+        public void ToggleTapaTelaInput(InputAction.CallbackContext ctx) {
+            if (ctx.performed) {
+                _toggleTapaTelaEvent.InvokeEvent();
+            }
+        }
+        
     }
 }

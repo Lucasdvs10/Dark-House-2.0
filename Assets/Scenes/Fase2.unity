@@ -2268,8 +2268,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0040893555, y: 0.002319336}
-  m_SizeDelta: {x: -974.94, y: -508.02}
+  m_AnchoredPosition: {x: -0.010375977, y: -0.008514404}
+  m_SizeDelta: {x: -490.82, y: -293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785934189
 MonoBehaviour:
@@ -6428,6 +6428,7 @@ GameObject:
   - component: {fileID: 2094535723}
   - component: {fileID: 2094535722}
   - component: {fileID: 2094535721}
+  - component: {fileID: 2094535725}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6517,6 +6518,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2094535725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094535720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08742abba304186a17772415d5d0420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toggleTapaEvent: {fileID: 11400000, guid: 4b690af019a3eeb47a86b99c876d7c43, type: 2}
 --- !u!1001 &747740420804069731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6568,18 +6582,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3846482132908458033, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
+      propertyPath: _collidedObjectEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d10f467dc187ab46a9d11c8740b9c79, type: 2}
     - target: {fileID: 3846482132908458038, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3846482132908458044, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
+      propertyPath: _toggleTapaTelaEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b690af019a3eeb47a86b99c876d7c43, type: 2}
     - target: {fileID: 3846482133458856204, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
       propertyPath: _tileMapsGrid
       value: 
       objectReference: {fileID: 1942551563}
-    - target: {fileID: 6088775255373103795, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -26.35
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
 --- !u!1001 &8986450754801600207
