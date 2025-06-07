@@ -31,9 +31,9 @@ namespace Core_Scripts.SymonSaysSystem {
         private Coroutine _playAllAudiosInLoopCO;
         
         private void Awake() {
-            _playerValidatorCommand = GetComponent<IPlayerValidatorCommand>();
-            _soundListGenerator = GetComponent<ISoundQueueGenerator>();
-            _audioSourceBattleSFX = GetComponent<AudioSource>();
+            _playerValidatorCommand = GetComponentInParent<IPlayerValidatorCommand>();
+            _soundListGenerator = GetComponentInParent<ISoundQueueGenerator>();
+            _audioSourceBattleSFX = GetComponentInParent<AudioSource>();
         }
 
         private void OnEnable() {
@@ -46,10 +46,11 @@ namespace Core_Scripts.SymonSaysSystem {
         }
 
         public void StartBattle() {
+            _startBattleEventToEmit.InvokeEvent();
             _playerInputEvent.Subscribe(VerifyPlayerAttack);
             StartNextPhase();
-            _startBattleEventToEmit.InvokeEvent();
             print("Iniciando Simon Says");
+            
         }
 
         private void StartNextPhase() {
@@ -65,7 +66,6 @@ namespace Core_Scripts.SymonSaysSystem {
 
         IEnumerator PlayAllAudiosInLoopCO() {
             for (var i = 0; i < 10000; i++) {
-                print("Começou o loop");
                 yield return new WaitForSeconds(_deleayToLoopInSeconds);
                 yield return PlayAllAudiosFromList(0);
             }

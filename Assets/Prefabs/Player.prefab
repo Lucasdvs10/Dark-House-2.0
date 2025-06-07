@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1409dc312e34b1ba99e54eda4437d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridBehaviour: {fileID: 0}
   _speedCellsPerSecond: 2
   playerMoveCommandInvoked: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
   vec3Singleton: {fileID: 11400000, guid: 459859a36814b7b47b02d1b43dddd5d8, type: 2}
@@ -240,6 +239,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e1f8120e-8a6a-48f0-a1d3-ee4f06847d17
     m_ActionName: PlayerControls/Bussola[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4540177001518415607}
+        m_TargetAssemblyTypeName: Core_Scripts.GridSystem.MonoBehaviours.PlayerInputReader,
+          Core
+        m_MethodName: ReadEnterKeyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 758d3f18-4746-4984-afa8-b3bbe9cbe23a
+    m_ActionName: PlayerControls/ActivateMinigame[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
@@ -271,6 +287,7 @@ MonoBehaviour:
   _playerKeyPressedSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _eKeyPressedEvent: {fileID: 11400000, guid: 189a8ce1b453c9342955a01adbf45d97, type: 2}
   _spaceKeyPressedEvent: {fileID: 11400000, guid: 0956303cbcd89d64d82b751ba1c91db5, type: 2}
+  _enterKeyPressedEvent: {fileID: 11400000, guid: 21ccddf4bf7e8154b8c117945134c91c, type: 2}
   _blockPauseButtonEvent: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
   _escPressedEvent: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
   _blockPauseButtonEvent2: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CofreCego : MonoBehaviour
@@ -9,7 +7,7 @@ public class CofreCego : MonoBehaviour
     [Range(0, 20)] public int codeDigit2;
     [Range(0, 20)] public int codeDigit3;
 
-    [Header("¡udios")]
+    [Header("√Åudios")]
     public AudioClip dialTurnClip;
     public AudioClip failClip;
     public AudioClip successClip;
@@ -17,7 +15,7 @@ public class CofreCego : MonoBehaviour
     private AudioSource audioSource;
 
 
-    [Header("Ordem de DireÁ„o")]
+    [Header("Ordem de Direita")]
     [Tooltip("Se verdadeiro: Esquerda-Direita-Esquerda | Se falso: Direita-Esquerda-Direita")]
     public bool isLeftRightLeft = true;
 
@@ -56,7 +54,7 @@ public class CofreCego : MonoBehaviour
             currentDialPosition--;
             lastTurnDirection = Direction.Left;
             WrapDial();
-            Debug.Log($"Disco girado para a ESQUERDA. PosiÁ„o atual: {currentDialPosition}");
+            Debug.Log($"Disco girado para a ESQUERDA. PosiÔøΩÔøΩo atual: {currentDialPosition}");
             audioSource.PlayOneShot(dialTurnClip);
 
         }
@@ -65,7 +63,7 @@ public class CofreCego : MonoBehaviour
             currentDialPosition++;
             lastTurnDirection = Direction.Right;
             WrapDial();
-            Debug.Log($"Disco girado para a DIREITA. PosiÁ„o atual: {currentDialPosition}");
+            Debug.Log($"Disco girado para a DIREITA. PosiÔøΩÔøΩo atual: {currentDialPosition}");
             audioSource.PlayOneShot(dialTurnClip);
 
         }
@@ -109,7 +107,7 @@ public class CofreCego : MonoBehaviour
                 ResetLock();
             }
 
-            // Bloqueia nova confirmaÁ„o atÈ que usu·rio gire o disco de novo
+            // Bloqueia nova confirmaÔøΩÔøΩo atÔøΩ que usuÔøΩrio gire o disco de novo
             lastTurnDirection = Direction.None;
         }
     }

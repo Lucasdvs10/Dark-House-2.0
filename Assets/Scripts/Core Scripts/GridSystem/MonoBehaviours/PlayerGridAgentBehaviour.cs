@@ -8,7 +8,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
     public class PlayerGridAgentBehaviour : MonoBehaviour {
         public GridAgent GridAgent;
         public GridEntity GridEntity;
-        public GridBehaviour GridBehaviour;
+        private GridBehaviour _gridBehaviour;
         [SerializeField] private float _speedCellsPerSecond;
         [SerializeField] private SOBaseGameEvent playerMoveCommandInvoked;
         [SerializeField] private SOVec3Singleton vec3Singleton;
@@ -47,7 +47,8 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             _currentDirection = (int)_initialDirection;
             _gridDirection = _headDirections[_currentDirection];
             var thisPostion = transform.position;
-            GridEntity = GridBehaviour.GridEntity;
+            _gridBehaviour = FindObjectOfType<GridBehaviour>();
+            GridEntity = _gridBehaviour.GridEntity;
 
             var gridPos = new Vector2Int(GridEntity.GetCellFromWorldPos(thisPostion).row,
                 GridEntity.GetCellFromWorldPos(thisPostion).col);

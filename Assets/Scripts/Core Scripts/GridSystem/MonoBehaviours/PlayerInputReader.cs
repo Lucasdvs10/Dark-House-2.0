@@ -12,6 +12,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOVec2IntSingleton _playerKeyPressedSingleton;
         [SerializeField] private SOBaseGameEvent _eKeyPressedEvent;
         [SerializeField] private SOBaseGameEvent _spaceKeyPressedEvent;
+        [SerializeField] private SOBaseGameEvent _enterKeyPressedEvent;
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent;
         [SerializeField] private SOBaseGameEvent _escPressedEvent;
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent2;
@@ -73,6 +74,12 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         public void ReadSpaceKeyInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
                 _spaceKeyPressedEvent.InvokeEvent();
+            }
+        }
+        
+        public void ReadEnterKeyInput(InputAction.CallbackContext ctx) {
+            if (ctx.performed) {
+                _enterKeyPressedEvent.InvokeEvent();
             }
         }
     }
