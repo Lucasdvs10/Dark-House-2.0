@@ -59,12 +59,6 @@ public class CofreCego : MonoBehaviour
         // Debug.Log("Cofre iniciado. Gire o disco e confirme com Enter.");
     }
 
-    // void Update()
-    // {
-    //     HandleDialInput();
-    //     HandleConfirmation();
-    // }
-
     void HandleDialInput() {
         var playerInput = _playerInputSingleton.Value;
         if (playerInput.y < 0) {

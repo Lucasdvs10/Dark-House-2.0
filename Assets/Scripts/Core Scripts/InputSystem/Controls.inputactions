@@ -295,7 +295,7 @@
                 {
                     "name": "modifier",
                     "id": "e99fbbfa-275a-490a-b85e-7167734d84ab",
-                    "path": "<Keyboard>/rightCtrl",
+                    "path": "<Keyboard>/capsLock",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

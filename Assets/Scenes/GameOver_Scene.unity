@@ -764,6 +764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BTN Jogar novamente
       objectReference: {fileID: 0}
+    - target: {fileID: 9126345842337107641, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9183163604611822212, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
       propertyPath: m_text
       value: Jogar novamente

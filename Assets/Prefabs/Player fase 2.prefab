@@ -622,6 +622,7 @@ MonoBehaviour:
   - Parede_Gira-Gira
   - Parede_Gangorra
   - Parede_Piano
+  - Chao_Cofre
   _audiosArray:
   - {fileID: 8300000, guid: 542acc0cd065d214e8dc029c4d4b58ff, type: 3}
   - {fileID: 8300000, guid: 215a4b39f380c2642bcdcf735b162b5d, type: 3}
@@ -660,6 +661,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a62172e6f7275ff4f94c17edc8dfdd0d, type: 3}
   - {fileID: 8300000, guid: d1729d6a92d50a74bad2b383e797cd79, type: 3}
   - {fileID: 8300000, guid: 7322d7e9fd8364446bb44d5189a0e527, type: 3}
+  - {fileID: 8300000, guid: a00c10f3ab5262c4c95f2cc797ce1648, type: 3}
   - {fileID: 8300000, guid: a00c10f3ab5262c4c95f2cc797ce1648, type: 3}
   _defaultAudioClip: {fileID: 0}
 --- !u!1 &7345767149513716767

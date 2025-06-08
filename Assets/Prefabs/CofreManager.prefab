@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2621436183482739405, guid: 5f7736009e472ae4196e8d683e3f67be, type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7308196068368142154, guid: 5f7736009e472ae4196e8d683e3f67be, type: 3}
       propertyPath: UnityEventEmiter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
