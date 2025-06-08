@@ -1,17 +1,16 @@
-﻿using System.Collections;
-using GameScripts.GameEvent;
+﻿using GameScripts.GameEvent;
 using UnityEngine;
 
 namespace Core_Scripts.KeySystem {
-    [RequireComponent(typeof(KeyManager), typeof(AudioSource))]
-    public class KeySoundCounter : MonoBehaviour {
+    [RequireComponent(typeof(IManagerCounter), typeof(AudioSource))]
+    public class ObjectSoundCounter : MonoBehaviour {
         [SerializeField] private SOBaseGameEvent _keyCounterPressedEvent;
         [SerializeField] private AudioClip[] _audioClipsArray;
-        private KeyManager _keyManager;
+        private IManagerCounter _managerCounter;
         private AudioSource _audioSource;
 
         private void Awake() {
-            _keyManager = GetComponent<KeyManager>();
+            _managerCounter = GetComponent<IManagerCounter>();
             _audioSource = GetComponent<AudioSource>();
         }
 
@@ -24,8 +23,8 @@ namespace Core_Scripts.KeySystem {
         }
         
         public void ShowKeysColectedAmount() {
-            print($"Eu já coletei {_keyManager.KeysColectedAmount} chaves!");
-            _audioSource.PlayOneShot(_audioClipsArray[_keyManager.KeysColectedAmount]);
+            print($"Eu já coletei {_managerCounter.ObjectsColectedAmount} chaves!");
+            _audioSource.PlayOneShot(_audioClipsArray[_managerCounter.ObjectsColectedAmount]);
         }
 
     }

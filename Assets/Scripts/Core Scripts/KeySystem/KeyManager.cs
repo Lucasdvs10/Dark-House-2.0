@@ -4,7 +4,7 @@ using UnityEngine;
 using Random = System.Random;
 
 namespace Core_Scripts.KeySystem {
-    public class KeyManager : MonoBehaviour {
+    public class KeyManager : MonoBehaviour, IManagerCounter {
         [SerializeField] private int _numberOfKeysToColect;
         [SerializeField] private SOBaseGameEvent _allKeysColectedEvent;
         private Key[] _allKeysArray;
@@ -45,6 +45,6 @@ namespace Core_Scripts.KeySystem {
             }
         }
 
-        public int KeysColectedAmount => _keysColectedAmount;
+        public int ObjectsColectedAmount => _keysColectedAmount;
     }
 }
