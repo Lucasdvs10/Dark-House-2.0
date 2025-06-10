@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Core_Scripts.ExtentionMethods {
     public static class AudioClipEnumarator {
@@ -14,9 +13,8 @@ namespace Core_Scripts.ExtentionMethods {
             return arrayToReturn;
         }
         public static AudioClip GetRandomClipFromList(this List<AudioClip> audioClipsList) {
-            Random rn = new Random();
 
-            var randomIndex = rn.Next(audioClipsList.Count);
+            var randomIndex = Random.Range(0, audioClipsList.Count);
             return audioClipsList[randomIndex];
         }
     }

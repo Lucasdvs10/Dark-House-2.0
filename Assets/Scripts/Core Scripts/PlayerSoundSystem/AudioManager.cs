@@ -37,8 +37,10 @@ namespace Core_Scripts.PlayerSoundSystem {
         }
 
         public void AddClipToQueue(string tileName) {
-            if(!_audioMap.TryGetValue(tileName, out var clipsList))
+            if (!_audioMap.TryGetValue(tileName, out var clipsList)) {
                 _audioClipsQueue.Enqueue(_defaultAudioClip);
+                print("Entra aqui?");
+            }
             _audioClipsQueue.Enqueue(clipsList.GetRandomClipFromList());
         }
 
