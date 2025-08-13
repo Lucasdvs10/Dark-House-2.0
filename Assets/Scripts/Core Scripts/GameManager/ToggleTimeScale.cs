@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Core_Scripts {
     public class ToggleTimeScale : MonoBehaviour {
@@ -16,13 +15,16 @@ namespace Core_Scripts {
         }
 
         private void OnEnable() {
-            print("Mudar Time scale para 1");
+            Debug.developerConsoleVisible = true;
+            Debug.Log("Mudar Time scale para 1");
             Time.timeScale = 1;
+            _scaleIsZero = false;
         }
 
         private void OnDisable() {
-            print("Mudar Time scale para 1");
+            Debug.Log("Mudar Time scale para 1");
             Time.timeScale = 1;
+            _scaleIsZero = false;
         }
     }
 }

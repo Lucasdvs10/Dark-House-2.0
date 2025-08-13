@@ -117,7 +117,7 @@ MonoBehaviour:
   _playerPressedButtonSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _pressedButtonEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _releasedButtonEvent: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
-  _collidedObjectEvent: {fileID: 11400000, guid: 4b690af019a3eeb47a86b99c876d7c43, type: 2}
+  _collidedObjectEvent: {fileID: 11400000, guid: 8d10f467dc187ab46a9d11c8740b9c79, type: 2}
   _rotationBtnPressed: {fileID: 11400000, guid: 6eed885ea7fc8e7448bdeb9aec04901f, type: 2}
   _initialDirection: 3
   OnChangeDirectionEvent:
