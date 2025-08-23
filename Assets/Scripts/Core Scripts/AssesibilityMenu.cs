@@ -5,11 +5,15 @@ using System.Collections.Generic;
 
 public class AssesibilityMenu : MonoBehaviour
 {
-    [SerializeField] private List<Selectable> buttons; 
-    private int currentIndex = 0;
+    [SerializeField] private List<Selectable> buttons;
+    private int currentIndex = -1;
+
+    [SerializeField] private List<AudioClip> audioClips;
+    [SerializeField] private AudioSource audioSource;
 
     void Start()
-    {
+    {   
+        PlayAudioClip(0);
         if (buttons.Count > 0)
         {
             currentIndex = 0;
@@ -17,24 +21,39 @@ public class AssesibilityMenu : MonoBehaviour
         }
     }
 
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             bool shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-            if (shiftHeld)
+            if (currentIndex == -1)
             {
-                currentIndex--;
-                if (currentIndex < 0) currentIndex = buttons.Count - 1;
+                currentIndex = 0;
             }
             else
             {
-                currentIndex++;
-                if (currentIndex >= buttons.Count) currentIndex = 0;
+                if (shiftHeld)
+                {
+                    currentIndex--;
+                    if (currentIndex < 0) currentIndex = buttons.Count - 1;
+                }
+                else
+                {
+                    currentIndex++;
+                    if (currentIndex >= buttons.Count) currentIndex = 0;
+                }
+                SelectButton(currentIndex);
+                PlayAudioClip(currentIndex + 1);
             }
 
-            SelectButton(currentIndex);
+            if (currentIndex != -1 && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
+            {
+                var button = buttons[currentIndex].GetComponent<Button>();
+                button?.onClick.Invoke();
+            }
+
         }
     }
 
@@ -42,5 +61,16 @@ public class AssesibilityMenu : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
+        buttons[index].Select();
+    }
+
+    private void PlayAudioClip(int index)
+    {
+        if (audioSource != null && audioClips != null && index < audioClips.Count)
+        {
+            audioSource.Stop();
+            audioSource.clip = audioClips[index];
+            audioSource.Play();
+        }
     }
 }
