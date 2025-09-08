@@ -8,8 +8,10 @@ namespace Core_Scripts.KeySystem {
         [SerializeField] private SOBaseGameEvent _playerMoveEvent;
         [SerializeField] private SOVec3Singleton _playerPositionSingleton;
         [SerializeField] private SOBaseGameEvent _keyHasBeenColectedEvent;
+        [SerializeField] private int _collectDistanceInCells = 1;
         public UnityEvent _keyColectedLocalEvent;
 
+        private const float _cellSize = 2.25f;
         private void OnEnable() {
             _playerMoveEvent.Subscribe(CheckIfHasBeenColected);
         }
@@ -23,7 +25,7 @@ namespace Core_Scripts.KeySystem {
         private void CheckIfHasBeenColected() {
             var playerPosition = _playerPositionSingleton.Value;
 
-            if ((playerPosition - transform.position).sqrMagnitude <= 2.25f) { //Fiz desse jeito para que a chave tenha uma hitbox maior
+            if ((playerPosition - transform.position).sqrMagnitude <= _cellSize * _collectDistanceInCells) { //Fiz desse jeito para que a chave tenha uma hitbox maior
                 _keyHasBeenColectedEvent.InvokeEvent();
                 _keyColectedLocalEvent.Invoke();
             }
