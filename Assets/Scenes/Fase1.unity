@@ -387,17 +387,6 @@ Transform:
   m_Father: {fileID: 2042930569}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &176559112 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7076474971892958130, guid: 88d40de247629b541b9f5c033e157db7, type: 3}
-  m_PrefabInstance: {fileID: 346547693}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ce72092cb64544858ab58d1724a702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &269038705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3200,50 +3189,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: GridBehaviour
-      value: 
-      objectReference: {fileID: 176559112}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: _initialDirection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: _speedCellsPerSecond
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RotatePlayerGameObj
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Core_Scripts.GridSystem.MonoBehaviours.RotatePlayer, Core
-      objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: OnHeadDirectionChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4540177001518415611, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3292,18 +3237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4540177001518415613, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4540177002068563911, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: _tileMapsGrid
       value: 
       objectReference: {fileID: 1942551563}
-    - target: {fileID: 6782189207687380088, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 31.79
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
 --- !u!1001 &687754999

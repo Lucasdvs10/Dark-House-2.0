@@ -117,7 +117,7 @@ MonoBehaviour:
   _playerPressedButtonSingleton: {fileID: 11400000, guid: 7d698e1eab6733e4cba5004a3665e2e0, type: 2}
   _pressedButtonEvent: {fileID: 11400000, guid: 5b4140bb7417cba4394705c58eef7aec, type: 2}
   _releasedButtonEvent: {fileID: 11400000, guid: 0d6b80e0c7d031f4aa1277da7784dba8, type: 2}
-  _collidedObjectEvent: {fileID: 11400000, guid: 8d10f467dc187ab46a9d11c8740b9c79, type: 2}
+  _collidedObjectEvent: {fileID: 0}
   _rotationBtnPressed: {fileID: 11400000, guid: 6eed885ea7fc8e7448bdeb9aec04901f, type: 2}
   _initialDirection: 3
   OnChangeDirectionEvent:
@@ -310,7 +310,7 @@ MonoBehaviour:
   _blockPauseButtonEvent: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
   _escPressedEvent: {fileID: 11400000, guid: 4ad50b8ca808f48468ec57a9e96f28cf, type: 2}
   _blockPauseButtonEvent2: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
-  _toggleTapaTelaEvent: {fileID: 0}
+  _toggleTapaTelaEvent: {fileID: 11400000, guid: 4b690af019a3eeb47a86b99c876d7c43, type: 2}
 --- !u!114 &3846482132908458046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +727,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a92b424800cdaff42995af1b7147db75, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 31f405a435cc88b4697268f5cdaf48d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -773,7 +773,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -823,10 +823,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 10a7072c7e0f0484d8e5ec093de8357c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 01a51b98286fed14fa6543c946a80975, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.7
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -869,7 +869,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -919,7 +919,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 800d4727e51663b42939045055b74894, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d328377f7cec5ab4cacc3e676691d7eb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -965,7 +965,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1015,7 +1015,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 800d4727e51663b42939045055b74894, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9b61d38e6eadb6b459108f1ad3240deb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1061,7 +1061,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

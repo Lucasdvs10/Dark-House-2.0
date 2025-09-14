@@ -6841,8 +6841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e20deebc6c4d2d8de8a3cd9210f413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventKey: {fileID: 11400000, guid: c82822ab39a9d074291b1dd6180fcc8c, type: 2}
-  _audioClip: {fileID: 8300000, guid: 881abc1cdbb92834f8b0798cb76c197b, type: 3}
+  _eventKey: {fileID: 11400000, guid: a7d5320abec3fc5499310bf2e7b28927, type: 2}
+  _audioClip: {fileID: 8300000, guid: 3b435efb1bc698a41b3f1bb0861763e0, type: 3}
 --- !u!114 &1649278848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7472,18 +7472,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3846482132908458033, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
-      propertyPath: _collidedObjectEvent
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3846482132908458038, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3846482132908458044, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
-      propertyPath: _toggleTapaTelaEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 4b690af019a3eeb47a86b99c876d7c43, type: 2}
     - target: {fileID: 3846482133458856204, guid: 8f43d9e1b745158478a14bf3c8ca32bb, type: 3}
       propertyPath: _tileMapsGrid
       value: 
