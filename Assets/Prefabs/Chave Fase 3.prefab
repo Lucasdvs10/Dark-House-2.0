@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3935210539984586866
+--- !u!1 &1726846187003355427
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3935210539984586879}
-  - component: {fileID: 3935210539984586876}
-  - component: {fileID: 3935210539984586877}
-  - component: {fileID: 1691779982657962037}
-  - component: {fileID: 1155611286}
-  - component: {fileID: -6104655461304620329}
-  - component: {fileID: 3912301635969224670}
+  - component: {fileID: 1726846187003355438}
+  - component: {fileID: 1726846187003355437}
+  - component: {fileID: 1726846187003355436}
+  - component: {fileID: 3895676047282465124}
+  - component: {fileID: 733445055829705606}
+  - component: {fileID: 1666641700331005583}
+  - component: {fileID: 4048150650600619238}
   m_Layer: 0
-  m_Name: Chave
+  m_Name: Chave Fase 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3935210539984586879
+--- !u!4 &1726846187003355438
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.92, y: -9.507586, z: 0}
+  m_GameObject: {fileID: 1726846187003355427}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.12, y: 7.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3935210539984586876
+--- !u!212 &1726846187003355437
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
+  m_GameObject: {fileID: 1726846187003355427}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7224523, g: 0, b: 0.7830189, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,25 +89,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3935210539984586877
+--- !u!114 &1726846187003355436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
+  m_GameObject: {fileID: 1726846187003355427}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d89aa9b2e8c42fea477cb033b06198d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1691779982657962037
+--- !u!82 &3895676047282465124
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
+  m_GameObject: {fileID: 1726846187003355427}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -121,8 +121,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 1.2887497
-  MaxDistance: 3.2335796
+  MinDistance: 1.869093
+  MaxDistance: 4.097406
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -197,58 +197,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1155611286
+--- !u!114 &733445055829705606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb702716d7554bb2bfd1615b8a7d4845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerMoveEvent: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
-  _playerPositionSingleton: {fileID: 11400000, guid: 459859a36814b7b47b02d1b43dddd5d8, type: 2}
-  _keyHasBeenColectedEvent: {fileID: 11400000, guid: c82822ab39a9d074291b1dd6180fcc8c, type: 2}
-  _keyColectedLocalEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3935210539984586866}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &-6104655461304620329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
+  m_GameObject: {fileID: 1726846187003355427}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b11cc02d38448bb272b3add2f0f7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _monoBehavioursToPauseArray:
-  - {fileID: 1691779982657962037}
-  - {fileID: 1155611286}
---- !u!114 &3912301635969224670
+  - {fileID: 3895676047282465124}
+  - {fileID: 0}
+--- !u!114 &1666641700331005583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935210539984586866}
+  m_GameObject: {fileID: 1726846187003355427}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f93607c975bf4804bba24a7b6e9db483, type: 3}
@@ -258,7 +228,7 @@ MonoBehaviour:
   UnityEventEmiter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6104655461304620329}
+      - m_Target: {fileID: 733445055829705606}
         m_TargetAssemblyTypeName: Core_Scripts.PauseObject, Core
         m_MethodName: TogglePauseAndResume
         m_Mode: 1
@@ -270,3 +240,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4048150650600619238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726846187003355427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4e9d63450d483a80d8b609a66f3485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMoveEvent: {fileID: 11400000, guid: 2b8be52dd1c98af4c93b6f1915842b38, type: 2}
+  _playerPositionSingleton: {fileID: 11400000, guid: 459859a36814b7b47b02d1b43dddd5d8, type: 2}
+  _keyHasBeenColectedEvent: {fileID: 11400000, guid: d3f86ff4ae2acb34394370e24b78e296, type: 2}
+  _collectDistanceInCells: 1
+  _keyColectedLocalEvent:
+    m_PersistentCalls:
+      m_Calls: []
