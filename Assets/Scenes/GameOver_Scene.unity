@@ -1043,6 +1043,10 @@ PrefabInstance:
       propertyPath: NextSceneName
       value: Fase1
       objectReference: {fileID: 0}
+    - target: {fileID: 1949682393139464920, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
+      propertyPath: _soStringSingleton
+      value: 
+      objectReference: {fileID: 11400000, guid: 46d6904bb9d9e0841b11655dacb14ddf, type: 2}
     - target: {fileID: 3718818612643774201, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1150,6 +1154,10 @@ PrefabInstance:
     - target: {fileID: 5224187900820351472, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
       value: 0.45882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224187900820351472, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneOnSingleton
       objectReference: {fileID: 0}
     - target: {fileID: 9126345842337107641, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
       propertyPath: m_Name
