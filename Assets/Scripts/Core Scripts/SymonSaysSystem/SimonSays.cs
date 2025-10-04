@@ -99,6 +99,7 @@ namespace Core_Scripts.SymonSaysSystem {
             if (!isAttackCorrect) {
                 _missedAttackEventToEmit.InvokeEvent();
                 _currentIndexAudio = 0;
+                _playAllAudiosInLoopCO = StartCoroutine(PlayAllAudiosInLoopCO());
                 return;
             }
             
