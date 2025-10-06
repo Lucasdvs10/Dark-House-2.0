@@ -116,10 +116,10 @@ namespace Core_Scripts.SymonSaysSystem {
                 _phaseClearedEventToEmit.InvokeEvent();
                 StartNextPhase();
             }
-            else {
-                var clipName = _playerValidatorCommand.CommandSoundMap()[playerMovement];
-                SetSoundToAudioClip(clipName[0], 0);
-            }
+            // else {  //Ao apertar uma tecla e não for final de fase, ele emite um feedback sonoro para indicar qual tecla ele apertou
+            //     var clipName = _playerValidatorCommand.CommandSoundMap()[playerMovement];
+            //     SetSoundToAudioClip(clipName[0], 0);
+            // }
         }
 
         private void SetSoundToAudioClip(string clipName, ulong delay) {
