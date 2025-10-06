@@ -917,6 +917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BTN Jogar (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9126345842337107641, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9183163604611822212, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
       propertyPath: m_text
       value: Fase Futura
@@ -1107,7 +1111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0015523, y: -126.21}
+  m_AnchoredPosition: {x: 0.0015523, y: -163}
   m_SizeDelta: {x: 2519.6, y: 248.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406986550
@@ -1233,11 +1237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225615640063478122, guid: f41f9985acc2d864e9ebd5bd5d1e670b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 2097
+      value: 1350
       objectReference: {fileID: 0}
     - target: {fileID: 1225615640063478122, guid: f41f9985acc2d864e9ebd5bd5d1e670b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 124.22
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 1225615640063478122, guid: f41f9985acc2d864e9ebd5bd5d1e670b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2386,7 +2390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.84021, y: -26.593933}
+  m_AnchoredPosition: {x: 7.84021, y: -26.593964}
   m_SizeDelta: {x: 15.680348, y: 53.187836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1584310762
@@ -2939,6 +2943,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731742870}
   m_CullTransparentMesh: 1
+--- !u!114 &1809876818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5224187900820351472, guid: 298f3b69b0ef50d40beb0cb2ea5ea296, type: 3}
+  m_PrefabInstance: {fileID: 1675329884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886019918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,8 +3343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 50.4473}
-  m_SizeDelta: {x: 800, y: 252.4254}
+  m_AnchoredPosition: {x: 0.000015259, y: 53.405}
+  m_SizeDelta: {x: 800, y: 332.199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063613583
 MonoBehaviour:
@@ -3757,7 +3772,7 @@ PrefabInstance:
     - target: {fileID: 5811297528379652431, guid: e3f1806a7839ba248b6dda1190e02f3e, type: 3}
       propertyPath: buttons.Array.data[2]
       value: 
-      objectReference: {fileID: 1150069231}
+      objectReference: {fileID: 1809876818}
     - target: {fileID: 5811297528379652431, guid: e3f1806a7839ba248b6dda1190e02f3e, type: 3}
       propertyPath: buttons.Array.data[3]
       value: 
