@@ -16,13 +16,13 @@ namespace Core_Scripts {
 
         private void OnEnable() {
             // Debug.developerConsoleVisible = true;
-            // Debug.Log("Mudar Time scale para 1");
+            Debug.Log("Mudar Time scale para 1");
             Time.timeScale = 1;
             _scaleIsZero = false;
         }
 
         private void OnDisable() {
-            // Debug.Log("Mudar Time scale para 1");
+            Debug.Log("Mudar Time scale para 1");
             Time.timeScale = 1;
             _scaleIsZero = false;
         }
