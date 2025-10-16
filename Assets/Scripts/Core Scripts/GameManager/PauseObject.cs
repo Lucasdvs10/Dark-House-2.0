@@ -24,13 +24,13 @@ namespace Core_Scripts {
         public void TogglePauseAndResume() {
             if (_isPaused) {
                 Resume();
-                print("Despausando");
+                // print("Despausando");
                 return;
             }
 
             if (!_isPaused) {
                 Pause();
-                print("Pausando");
+                // print("Pausando");
             }
             
         }

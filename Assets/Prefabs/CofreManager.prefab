@@ -131,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8986450754620726046
 Transform:
   m_ObjectHideFlags: 0
@@ -251,6 +251,10 @@ PrefabInstance:
     - target: {fileID: 2621436183482739401, guid: 5f7736009e472ae4196e8d683e3f67be, type: 3}
       propertyPath: m_Name
       value: Cofre
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621436183482739401, guid: 5f7736009e472ae4196e8d683e3f67be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2621436183482739404, guid: 5f7736009e472ae4196e8d683e3f67be, type: 3}
       propertyPath: m_RootOrder

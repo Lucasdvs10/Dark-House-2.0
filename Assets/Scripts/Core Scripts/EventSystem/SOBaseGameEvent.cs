@@ -6,9 +6,9 @@ namespace GameScripts.GameEvent{
     public class SOBaseGameEvent : ScriptableObject{
         private event Action OnEventRaised;
 
-        private void OnEnable() {
-            OnEventRaised = null;
-        }
+        // private void OnEnable() {
+        //     OnEventRaised = null;
+        // }
 
         public void InvokeEvent() {
             OnEventRaised?.Invoke();

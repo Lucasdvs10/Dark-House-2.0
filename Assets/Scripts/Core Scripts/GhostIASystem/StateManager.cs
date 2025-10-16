@@ -7,7 +7,7 @@ namespace Core_Scripts.GhostIASystem {
         private Transform[] _allStatesArray;
 
         private void Awake() {
-            _allStatesArray = GetComponentsInChildren<Transform>();
+            _allStatesArray = GetComponentsInChildren<Transform>(true);
             foreach (var childTransform in _allStatesArray) {
                 if (childTransform != transform && childTransform != InitialState) {
                     childTransform.gameObject.SetActive(false);
