@@ -11,6 +11,7 @@ namespace Core_Scripts {
             }
             else {
                 // Debug.Log("Mudar Time scale para 0");
+                
                 Time.timeScale = 0;
                 _scaleIsZero = true;
             }
