@@ -3203,10 +3203,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 151933317}
     m_Modifications:
-    - target: {fileID: 388832255435496239, guid: 014f53f6fc3330344aca50278c058307, type: 3}
-      propertyPath: _phasesAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1526062556767637683, guid: 014f53f6fc3330344aca50278c058307, type: 3}
       propertyPath: m_Name
       value: Simon Says
