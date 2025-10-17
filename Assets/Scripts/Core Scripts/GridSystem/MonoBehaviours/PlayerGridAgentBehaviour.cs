@@ -28,7 +28,17 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
         private Coroutine _moveCoroutine;
 
+        private bool _canEnable = true;
+
+        public void SetCanEnable(bool canEnable) {
+            _canEnable = canEnable;
+            
+            if(_canEnable)
+                OnEnable();
+        }
+
         private void OnEnable() {
+            if(!_canEnable)return;
             _playerDirectionSingleton.Value = Vector2Int.zero;
             _rotationBtnPressed.Subscribe(ChangeHeadDirection);
             _pressedButtonEvent.Subscribe(MoveWhenPressToWalkFoward);

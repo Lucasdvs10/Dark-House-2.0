@@ -16,7 +16,6 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         [SerializeField] private SOBaseGameEvent _escPressedEvent;
         [SerializeField] private SOBaseGameEvent _blockPauseButtonEvent2;
         [SerializeField] private SOBaseGameEvent _toggleTapaTelaEvent;
-        private bool _pauseButtonIsBlocked;
 
         public void ReadWASDInput(InputAction.CallbackContext ctx) {
             if (ctx.performed) {
@@ -41,28 +40,20 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
             }
         }
 
-        private void OnEnable() {
-            _blockPauseButtonEvent2.Subscribe(TogglePauseButton);
-            _blockPauseButtonEvent.Subscribe(TogglePauseButton);
-        }
-
-        private void OnDisable() {
-            _blockPauseButtonEvent.Unsubscribe(TogglePauseButton);
-            _blockPauseButtonEvent2.Unsubscribe(TogglePauseButton);
-        }
+        // private void OnEnable() {
+        //     _blockPauseButtonEvent.Subscribe(BlockPauseButton);
+        //     _blockPauseButtonEvent2.Subscribe(UnblockPauseButton);
+        // }
+        //
+        // private void OnDisable() {
+        //     _blockPauseButtonEvent.Unsubscribe(BlockPauseButton);
+        //     _blockPauseButtonEvent2.Unsubscribe(UnblockPauseButton);
+        // }
 
         public void ReadEscKeyInput(InputAction.CallbackContext ctx) {
-            if (ctx.performed  && !_pauseButtonIsBlocked) {
+            if (ctx.performed) {
                 _escPressedEvent.InvokeEvent();
             }
-        }
-
-        public void TogglePauseButton() {
-            if (_pauseButtonIsBlocked)
-                _pauseButtonIsBlocked = false;
-            else
-                _pauseButtonIsBlocked = true;
-
         }
         
         public void ReadEKeyInput(InputAction.CallbackContext ctx) {

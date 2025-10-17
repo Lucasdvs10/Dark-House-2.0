@@ -5,19 +5,18 @@ namespace Core_Scripts {
         private bool _scaleIsZero;
         public void SetTimeScale() {
             if (_scaleIsZero) {
+                // Debug.Log("Mudar Time scale para 1");
                 Time.timeScale = 1;
                 _scaleIsZero = false;
-                print("Time scale é um");
             }
             else {
+                // Debug.Log("Mudar Time scale para 0");
                 Time.timeScale = 0;
                 _scaleIsZero = true;
-                print("Time scale é zero");
             }
         }
 
         private void OnEnable() {
-            // Debug.Log("Mudar Time scale para 1");
             Time.timeScale = 1;
             _scaleIsZero = false;
         }
