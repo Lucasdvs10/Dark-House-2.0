@@ -32,13 +32,14 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
 
         public void SetCanEnable(bool canEnable) {
             _canEnable = canEnable;
-            
-            if(_canEnable)
-                OnEnable();
+
+            if (_canEnable)
+                enabled = true;
         }
 
         private void OnEnable() {
             if(!_canEnable)return;
+            print("Agr é chamado, certo?");
             _playerDirectionSingleton.Value = Vector2Int.zero;
             _rotationBtnPressed.Subscribe(ChangeHeadDirection);
             _pressedButtonEvent.Subscribe(MoveWhenPressToWalkFoward);
