@@ -19,6 +19,7 @@ namespace Core_Scripts.SymonSaysSystem {
         [SerializeField] private SOBaseGameEvent _endBattleEventToEmit;
         [SerializeField] private SOBaseGameEvent _startBattleEventToEmit;
         [SerializeField] private SOBaseGameEvent _duelStateDisabled;
+        [SerializeField] private AudioClip _initialSound;
         
         private IPlayerValidatorCommand _playerValidatorCommand;
         private ISoundQueueGenerator _soundListGenerator;
@@ -52,6 +53,7 @@ namespace Core_Scripts.SymonSaysSystem {
         }
 
         private void StartNextPhase() {
+            print("Comecando uma fase nova");
             _currentPhase++;
             _currentIndexAudio = 0;
             _currentAudioList = _soundListGenerator.GenerateSoundList(_currentPhase);
@@ -75,7 +77,17 @@ namespace Core_Scripts.SymonSaysSystem {
         }
 
         public IEnumerator StartNextPhaseCO() {
-            yield return PlayAllAudiosFromList();
+            if (_currentPhase == 1) {
+                _playerInputEvent.Unsubscribe(VerifyPlayerAttack);
+                _audioSourceBattleSFX.clip = _initialSound;
+                _currentAudioDuration = _initialSound.length;
+                _audioSourceBattleSFX.Play();
+                yield return new WaitForSeconds(_initialSound.length);
+                yield return PlayAllAudiosFromList(0);
+            }
+            else {
+                yield return PlayAllAudiosFromList();
+            }
             StartAllAudiosLoopCO();
         }
         

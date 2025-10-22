@@ -431,6 +431,7 @@ MonoBehaviour:
   _endBattleEventToEmit: {fileID: 11400000, guid: cf25142ff2dad394482721b8dd67b59f, type: 2}
   _startBattleEventToEmit: {fileID: 11400000, guid: 56fce86f63c54ca40b51096b881f57c6, type: 2}
   _duelStateDisabled: {fileID: 11400000, guid: 507a32f644a4d264386775642fbabca4, type: 2}
+  _initialSound: {fileID: 8300000, guid: f5184f0afd044f1418b1c73d17e0aaf0, type: 3}
 --- !u!114 &5340050595264643489
 MonoBehaviour:
   m_ObjectHideFlags: 0
