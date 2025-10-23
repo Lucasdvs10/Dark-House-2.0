@@ -29,6 +29,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         private Coroutine _moveCoroutine;
 
         private bool _canEnable = true;
+        private bool _canDisable = true;
 
         public void SetCanEnable(bool canEnable) {
             _canEnable = canEnable;
@@ -37,8 +38,19 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
                 enabled = true;
         }
 
-        private void OnEnable() {
-            if(!_canEnable)return;
+        public void SetCanDisable(bool canDisable)
+        {
+            _canDisable = canDisable;
+            if (_canDisable)
+            {
+                enabled = false;
+
+            }
+        }
+
+        private void OnEnable()
+        {
+            if (!_canEnable) return;
             print("Agr é chamado, certo?");
             _playerDirectionSingleton.Value = Vector2Int.zero;
             _rotationBtnPressed.Subscribe(ChangeHeadDirection);
@@ -47,6 +59,7 @@ namespace Core_Scripts.GridSystem.MonoBehaviours {
         }
 
         private void OnDisable() {
+            if (!_canDisable) return;
             _rotationBtnPressed.Unsubscribe(ChangeHeadDirection);
             _pressedButtonEvent.Unsubscribe(MoveWhenPressToWalkFoward);
             _releasedButtonEvent.Unsubscribe(StopMovingCoroutines);
