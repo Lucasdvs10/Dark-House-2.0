@@ -3113,6 +3113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4540177001518415610, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
+      propertyPath: _speedCellsPerSecond
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4540177001518415611, guid: beaf6a00c82491d40a4c111a6e251ef0, type: 3}
       propertyPath: m_RootOrder
       value: 2
